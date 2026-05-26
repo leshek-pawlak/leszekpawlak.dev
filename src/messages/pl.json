@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Strona główna",
+    "about": "O mnie",
+    "services": "Usługi",
+    "experience": "Doświadczenie",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "greeting": "Cześć, jestem",
+    "name": "Leszek Pawlak",
+    "title": "Senior Fullstack Engineer",
+    "subtitle": "Ponad dekada doświadczenia w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w React, Node.js i TypeScript.",
+    "cta": "Porozmawiajmy",
+    "ctaSecondary": "Zobacz moje doświadczenie"
+  },
+  "about": {
+    "title": "O mnie",
+    "bio": "Doświadczony Senior Engineer z ponad 12-letnim stażem w web development. Posiadam głębokie zrozumienie i pasję do technologii, szczególnie w zakresie innowacyjnych rozwiązań webowych. Moja kariera obejmuje zarówno frontend jak i backend, z doświadczeniem w integracji technologii AI takich jak OpenAI GPT. Znany z naturalnych zdolności liderskich, wyróżniam się w prowadzeniu zespołów ku wzrostowi zawodowemu i innowacjom technologicznym.",
+    "skills": "Umiejętności",
+    "skillCategories": {
+      "languages": "Języki i Frameworki",
+      "databases": "Bazy danych",
+      "cloud": "Cloud & DevOps",
+      "other": "Inne"
+    }
+  },
+  "services": {
+    "title": "Usługi",
+    "subtitle": "Oferuję kompleksowe wsparcie technologiczne dla Twojego biznesu",
+    "consulting": {
+      "title": "Konsulting technologiczny",
+      "description": "Doradzam w wyborze technologii, architektury i strategii rozwoju produktów cyfrowych. Pomagam podejmować świadome decyzje technologiczne."
+    },
+    "estimation": {
+      "title": "Wycena projektów",
+      "description": "Profesjonalna wycena projektów IT — od MVP po rozbudowane systemy. Szczegółowa analiza wymagań, estymacja czasu i kosztów."
+    },
+    "development": {
+      "title": "Fullstack Development",
+      "description": "Projektowanie i budowa skalowalnych aplikacji webowych. React, Node.js, TypeScript — od koncepcji po produkcję."
+    },
+    "ai": {
+      "title": "Integracja AI",
+      "description": "Integracja rozwiązań AI (OpenAI GPT) z aplikacjami webowymi. Chatboty, automatyzacja procesów, inteligentne systemy."
+    }
+  },
+  "experience": {
+    "title": "Doświadczenie",
+    "present": "Obecnie",
+    "techStack": "Tech Stack"
+  },
+  "contact": {
+    "title": "Kontakt",
+    "subtitle": "Masz projekt do omówienia? Napisz do mnie.",
+    "name": "Imię i nazwisko",
+    "email": "Email",
+    "message": "Wiadomość",
+    "send": "Wyślij wiadomość",
+    "sending": "Wysyłanie...",
+    "success": "Wiadomość wysłana! Odpowiem najszybciej jak to możliwe.",
+    "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na email."
+  },
+  "footer": {
+    "rights": "Wszelkie prawa zastrzeżone."
+  }
+}

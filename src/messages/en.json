@@ -1,0 +1,67 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "services": "Services",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hi, I'm",
+    "name": "Leszek Pawlak",
+    "title": "Senior Fullstack Engineer",
+    "subtitle": "Over a decade of experience building modern web applications. Specializing in React, Node.js, and TypeScript.",
+    "cta": "Let's talk",
+    "ctaSecondary": "See my experience"
+  },
+  "about": {
+    "title": "About me",
+    "bio": "A seasoned Senior Engineer with over 12 years of experience in web development. I possess a profound understanding and passion for technology, especially in innovative web solutions. My career spans from frontend to backend development, with experience in integrating AI technologies like OpenAI's GPT. Known for my natural leadership abilities, I excel in guiding teams towards professional growth and technological innovation.",
+    "skills": "Skills",
+    "skillCategories": {
+      "languages": "Languages & Frameworks",
+      "databases": "Databases",
+      "cloud": "Cloud & DevOps",
+      "other": "Other"
+    }
+  },
+  "services": {
+    "title": "Services",
+    "subtitle": "Comprehensive technology support for your business",
+    "consulting": {
+      "title": "Technology Consulting",
+      "description": "I advise on technology selection, architecture, and digital product development strategy. Helping you make informed technical decisions."
+    },
+    "estimation": {
+      "title": "Project Estimation",
+      "description": "Professional IT project estimation — from MVP to complex systems. Detailed requirements analysis, time and cost estimation."
+    },
+    "development": {
+      "title": "Fullstack Development",
+      "description": "Design and build scalable web applications. React, Node.js, TypeScript — from concept to production."
+    },
+    "ai": {
+      "title": "AI Integration",
+      "description": "Integration of AI solutions (OpenAI GPT) with web applications. Chatbots, process automation, intelligent systems."
+    }
+  },
+  "experience": {
+    "title": "Experience",
+    "present": "Present",
+    "techStack": "Tech Stack"
+  },
+  "contact": {
+    "title": "Contact",
+    "subtitle": "Have a project to discuss? Get in touch.",
+    "name": "Full name",
+    "email": "Email",
+    "message": "Message",
+    "send": "Send message",
+    "sending": "Sending...",
+    "success": "Message sent! I'll get back to you as soon as possible.",
+    "error": "Something went wrong. Please try again or email me directly."
+  },
+  "footer": {
+    "rights": "All rights reserved."
+  }
+}

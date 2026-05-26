@@ -44,13 +44,20 @@ export async function POST(request: Request) {
     // Send via Web3Forms
     const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
     if (!accessKey) {
-      console.log("Contact form submission (no WEB3FORMS_ACCESS_KEY):", { name, email, message });
+      console.log("Contact form submission (no WEB3FORMS_ACCESS_KEY):", {
+        name,
+        email,
+        message,
+      });
       return NextResponse.json({ success: true });
     }
 
     const res = await fetch("https://api.web3forms.com/submit", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
       body: JSON.stringify({
         access_key: accessKey,
         name,
@@ -60,13 +67,28 @@ export async function POST(request: Request) {
       }),
     });
 
-    const data = await res.json();
-    if (!data.success) {
+    const contentType = res.headers.get("content-type") || "";
+    if (!contentType.includes("application/json")) {
+      console.error(
+        "Web3Forms returned non-JSON response:",
+        res.status,
+        contentType,
+      );
       return NextResponse.json({ error: "Failed to send" }, { status: 500 });
     }
 
+    const data = await res.json();
+    if (!data.success) {
+      console.error("Web3Forms error:", data);
+      return NextResponse.json(
+        { error: "Failed to send", details: data },
+        { status: 500 },
+      );
+    }
+
     return NextResponse.json({ success: true });
-  } catch {
+  } catch (err) {
+    console.error("Contact route error:", err);
     return NextResponse.json(
       { error: "Internal server error" },
       { status: 500 },

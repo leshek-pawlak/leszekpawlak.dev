@@ -24,13 +24,15 @@ export function ContactSection() {
     }
 
     try {
-      const res = await fetch("/api/contact", {
+      const res = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
           name: formData.get("name"),
           email: formData.get("email"),
           message: formData.get("message"),
+          subject: `[leszekpawlak.dev] Wiadomość od ${formData.get("name")}`,
         }),
       });
 

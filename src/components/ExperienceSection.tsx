@@ -1,6 +1,6 @@
 "use client";
 
-import { useTranslations } from "next-intl";
+import { useTranslations, useLocale } from "next-intl";
 import { motion } from "motion/react";
 
 const experiences = [
@@ -101,6 +101,7 @@ function formatDate(dateStr: string, locale: string): string {
 
 export function ExperienceSection() {
   const t = useTranslations("experience");
+  const locale = useLocale() as "pl" | "en";
 
   return (
     <section className="py-24 pt-32">
@@ -142,19 +143,19 @@ export function ExperienceSection() {
                       {exp.company}
                     </h3>
                     <span className="text-sm text-muted whitespace-nowrap">
-                      {formatDate(exp.period.start, "en")} —{" "}
+                      {formatDate(exp.period.start, locale)} —{" "}
                       {exp.period.end
-                        ? formatDate(exp.period.end, "en")
+                        ? formatDate(exp.period.end, locale)
                         : t("present")}
                     </span>
                   </div>
 
                   <p className="text-primary font-medium text-sm mb-3">
-                    {exp.role.en}
+                    {exp.role[locale]}
                   </p>
 
                   <p className="text-muted text-sm leading-relaxed mb-4">
-                    {exp.description.en}
+                    {exp.description[locale]}
                   </p>
 
                   <div className="flex flex-wrap gap-2">

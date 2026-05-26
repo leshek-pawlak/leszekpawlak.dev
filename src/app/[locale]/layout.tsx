@@ -61,6 +61,7 @@ export default async function LocaleLayout({
     <html
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      suppressHydrationWarning
     >
       <head>
         <script dangerouslySetInnerHTML={{ __html: timeThemeScript }} />

@@ -41,25 +41,28 @@ export async function POST(request: Request) {
       return NextResponse.json({ error: "Invalid email" }, { status: 400 });
     }
 
-    // Send email via Resend (configure RESEND_API_KEY in env)
-    const resendKey = process.env.RESEND_API_KEY;
-    if (resendKey) {
-      await fetch("https://api.resend.com/emails", {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${resendKey}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          from: "contact@leszekpawlak.dev",
-          to: "leshekpawlak@gmail.com",
-          subject: `[Portfolio] Wiadomość od ${name}`,
-          text: `Imię: ${name}\nEmail: ${email}\n\nWiadomość:\n${message}`,
-        }),
-      });
-    } else {
-      // Fallback: log to console in development
-      console.log("Contact form submission:", { name, email, message });
+    // Send via Web3Forms
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+    if (!accessKey) {
+      console.log("Contact form submission (no WEB3FORMS_ACCESS_KEY):", { name, email, message });
+      return NextResponse.json({ success: true });
+    }
+
+    const res = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        access_key: accessKey,
+        name,
+        email,
+        message,
+        subject: `[Portfolio] Wiadomość od ${name}`,
+      }),
+    });
+
+    const data = await res.json();
+    if (!data.success) {
+      return NextResponse.json({ error: "Failed to send" }, { status: 500 });
     }
 
     return NextResponse.json({ success: true });

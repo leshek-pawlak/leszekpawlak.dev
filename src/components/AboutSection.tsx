@@ -5,20 +5,25 @@ import { motion } from "motion/react";
 
 const skills = {
   languages: [
-    "JavaScript",
     "TypeScript",
+    "JavaScript",
     "React",
+    "Next.js",
     "Node.js",
     "Fastify",
     "GraphQL",
     "Vue",
-    "Next.js",
-    "PHP",
     "HTML/CSS",
   ],
   databases: ["PostgreSQL", "MongoDB", "OpenSearch/Elasticsearch", "MySQL"],
   cloud: ["AWS", "Docker", "CI/CD", "Vercel", "Lambda"],
-  other: ["Git", "Scrum/Agile", "OpenAI GPT", "D3.js", "REST APIs"],
+  other: [
+    "Architecture Design",
+    "Code Review",
+    "OpenAI GPT",
+    "D3.js",
+    "Agile/Scrum",
+  ],
 };
 
 export function AboutSection() {
@@ -28,19 +33,20 @@ export function AboutSection() {
     <section className="py-24 pt-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-5xl font-bold mb-8 gradient-text"
         >
           {t("title")}
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-lg text-muted max-w-3xl mb-16 leading-relaxed"
         >
           {t("bio")}
@@ -61,11 +67,15 @@ export function AboutSection() {
             (category, idx) => (
               <motion.div
                 key={category}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.1 * idx }}
-                className="p-6 rounded-2xl bg-surface border border-surface-light"
+                transition={{
+                  delay: 0.1 * idx,
+                  duration: 0.6,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
+                className="p-6 rounded-2xl bg-surface border border-surface-light hover-tilt"
               >
                 <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">
                   {t(`skillCategories.${category}`)}
@@ -74,7 +84,7 @@ export function AboutSection() {
                   {skills[category].map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-surface-light text-foreground/80 border border-surface-light hover:border-primary/50 transition-colors"
+                      className="px-3 py-1.5 text-sm rounded-full bg-surface-light text-foreground/80 border border-surface-light hover:border-primary/50 hover:text-primary transition-all duration-300"
                     >
                       {skill}
                     </span>

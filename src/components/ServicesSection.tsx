@@ -85,19 +85,20 @@ export function ServicesSection() {
     <section className="py-24 pt-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-5xl font-bold mb-4 gradient-text"
         >
           {t("title")}
         </motion.h2>
 
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
-          transition={{ delay: 0.1 }}
+          transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-lg text-muted mb-16 max-w-2xl"
         >
           {t("subtitle")}
@@ -107,13 +108,17 @@ export function ServicesSection() {
           {services.map((service, idx) => (
             <motion.div
               key={service.key}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
-              transition={{ delay: 0.1 * idx }}
-              className="group p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/50 transition-all hover:glow-primary"
+              transition={{
+                delay: 0.1 * idx,
+                duration: 0.6,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="group p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/50 transition-all hover-tilt"
             >
-              <div className="text-primary mb-4 group-hover:text-accent transition-colors">
+              <div className="text-primary mb-4 group-hover:text-accent transition-colors group-hover:scale-110 transform duration-300">
                 {service.icon}
               </div>
               <h3 className="text-xl font-semibold mb-3 text-foreground">

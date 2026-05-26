@@ -23,7 +23,7 @@ export function Navigation() {
   ] as const;
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-surface-light">
+    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-surface-light/50">
       <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
         <Link href="/" className="text-xl font-bold gradient-text">
           LP
@@ -35,8 +35,10 @@ export function Navigation() {
             <li key={link.href}>
               <Link
                 href={link.href}
-                className={`text-sm font-medium transition-colors hover:text-primary ${
-                  pathname === link.href ? "text-primary" : "text-muted"
+                className={`text-sm font-medium transition-colors animated-underline ${
+                  pathname === link.href
+                    ? "text-primary"
+                    : "text-muted hover:text-foreground"
                 }`}
               >
                 {link.label}

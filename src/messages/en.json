@@ -9,15 +9,15 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Leszek Pawlak",
-    "title": "Senior Fullstack Engineer",
-    "subtitle": "Over a decade of experience building modern web applications. Specializing in React, Node.js, and TypeScript.",
-    "cta": "Let's talk",
-    "ctaSecondary": "See my experience"
+    "title": "TypeScript & React Consultant",
+    "subtitle": "12+ years of hands-on experience in JavaScript ecosystems. I help teams make better architectural decisions, avoid costly mistakes, and ship faster.",
+    "cta": "Book a consultation",
+    "ctaSecondary": "How I can help"
   },
   "about": {
     "title": "About me",
-    "bio": "A seasoned Senior Engineer with over 12 years of experience in web development. I possess a profound understanding and passion for technology, especially in innovative web solutions. My career spans from frontend to backend development, with experience in integrating AI technologies like OpenAI's GPT. Known for my natural leadership abilities, I excel in guiding teams towards professional growth and technological innovation.",
-    "skills": "Skills",
+    "bio": "I'm an independent consultant specializing in TypeScript, React, and Node.js ecosystems. After over a decade of building production systems — from startups to enterprise — I now focus on helping teams navigate complex technical decisions. I bring deep expertise in frontend architecture, performance optimization, and modern JavaScript tooling. My approach is pragmatic: I help you choose the right tools, avoid over-engineering, and deliver value faster.",
+    "skills": "Areas of Expertise",
     "skillCategories": {
       "languages": "Languages & Frameworks",
       "databases": "Databases",
@@ -26,39 +26,39 @@
     }
   },
   "services": {
-    "title": "Services",
-    "subtitle": "Comprehensive technology support for your business",
+    "title": "How I Help",
+    "subtitle": "Advisory services built on years of real-world delivery experience",
     "consulting": {
-      "title": "Technology Consulting",
-      "description": "I advise on technology selection, architecture, and digital product development strategy. Helping you make informed technical decisions."
+      "title": "Architecture Consulting",
+      "description": "Deep-dive reviews of your TypeScript/React architecture. I help identify bottlenecks, suggest scalable patterns, and guide your team toward maintainable solutions."
     },
     "estimation": {
-      "title": "Project Estimation",
-      "description": "Professional IT project estimation — from MVP to complex systems. Detailed requirements analysis, time and cost estimation."
+      "title": "Project Estimation & Planning",
+      "description": "Realistic project estimation based on hands-on experience. From MVPs to complex systems — detailed requirements analysis, risk assessment, and roadmap planning."
     },
     "development": {
-      "title": "Fullstack Development",
-      "description": "Design and build scalable web applications. React, Node.js, TypeScript — from concept to production."
+      "title": "Code Review & Mentoring",
+      "description": "Elevate your team's code quality. Thorough code reviews, best practices workshops, and hands-on mentoring in TypeScript, React, and Node.js."
     },
     "ai": {
-      "title": "AI Integration",
-      "description": "Integration of AI solutions (OpenAI GPT) with web applications. Chatbots, process automation, intelligent systems."
+      "title": "AI Integration Strategy",
+      "description": "Practical guidance on integrating LLMs and AI services into your web applications. From feasibility assessment to production-ready implementation patterns."
     }
   },
   "experience": {
-    "title": "Experience",
+    "title": "Track Record",
     "present": "Present",
     "techStack": "Tech Stack"
   },
   "contact": {
-    "title": "Contact",
-    "subtitle": "Have a project to discuss? Get in touch.",
+    "title": "Let's Talk",
+    "subtitle": "Have a technical challenge? Let's discuss how I can help your team.",
     "name": "Full name",
     "email": "Email",
     "message": "Message",
     "send": "Send message",
     "sending": "Sending...",
-    "success": "Message sent! I'll get back to you as soon as possible.",
+    "success": "Message sent! I'll get back to you within 24 hours.",
     "error": "Something went wrong. Please try again or email me directly."
   },
   "footer": {

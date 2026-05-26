@@ -9,15 +9,15 @@
   "hero": {
     "greeting": "Cześć, jestem",
     "name": "Leszek Pawlak",
-    "title": "Senior Fullstack Engineer",
-    "subtitle": "Ponad dekada doświadczenia w tworzeniu nowoczesnych aplikacji webowych. Specjalizuję się w React, Node.js i TypeScript.",
-    "cta": "Porozmawiajmy",
-    "ctaSecondary": "Zobacz moje doświadczenie"
+    "title": "Konsultant TypeScript & React",
+    "subtitle": "12+ lat praktycznego doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej.",
+    "cta": "Umów konsultację",
+    "ctaSecondary": "Jak mogę pomóc"
   },
   "about": {
     "title": "O mnie",
-    "bio": "Doświadczony Senior Engineer z ponad 12-letnim stażem w web development. Posiadam głębokie zrozumienie i pasję do technologii, szczególnie w zakresie innowacyjnych rozwiązań webowych. Moja kariera obejmuje zarówno frontend jak i backend, z doświadczeniem w integracji technologii AI takich jak OpenAI GPT. Znany z naturalnych zdolności liderskich, wyróżniam się w prowadzeniu zespołów ku wzrostowi zawodowemu i innowacjom technologicznym.",
-    "skills": "Umiejętności",
+    "bio": "Jestem niezależnym konsultantem specjalizującym się w ekosystemach TypeScript, React i Node.js. Po ponad dekadzie budowania systemów produkcyjnych — od startupów po enterprise — skupiam się teraz na pomaganiu zespołom w nawigowaniu złożonych decyzji technicznych. Wnoszę głęboką ekspertyzę w architekturze frontend, optymalizacji wydajności i nowoczesnym toolingu JavaScript. Moje podejście jest pragmatyczne: pomagam wybrać odpowiednie narzędzia, unikać over-engineeringu i dostarczać wartość szybciej.",
+    "skills": "Obszary ekspertyzy",
     "skillCategories": {
       "languages": "Języki i Frameworki",
       "databases": "Bazy danych",
@@ -26,23 +26,23 @@
     }
   },
   "services": {
-    "title": "Usługi",
-    "subtitle": "Oferuję kompleksowe wsparcie technologiczne dla Twojego biznesu",
+    "title": "Jak pomagam",
+    "subtitle": "Usługi doradcze oparte na wieloletnim doświadczeniu w dostarczaniu projektów",
     "consulting": {
-      "title": "Konsulting technologiczny",
-      "description": "Doradzam w wyborze technologii, architektury i strategii rozwoju produktów cyfrowych. Pomagam podejmować świadome decyzje technologiczne."
+      "title": "Konsulting architektoniczny",
+      "description": "Dogłębne przeglądy architektury TypeScript/React. Pomagam identyfikować wąskie gardła, sugeruję skalowalne wzorce i prowadzę zespół ku utrzymywalnym rozwiązaniom."
     },
     "estimation": {
-      "title": "Wycena projektów",
-      "description": "Profesjonalna wycena projektów IT — od MVP po rozbudowane systemy. Szczegółowa analiza wymagań, estymacja czasu i kosztów."
+      "title": "Wycena i planowanie projektów",
+      "description": "Realistyczna estymacja projektów oparta na praktycznym doświadczeniu. Od MVP po złożone systemy — szczegółowa analiza wymagań, ocena ryzyka i planowanie roadmapy."
     },
     "development": {
-      "title": "Fullstack Development",
-      "description": "Projektowanie i budowa skalowalnych aplikacji webowych. React, Node.js, TypeScript — od koncepcji po produkcję."
+      "title": "Code Review & Mentoring",
+      "description": "Podnoszenie jakości kodu zespołu. Dokładne code review, warsztaty z best practices i praktyczny mentoring w TypeScript, React i Node.js."
     },
     "ai": {
-      "title": "Integracja AI",
-      "description": "Integracja rozwiązań AI (OpenAI GPT) z aplikacjami webowymi. Chatboty, automatyzacja procesów, inteligentne systemy."
+      "title": "Strategia integracji AI",
+      "description": "Praktyczne doradztwo w zakresie integracji LLM i usług AI z aplikacjami webowymi. Od oceny wykonalności po wzorce implementacji gotowe na produkcję."
     }
   },
   "experience": {
@@ -51,14 +51,14 @@
     "techStack": "Tech Stack"
   },
   "contact": {
-    "title": "Kontakt",
-    "subtitle": "Masz projekt do omówienia? Napisz do mnie.",
+    "title": "Porozmawiajmy",
+    "subtitle": "Masz wyzwanie techniczne? Porozmawiajmy o tym, jak mogę pomóc Twojemu zespołowi.",
     "name": "Imię i nazwisko",
     "email": "Email",
     "message": "Wiadomość",
     "send": "Wyślij wiadomość",
     "sending": "Wysyłanie...",
-    "success": "Wiadomość wysłana! Odpowiem najszybciej jak to możliwe.",
+    "success": "Wiadomość wysłana! Odpowiem w ciągu 24 godzin.",
     "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na email."
   },
   "footer": {

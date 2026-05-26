@@ -106,9 +106,10 @@ export function ExperienceSection() {
     <section className="py-24 pt-32">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
         <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
+          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
           className="text-4xl sm:text-5xl font-bold mb-16 gradient-text"
         >
           {t("title")}
@@ -122,16 +123,20 @@ export function ExperienceSection() {
             {experiences.map((exp, idx) => (
               <motion.div
                 key={`${exp.company}-${exp.period.start}`}
-                initial={{ opacity: 0, x: -20 }}
-                whileInView={{ opacity: 1, x: 0 }}
+                initial={{ opacity: 0, x: -30, filter: "blur(6px)" }}
+                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
-                transition={{ delay: 0.05 * idx }}
+                transition={{
+                  delay: 0.05 * idx,
+                  duration: 0.6,
+                  ease: [0.16, 1, 0.3, 1],
+                }}
                 className="relative pl-8 md:pl-20"
               >
                 {/* Timeline dot */}
-                <div className="absolute left-0 md:left-8 top-2 w-3 h-3 -translate-x-1.5 rounded-full bg-primary glow-primary" />
+                <div className="absolute left-0 md:left-8 top-2 w-3 h-3 -translate-x-1.5 rounded-full bg-primary animate-pulse-ring" />
 
-                <div className="p-6 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-colors">
+                <div className="p-6 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all hover-tilt">
                   <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
                     <h3 className="text-xl font-semibold text-foreground">
                       {exp.company}

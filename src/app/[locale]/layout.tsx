@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { TimeTheme } from "@/components/TimeTheme";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -23,11 +24,11 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: {
-    default: "Leszek Pawlak — Senior Fullstack Engineer",
+    default: "Leszek Pawlak — Konsulting TypeScript & React",
     template: "%s | Leszek Pawlak",
   },
   description:
-    "Senior Fullstack Engineer z 12+ lat doświadczenia. React, Node.js, TypeScript. Konsulting, wyceny projektów, development.",
+    "Doradztwo techniczne w zakresie TypeScript, React i JavaScript. 12+ lat doświadczenia. Konsulting architektoniczny, code review, wyceny projektów.",
   metadataBase: new URL("https://leszekpawlak.vercel.app"),
   openGraph: {
     type: "website",
@@ -36,6 +37,14 @@ export const metadata: Metadata = {
     siteName: "Leszek Pawlak",
   },
 };
+
+const timeThemeScript = `
+(function() {
+  var h = new Date().getHours();
+  var t = (h >= 6 && h < 18) ? 'day' : (h >= 18 && h < 22) ? 'evening' : 'night';
+  document.documentElement.setAttribute('data-time', t);
+})();
+`;
 
 export default async function LocaleLayout({
   children,
@@ -53,8 +62,12 @@ export default async function LocaleLayout({
       lang={locale}
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
     >
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: timeThemeScript }} />
+      </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
+          <TimeTheme />
           <Navigation />
           <main className="flex-1">{children}</main>
           <Footer />

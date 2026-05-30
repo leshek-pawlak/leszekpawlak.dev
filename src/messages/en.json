@@ -4,6 +4,7 @@
     "about": "About",
     "services": "Services",
     "experience": "Experience",
+    "workflow": "Workflow",
     "contact": "Contact"
   },
   "hero": {
@@ -58,8 +59,44 @@
     "message": "Message",
     "send": "Send message",
     "sending": "Sending...",
-    "success": "Message sent! I'll get back to you within 24 hours.",
+    "success": "Message sent! I'll get back to you as soon as possible.",
     "error": "Something went wrong. Please try again or email me directly."
+  },
+  "workflow": {
+    "title": "How We Work Together",
+    "subtitle": "A transparent process from first contact to project success",
+    "steps": {
+      "inquiry": {
+        "title": "Inquiry",
+        "description": "You describe your project or technical challenge. I respond as soon as possible to discuss your needs."
+      },
+      "nda": {
+        "title": "Signing the NDA",
+        "description": "We sign a non-disclosure agreement so I can learn the details of your project and answer all your questions."
+      },
+      "scope": {
+        "title": "Defining the Scope",
+        "description": "I answer all your questions and together we define the detailed scope, goals, and expected outcomes of the collaboration."
+      },
+      "estimate": {
+        "title": "Estimate Approval",
+        "description": "You receive a transparent estimate broken down by phases. No hidden costs."
+      },
+      "delivery": {
+        "title": "Delivery & Review",
+        "description": "I deliver results according to plan. We discuss findings and next steps."
+      },
+      "success": {
+        "title": "Successful Collaboration",
+        "description": "Goal achieved! Your project is on the right track. If you ever need support again — you know where to find me."
+      }
+    },
+    "nda_section": {
+      "title": "Non-Disclosure Agreement (NDA)",
+      "description": "The security of your data is my priority. Below you can review the NDA or download it for signing.",
+      "download": "Download NDA (PDF)",
+      "preview": "Preview Agreement"
+    }
   },
   "footer": {
     "rights": "All rights reserved."

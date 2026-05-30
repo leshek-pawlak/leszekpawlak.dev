@@ -4,6 +4,7 @@
     "about": "O mnie",
     "services": "Usługi",
     "experience": "Doświadczenie",
+    "workflow": "Współpraca",
     "contact": "Kontakt"
   },
   "hero": {
@@ -58,8 +59,44 @@
     "message": "Wiadomość",
     "send": "Wyślij wiadomość",
     "sending": "Wysyłanie...",
-    "success": "Wiadomość wysłana! Odpowiem w ciągu 24 godzin.",
+    "success": "Wiadomość wysłana! Odpowiem najszybciej jak to możliwe.",
     "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na email."
+  },
+  "workflow": {
+    "title": "Jak wygląda współpraca",
+    "subtitle": "Przejrzysty proces od pierwszego kontaktu do sukcesu projektu",
+    "steps": {
+      "inquiry": {
+        "title": "Zapytanie",
+        "description": "Opisujesz swój projekt lub wyzwanie techniczne. Odpowiadam najszybciej jak to możliwe, aby omówić Twoje potrzeby."
+      },
+      "nda": {
+        "title": "Podpisanie NDA",
+        "description": "Podpisujemy umowę o poufności, abym mógł poznać szczegóły projektu i odpowiedzieć na wszystkie Twoje pytania."
+      },
+      "scope": {
+        "title": "Określenie zakresu prac",
+        "description": "Odpowiadam na wszystkie pytania i wspólnie definiujemy szczegółowy zakres, cele i oczekiwane rezultaty współpracy."
+      },
+      "estimate": {
+        "title": "Akceptacja wyceny",
+        "description": "Otrzymujesz transparentną wycenę z podziałem na etapy. Bez ukrytych kosztów."
+      },
+      "delivery": {
+        "title": "Otrzymanie i omówienie wyników",
+        "description": "Dostarczam rezultaty zgodnie z planem. Omawiamy wnioski i następne kroki."
+      },
+      "success": {
+        "title": "Zadowolenie z udanej współpracy",
+        "description": "Cel osiągnięty! Twój projekt jest na właściwej ścieżce. Jeśli kiedykolwiek będziesz potrzebować wsparcia — wiesz gdzie mnie znaleźć."
+      }
+    },
+    "nda_section": {
+      "title": "Umowa o poufności (NDA)",
+      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem. Poniżej możesz zapoznać się z umową NDA lub pobrać ją do podpisu.",
+      "download": "Pobierz NDA (PDF)",
+      "preview": "Podgląd umowy"
+    }
   },
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone."

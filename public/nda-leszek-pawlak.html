@@ -2,319 +2,794 @@
 <html lang="pl">
   <head>
     <meta charset="UTF-8" />
-    <title>Umowa o Zachowaniu Poufności (NDA) — Leszek Pawlak</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>
+      Umowa o Zachowaniu Poufności / Non-Disclosure Agreement (NDA) — Leszek
+      Pawlak
+    </title>
     <style>
       @page {
-        margin: 2.5cm;
+        margin: 1.8cm;
       }
+
       body {
         font-family: "Georgia", "Times New Roman", serif;
         font-size: 11pt;
         line-height: 1.6;
         color: #1a1a1a;
-        max-width: 700px;
+        max-width: 860px;
         margin: 0 auto;
-        padding: 2.5cm;
+        padding: 2.2cm;
       }
+
       h1 {
         font-size: 16pt;
         text-align: center;
         margin-bottom: 4px;
       }
+
       .subtitle {
         text-align: center;
         font-size: 10pt;
         color: #555;
-        margin-bottom: 2em;
+        margin-bottom: 1.6em;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
       }
+
+      .notice {
+        margin: 0 0 1.8em;
+        padding: 0.9em 1em;
+        border: 1px solid #d8cdb6;
+        background: #f7f2e8;
+        border-radius: 8px;
+        font-size: 10pt;
+      }
+
       h2 {
         font-size: 12pt;
         margin-top: 1.5em;
         margin-bottom: 0.5em;
       }
+
       ol {
         padding-left: 1.5em;
       }
+
       li {
-        margin-bottom: 0.5em;
+        margin-bottom: 0.75em;
       }
-      .parties p {
-        margin: 0.3em 0;
+
+      .parties {
+        margin-bottom: 1.5em;
       }
+
+      .parties p,
+      .bilingual-line {
+        margin: 0.35em 0;
+      }
+
+      .pl-text,
+      .en-text {
+        display: block;
+      }
+
+      .en-text {
+        color: #555;
+        font-style: italic;
+        margin-top: 0.12em;
+      }
+
       .signatures {
         display: flex;
         justify-content: space-between;
+        gap: 2.5em;
         margin-top: 4em;
       }
+
       .signature-block {
         text-align: center;
-        width: 40%;
+        flex: 1;
         border-top: 1px solid #333;
         padding-top: 1em;
       }
+
       .signature-block span {
         display: block;
         font-size: 9pt;
         color: #666;
       }
+
       @media print {
         body {
           padding: 0;
+          max-width: none;
+        }
+
+        h2,
+        .notice,
+        .parties,
+        .signatures,
+        li {
+          break-inside: avoid;
         }
       }
     </style>
   </head>
   <body>
     <h1>UMOWA O ZACHOWANIU POUFNOŚCI (NDA)</h1>
-    <p class="subtitle">Non-Disclosure Agreement</p>
+    <p class="subtitle">NON-DISCLOSURE AGREEMENT / WERSJA DWUJĘZYCZNA PL/EN</p>
 
-    <p>zawarta w dniu ______________ r. w ______________ pomiędzy:</p>
+    <p class="notice">
+      <span class="pl-text">
+        <strong>PL:</strong> Niniejsza umowa została sporządzona w polskiej i
+        angielskiej wersji językowej. W przypadku rozbieżności interpretacyjnych
+        wiążąca jest polska wersja językowa.
+      </span>
+      <span class="en-text">
+        <strong>EN:</strong> This agreement has been prepared in Polish and
+        English language versions. In the event of any inconsistency or
+        interpretative discrepancy, the Polish language version shall prevail.
+      </span>
+    </p>
+
+    <p class="bilingual-line">
+      <span class="pl-text"
+        >zawarta w dniu ______________ r. w ______________ pomiędzy:</span
+      >
+      <span class="en-text"
+        >entered into on ______________ in ______________ by and between:</span
+      >
+    </p>
 
     <div class="parties">
-      <p><strong>Stroną Ujawniającą (dalej „Zleceniodawca"):</strong></p>
-      <p>______________ (nazwa firmy / imię i nazwisko)</p>
-      <p>z siedzibą: ______________</p>
-      <p>NIP: ______________</p>
-      <p>REGON: ______________</p>
-      <p>reprezentowaną przez: ______________</p>
-      <p>zwaną dalej „Stroną Ujawniającą"</p>
-    </div>
-
-    <br />
-
-    <div class="parties">
-      <p><strong>Stroną Otrzymującą (dalej „Konsultant"):</strong></p>
-      <p>IT&amp;TEGES LESZEK PAWLAK</p>
-      <p>jednoosobowa działalność gospodarcza</p>
-      <p>NIP: 7811820060</p>
-      <p>REGON: 366290715</p>
-      <p>e-mail: itenteges@gmail.com</p>
-
-      <p style="margin-top: 1.5em">
-        zwanymi łącznie „Stronami", a każda z osobna „Stroną".
+      <p>
+        <span class="pl-text"
+          ><strong>Strona Ujawniająca (dalej „Zleceniodawca"):</strong></span
+        >
+        <span class="en-text"
+          ><strong>Disclosing Party (hereinafter the "Client"):</strong></span
+        >
+      </p>
+      <p>
+        <span class="pl-text">______________ (nazwa firmy / imię i nazwisko)</span>
+        <span class="en-text">______________ (company name / full name)</span>
+      </p>
+      <p>
+        <span class="pl-text">z siedzibą / adresem: ______________</span>
+        <span class="en-text">registered office / address: ______________</span>
+      </p>
+      <p>
+        <span class="pl-text">NIP: ______________</span>
+        <span class="en-text">Tax ID (NIP): ______________</span>
+      </p>
+      <p>
+        <span class="pl-text">REGON: ______________</span>
+        <span class="en-text">REGON: ______________</span>
+      </p>
+      <p>
+        <span class="pl-text">reprezentowaną przez: ______________</span>
+        <span class="en-text">represented by: ______________</span>
+      </p>
+      <p>
+        <span class="pl-text">zwaną dalej „Stroną Ujawniającą”</span>
+        <span class="en-text">hereinafter referred to as the "Disclosing Party"</span>
       </p>
     </div>
 
-    <h2>§1 Definicje</h2>
+    <div class="parties">
+      <p>
+        <span class="pl-text"
+          ><strong>Strona Otrzymująca (dalej „Konsultant"):</strong></span
+        >
+        <span class="en-text"
+          ><strong>Receiving Party (hereinafter the "Consultant"):</strong></span
+        >
+      </p>
+      <p>
+        <span class="pl-text">IT&amp;TEGES LESZEK PAWLAK</span>
+        <span class="en-text">IT&amp;TEGES LESZEK PAWLAK</span>
+      </p>
+      <p>
+        <span class="pl-text">jednoosobowa działalność gospodarcza</span>
+        <span class="en-text">sole proprietorship</span>
+      </p>
+      <p>
+        <span class="pl-text">os. Olszynka 1F/3, 62-050 Krosno</span>
+        <span class="en-text">os. Olszynka 1F/3, 62-050 Krosno, Poland</span>
+      </p>
+      <p>
+        <span class="pl-text">NIP: 7811820060</span>
+        <span class="en-text">Tax ID (NIP): 7811820060</span>
+      </p>
+      <p>
+        <span class="pl-text">REGON: 366290715</span>
+        <span class="en-text">REGON: 366290715</span>
+      </p>
+      <p>
+        <span class="pl-text">e-mail: itenteges@gmail.com</span>
+        <span class="en-text">e-mail: itenteges@gmail.com</span>
+      </p>
+      <p style="margin-top: 1.2em">
+        <span class="pl-text"
+          >zwanymi łącznie „Stronami", a każda z osobna „Stroną”.</span
+        >
+        <span class="en-text"
+          >hereinafter collectively referred to as the "Parties" and
+          individually as a "Party".</span
+        >
+      </p>
+    </div>
+
+    <h2>§1 Definicje / Definitions</h2>
     <ol>
       <li>
-        <strong>Informacje Poufne</strong> — wszelkie informacje techniczne,
-        handlowe, organizacyjne, finansowe, strategiczne lub inne informacje
-        dotyczące działalności którejkolwiek ze Stron, przekazane drugiej
-        Stronie w formie pisemnej, elektronicznej, ustnej lub w jakiejkolwiek
-        innej formie w związku ze Współpracą, w tym w szczególności: kod
-        źródłowy, dokumentacja techniczna, architektury systemów, bazy danych,
-        know-how, plany biznesowe, dane klientów, warunki handlowe oraz wszelkie
-        informacje oznaczone jako poufne.
+        <span class="pl-text">
+          <strong>Informacje Poufne</strong> — wszelkie informacje techniczne,
+          handlowe, organizacyjne, finansowe, strategiczne lub inne informacje
+          dotyczące działalności którejkolwiek ze Stron, przekazane drugiej
+          Stronie w formie pisemnej, elektronicznej, ustnej lub w jakiejkolwiek
+          innej formie w związku ze Współpracą, w tym w szczególności: kod
+          źródłowy, dokumentacja techniczna, architektury systemów, bazy danych,
+          know-how, plany biznesowe, dane klientów, warunki handlowe oraz
+          wszelkie informacje oznaczone jako poufne.
+        </span>
+        <span class="en-text">
+          <strong>Confidential Information</strong> means any technical,
+          commercial, organizational, financial, strategic or other information
+          relating to the business of either Party, disclosed to the other Party
+          in written, electronic, oral or any other form in connection with the
+          Collaboration, including in particular source code, technical
+          documentation, system architecture, databases, know-how, business
+          plans, customer data, commercial terms and any information marked as
+          confidential.
+        </span>
       </li>
       <li>
-        <strong>Współpraca</strong> — usługi konsultingowe w zakresie
-        TypeScript, React, JavaScript i technologii webowych świadczone przez
-        Stronę Otrzymującą na rzecz Strony Ujawniającej, obejmujące w
-        szczególności konsulting architektoniczny, code review, wycenę projektów
-        oraz doradztwo techniczne.
+        <span class="pl-text">
+          <strong>Współpraca</strong> — usługi konsultingowe w zakresie
+          TypeScript, React, JavaScript i technologii webowych świadczone przez
+          Stronę Otrzymującą na rzecz Strony Ujawniającej, obejmujące w
+          szczególności konsulting architektoniczny, code review, wycenę
+          projektów oraz doradztwo techniczne.
+        </span>
+        <span class="en-text">
+          <strong>Collaboration</strong> means consulting services in the areas
+          of TypeScript, React, JavaScript and web technologies provided by the
+          Receiving Party to the Disclosing Party, including in particular
+          architectural consulting, code review, project estimation and
+          technical advisory services.
+        </span>
       </li>
       <li>
-        <strong>Dane Osobowe</strong> — dane osobowe w rozumieniu art. 4 pkt 1
-        Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia 27
-        kwietnia 2016 r. (RODO).
+        <span class="pl-text">
+          <strong>Dane Osobowe</strong> — dane osobowe w rozumieniu art. 4 pkt 1
+          Rozporządzenia Parlamentu Europejskiego i Rady (UE) 2016/679 z dnia
+          27 kwietnia 2016 r. (RODO).
+        </span>
+        <span class="en-text">
+          <strong>Personal Data</strong> means personal data within the meaning
+          of Article 4(1) of Regulation (EU) 2016/679 of the European Parliament
+          and of the Council of 27 April 2016 (GDPR).
+        </span>
+      </li>
+      <li>
+        <span class="pl-text">
+          <strong>Tajemnica Przedsiębiorstwa</strong> — informacje stanowiące
+          tajemnicę przedsiębiorstwa w rozumieniu art. 11 ustawy z dnia 16
+          kwietnia 1993 r. o zwalczaniu nieuczciwej konkurencji.
+        </span>
+        <span class="en-text">
+          <strong>Trade Secret</strong> means information constituting a trade
+          secret within the meaning of Article 11 of the Polish Act of 16 April
+          1993 on Combating Unfair Competition.
+        </span>
       </li>
     </ol>
 
-    <h2>§2 Przedmiot umowy</h2>
+    <h2>§2 Przedmiot umowy / Subject Matter</h2>
     <ol>
       <li>
-        Strony zobowiązują się wzajemnie do zachowania w tajemnicy wszelkich
-        Informacji Poufnych uzyskanych od drugiej Strony w trakcie i w związku
-        ze Współpracą.
+        <span class="pl-text">
+          Strony zobowiązują się wzajemnie do zachowania w tajemnicy wszelkich
+          Informacji Poufnych uzyskanych od drugiej Strony w trakcie i w związku
+          ze Współpracą.
+        </span>
+        <span class="en-text">
+          The Parties mutually undertake to keep confidential all Confidential
+          Information obtained from the other Party during and in connection with
+          the Collaboration.
+        </span>
       </li>
       <li>
-        Żadna ze Stron nie ujawni Informacji Poufnych drugiej Strony osobom
-        trzecim bez uprzedniej pisemnej zgody Strony, której informacje dotyczą.
+        <span class="pl-text">
+          Żadna ze Stron nie ujawni Informacji Poufnych drugiej Strony osobom
+          trzecim bez uprzedniej pisemnej zgody Strony, której informacje
+          dotyczą.
+        </span>
+        <span class="en-text">
+          Neither Party shall disclose the other Party's Confidential
+          Information to third parties without the prior written consent of the
+          Party to whom such information relates.
+        </span>
       </li>
       <li>
-        Niniejsza umowa ma charakter dwustronny — zobowiązania dotyczące ochrony
-        Informacji Poufnych obowiązują obie Strony w równym stopniu.
+        <span class="pl-text">
+          Niniejsza umowa ma charakter dwustronny — zobowiązania dotyczące
+          ochrony Informacji Poufnych obowiązują obie Strony w równym stopniu.
+        </span>
+        <span class="en-text">
+          This Agreement is mutual in nature and the obligations concerning the
+          protection of Confidential Information bind both Parties equally.
+        </span>
       </li>
     </ol>
 
-    <h2>§3 Zakres zobowiązania</h2>
-    <p>Każda ze Stron zobowiązuje się do:</p>
+    <h2>§3 Zakres zobowiązania / Scope of Obligations</h2>
+    <p class="bilingual-line">
+      <span class="pl-text">Każda ze Stron zobowiązuje się do:</span>
+      <span class="en-text">Each Party undertakes to:</span>
+    </p>
     <ol>
       <li>
-        Wykorzystywania Informacji Poufnych drugiej Strony wyłącznie w celu
-        realizacji Współpracy.
+        <span class="pl-text">
+          Wykorzystywania Informacji Poufnych drugiej Strony wyłącznie w celu
+          realizacji Współpracy.
+        </span>
+        <span class="en-text">
+          use the other Party's Confidential Information solely for the purpose
+          of carrying out the Collaboration.
+        </span>
       </li>
       <li>
-        Zabezpieczenia Informacji Poufnych przed nieuprawnionym dostępem osób
-        trzecich z zachowaniem co najmniej takiego samego stopnia ochrony, jaki
-        stosuje wobec własnych informacji poufnych, lecz nie mniej niż z
-        należytą starannością.
+        <span class="pl-text">
+          Zabezpieczenia Informacji Poufnych przed nieuprawnionym dostępem osób
+          trzecich z zachowaniem co najmniej takiego samego stopnia ochrony,
+          jaki stosuje wobec własnych informacji poufnych, lecz nie mniej niż z
+          należytą starannością.
+        </span>
+        <span class="en-text">
+          protect Confidential Information against unauthorized access by third
+          parties with at least the same degree of protection as it applies to
+          its own confidential information, and in any event with no less than
+          reasonable care.
+        </span>
       </li>
       <li>
-        Ograniczenia dostępu do Informacji Poufnych wyłącznie do osób, które
-        muszą je znać w celu realizacji Współpracy, pod warunkiem że osoby te
-        zostały poinformowane o poufnym charakterze informacji i zobowiązane do
-        zachowania poufności.
+        <span class="pl-text">
+          Ograniczenia dostępu do Informacji Poufnych wyłącznie do osób, które
+          muszą je znać w celu realizacji Współpracy, pod warunkiem że osoby te
+          zostały poinformowane o poufnym charakterze informacji i zobowiązane
+          do zachowania poufności.
+        </span>
+        <span class="en-text">
+          limit access to Confidential Information solely to those persons who
+          need to know it for the purposes of the Collaboration, provided that
+          such persons have been informed of its confidential nature and are
+          bound to maintain confidentiality.
+        </span>
       </li>
       <li>
-        Niezwłocznego powiadomienia drugiej Strony o każdym przypadku naruszenia
-        poufności lub podejrzeniu takiego naruszenia, nie później niż w ciągu 48
-        godzin od powzięcia wiadomości o takim zdarzeniu.
+        <span class="pl-text">
+          Niezwłocznego powiadomienia drugiej Strony o każdym przypadku
+          naruszenia poufności lub podejrzeniu takiego naruszenia, nie później
+          niż w ciągu 48 godzin od powzięcia wiadomości o takim zdarzeniu.
+        </span>
+        <span class="en-text">
+          notify the other Party without undue delay of any breach of
+          confidentiality or suspected breach, no later than within 48 hours of
+          becoming aware of such event.
+        </span>
       </li>
       <li>
-        Niekopiowania, niepowielania i niereprodukcji Informacji Poufnych, chyba
-        że jest to niezbędne do realizacji Współpracy.
+        <span class="pl-text">
+          Niekopiowania, niepowielania i niereprodukcji Informacji Poufnych,
+          chyba że jest to niezbędne do realizacji Współpracy.
+        </span>
+        <span class="en-text">
+          refrain from copying, duplicating or reproducing Confidential
+          Information unless this is necessary for the purposes of the
+          Collaboration.
+        </span>
       </li>
     </ol>
 
-    <h2>§4 Wyłączenia</h2>
-    <p>Zobowiązanie do zachowania poufności nie obejmuje informacji, które:</p>
+    <h2>§4 Wyłączenia / Exclusions</h2>
+    <p class="bilingual-line">
+      <span class="pl-text"
+        >Zobowiązanie do zachowania poufności nie obejmuje informacji, które:</span
+      >
+      <span class="en-text"
+        >The obligation of confidentiality does not apply to information that:</span
+      >
+    </p>
     <ol>
       <li>
-        Są lub staną się publicznie dostępne bez winy Strony otrzymującej te
-        informacje.
+        <span class="pl-text">
+          Są lub staną się publicznie dostępne bez winy Strony otrzymującej te
+          informacje.
+        </span>
+        <span class="en-text">
+          is or becomes publicly available through no fault of the receiving
+          Party.
+        </span>
       </li>
       <li>
-        Były prawomiernie znane Stronie otrzymującej przed ich ujawnieniem przez
-        drugą Stronę, co Strona otrzymująca jest w stanie wykazać za pomocą
-        dokumentacji.
+        <span class="pl-text">
+          Były prawomiernie znane Stronie otrzymującej przed ich ujawnieniem
+          przez drugą Stronę, co Strona otrzymująca jest w stanie wykazać za
+          pomocą dokumentacji.
+        </span>
+        <span class="en-text">
+          was lawfully known to the receiving Party before disclosure by the
+          other Party, which the receiving Party is able to demonstrate by
+          documentation.
+        </span>
       </li>
       <li>
-        Zostały niezależnie opracowane przez Stronę otrzymującą bez
-        wykorzystania Informacji Poufnych drugiej Strony.
+        <span class="pl-text">
+          Zostały niezależnie opracowane przez Stronę otrzymującą bez
+          wykorzystania Informacji Poufnych drugiej Strony.
+        </span>
+        <span class="en-text">
+          was independently developed by the receiving Party without use of the
+          other Party's Confidential Information.
+        </span>
       </li>
       <li>
-        Zostały prawomiernie uzyskane od osoby trzeciej, która nie była
-        zobowiązana do zachowania poufności wobec Strony ujawniającej.
+        <span class="pl-text">
+          Zostały prawomiernie uzyskane od osoby trzeciej, która nie była
+          zobowiązana do zachowania poufności wobec Strony ujawniającej.
+        </span>
+        <span class="en-text">
+          was lawfully obtained from a third party that was not under any duty
+          of confidentiality toward the disclosing Party.
+        </span>
       </li>
       <li>
-        Muszą zostać ujawnione na podstawie bezwzględnie obowiązujących
-        przepisów prawa, prawomocnego orzeczenia sądu lub decyzji właściwego
-        organu administracji publicznej — w takim przypadku Strona zobowiązana
-        do ujawnienia niezwłocznie powiadomi o tym drugą Stronę, o ile jest to
-        prawnie dopuszczalne.
+        <span class="pl-text">
+          Muszą zostać ujawnione na podstawie bezwzględnie obowiązujących
+          przepisów prawa, prawomocnego orzeczenia sądu lub decyzji właściwego
+          organu administracji publicznej — w takim przypadku Strona zobowiązana
+          do ujawnienia niezwłocznie powiadomi o tym drugą Stronę, o ile jest to
+          prawnie dopuszczalne.
+        </span>
+        <span class="en-text">
+          must be disclosed pursuant to mandatory provisions of law, a final
+          court judgment or a decision of a competent public authority; in such
+          case, the Party required to disclose shall promptly notify the other
+          Party, to the extent legally permitted.
+        </span>
       </li>
     </ol>
 
-    <h2>§5 Okres obowiązywania</h2>
+    <h2>§5 Okres obowiązywania / Term</h2>
     <ol>
       <li>
-        Niniejsza umowa obowiązuje od dnia jej podpisania przez okres 2 (dwóch)
-        lat.
+        <span class="pl-text">
+          Niniejsza umowa obowiązuje od dnia jej podpisania przez okres 2
+          (dwóch) lat.
+        </span>
+        <span class="en-text">
+          This Agreement shall remain in force from the date of its execution
+          for a period of 2 (two) years.
+        </span>
       </li>
       <li>
-        Zobowiązanie do zachowania poufności pozostaje w mocy również po
-        zakończeniu Współpracy przez okres wskazany w punkcie 1, licząc od dnia
-        zakończenia Współpracy.
+        <span class="pl-text">
+          Zobowiązanie do zachowania poufności w odniesieniu do Informacji
+          Poufnych pozostaje w mocy również po zakończeniu Współpracy przez
+          okres 2 (dwóch) lat od dnia zakończenia Współpracy.
+        </span>
+        <span class="en-text">
+          The obligation to maintain confidentiality with respect to
+          Confidential Information shall remain in force after the end of the
+          Collaboration for a period of 2 (two) years from the date the
+          Collaboration ends.
+        </span>
       </li>
       <li>
-        Każda ze Stron może wypowiedzieć niniejszą umowę z zachowaniem
-        30-dniowego okresu wypowiedzenia w formie pisemnej. Wypowiedzenie nie
-        zwalnia Stron z obowiązku zachowania poufności informacji otrzymanych
-        przed datą wypowiedzenia.
+        <span class="pl-text">
+          W zakresie, w jakim Informacje Poufne stanowią Tajemnicę
+          Przedsiębiorstwa, obowiązek zachowania poufności trwa tak długo, jak
+          długo informacje te zachowują taki status zgodnie z właściwymi
+          przepisami prawa.
+        </span>
+        <span class="en-text">
+          To the extent that Confidential Information constitutes a Trade
+          Secret, the confidentiality obligation shall continue for as long as
+          such information retains that status under applicable law.
+        </span>
+      </li>
+      <li>
+        <span class="pl-text">
+          Każda ze Stron może wypowiedzieć niniejszą umowę z zachowaniem
+          30-dniowego okresu wypowiedzenia w formie pisemnej. Wypowiedzenie nie
+          zwalnia Stron z obowiązku zachowania poufności informacji otrzymanych
+          przed datą wypowiedzenia.
+        </span>
+        <span class="en-text">
+          Either Party may terminate this Agreement upon 30 days' written
+          notice. Termination shall not release the Parties from the obligation
+          to maintain the confidentiality of information received before the
+          date of termination.
+        </span>
       </li>
     </ol>
 
-    <h2>§6 Zwrot materiałów</h2>
+    <h2>§6 Zwrot materiałów, usuwanie danych i retencja / Return of Materials, Data Deletion and Retention</h2>
     <ol>
       <li>
-        Po zakończeniu Współpracy lub na żądanie którejkolwiek ze Stron, druga
-        Strona zobowiązuje się do niezwłocznego zwrotu lub trwałego zniszczenia
-        wszelkich materiałów (w tym kopii) zawierających Informacje Poufne, w
-        terminie 14 dni od otrzymania żądania.
+        <span class="pl-text">
+          Po zakończeniu Współpracy lub na żądanie którejkolwiek ze Stron,
+          druga Strona bez zbędnej zwłoki, nie później niż w terminie 14 dni,
+          zwróci lub trwale usunie materiały (w tym kopie) zawierające
+          Informacje Poufne oraz usunie albo zanonimizuje Dane Osobowe otrzymane
+          w związku ze Współpracą, o ile dalsze ich przechowywanie nie jest
+          wymagane przez przepisy prawa lub uzasadnione potrzebą ustalenia,
+          dochodzenia albo obrony roszczeń.
+        </span>
+        <span class="en-text">
+          Upon the end of the Collaboration or at the request of either Party,
+          the other Party shall, without undue delay and no later than within 14
+          days, return or permanently delete materials, including copies,
+          containing Confidential Information and shall delete or anonymize
+          Personal Data received in connection with the Collaboration, unless
+          further storage is required by law or justified by the need to
+          establish, pursue or defend claims.
+        </span>
       </li>
       <li>
-        Na żądanie Strony ujawniającej, Strona otrzymująca potwierdzi na piśmie
-        fakt zniszczenia materiałów zawierających Informacje Poufne.
+        <span class="pl-text">
+          Każda ze Stron może zachować jedną kopię archiwalną materiałów,
+          korespondencji i danych w zakresie niezbędnym do wykazania przebiegu
+          Współpracy, realizacji obowiązków podatkowych, rachunkowych,
+          compliance, cyberbezpieczeństwa oraz ustalenia, dochodzenia albo
+          obrony roszczeń.
+        </span>
+        <span class="en-text">
+          Each Party may retain one archival copy of materials, correspondence
+          and data to the extent necessary to evidence the course of the
+          Collaboration, fulfill tax, accounting, compliance and cybersecurity
+          obligations, and establish, pursue or defend claims.
+        </span>
       </li>
       <li>
-        Obowiązek zniszczenia nie dotyczy kopii zapasowych wykonywanych
-        automatycznie w ramach standardowych procedur archiwizacyjnych, pod
-        warunkiem że dostęp do nich jest odpowiednio zabezpieczony.
+        <span class="pl-text">
+          Obowiązek usunięcia nie dotyczy kopii zapasowych, logów systemowych i
+          danych zarchiwizowanych automatycznie w ramach standardowych procedur
+          bezpieczeństwa, o ile dostęp do nich jest odpowiednio ograniczony,
+          dane te nie są wykorzystywane do celów operacyjnych i podlegają
+          usunięciu, nadpisaniu albo trwałemu zanonimizowaniu zgodnie ze
+          standardowym cyklem retencji danej Strony.
+        </span>
+        <span class="en-text">
+          The deletion obligation shall not apply to backup copies, system logs
+          or data archived automatically under standard security procedures,
+          provided that access to them is appropriately restricted, they are not
+          used for operational purposes and they are deleted, overwritten or
+          permanently anonymized in accordance with that Party's standard
+          retention cycle.
+        </span>
+      </li>
+      <li>
+        <span class="pl-text">
+          Na żądanie drugiej Strony, Strona zobowiązana do zwrotu, usunięcia,
+          anonimizacji albo retencji potwierdzi w formie dokumentowej zakres
+          wykonanych działań oraz podstawę dalszego przechowywania danych lub
+          materiałów objętych wyjątkami, o których mowa powyżej.
+        </span>
+        <span class="en-text">
+          At the request of the other Party, the Party responsible for return,
+          deletion, anonymization or retention shall confirm in documentary form
+          the scope of actions taken and the legal or factual basis for further
+          storage of data or materials covered by the exceptions referred to
+          above.
+        </span>
       </li>
     </ol>
 
-    <h2>§7 Ochrona danych osobowych (RODO)</h2>
+    <h2>§7 Ochrona danych osobowych (RODO) / Personal Data Protection (GDPR)</h2>
     <ol>
       <li>
-        W zakresie, w jakim w ramach Współpracy dochodzi do udostępnienia Danych
-        Osobowych, Strony zobowiązują się do ich przetwarzania zgodnie z
-        Rozporządzeniem Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO)
-        oraz ustawą z dnia 10 maja 2018 r. o ochronie danych osobowych.
+        <span class="pl-text">
+          W zakresie danych kontaktowych, identyfikacyjnych i rozliczeniowych
+          udostępnianych w związku z zawarciem i wykonywaniem niniejszej umowy,
+          każda ze Stron działa jako odrębny administrator danych osobowych i
+          zobowiązuje się do ich przetwarzania zgodnie z Rozporządzeniem
+          Parlamentu Europejskiego i Rady (UE) 2016/679 (RODO) oraz ustawą z
+          dnia 10 maja 2018 r. o ochronie danych osobowych.
+        </span>
+        <span class="en-text">
+          With respect to contact, identification and billing data disclosed in
+          connection with the conclusion and performance of this Agreement, each
+          Party acts as a separate controller of personal data and undertakes to
+          process such data in accordance with Regulation (EU) 2016/679 (GDPR)
+          and the Polish Act of 10 May 2018 on Personal Data Protection.
+        </span>
       </li>
       <li>
-        Każda ze Stron jest administratorem danych osobowych swoich pracowników
-        i współpracowników, których dane zostały udostępnione drugiej Stronie w
-        związku z realizacją Współpracy.
+        <span class="pl-text">
+          Dane Osobowe udostępnione w związku ze Współpracą mogą być
+          przetwarzane wyłącznie w celu zawarcia, wykonania, rozliczenia i
+          zabezpieczenia Współpracy, realizacji obowiązków prawnych oraz
+          ustalenia, dochodzenia lub obrony roszczeń.
+        </span>
+        <span class="en-text">
+          Personal Data disclosed in connection with the Collaboration may be
+          processed solely for the purposes of concluding, performing, settling
+          and securing the Collaboration, fulfilling legal obligations, and
+          establishing, pursuing or defending claims.
+        </span>
       </li>
       <li>
-        Strony zobowiązują się do wdrożenia odpowiednich środków technicznych i
-        organizacyjnych zapewniających ochronę przetwarzanych Danych Osobowych,
-        zgodnie z art. 32 RODO.
+        <span class="pl-text">
+          Strony zobowiązują się do wdrożenia odpowiednich środków technicznych
+          i organizacyjnych zapewniających ochronę przetwarzanych Danych
+          Osobowych, zgodnie z art. 32 RODO, oraz do ograniczenia dostępu do nich
+          wyłącznie do osób, które muszą je znać w związku z realizacją
+          Współpracy.
+        </span>
+        <span class="en-text">
+          The Parties undertake to implement appropriate technical and
+          organizational measures to protect processed Personal Data in
+          accordance with Article 32 GDPR and to restrict access to such data
+          solely to persons who need to know it in connection with the
+          Collaboration.
+        </span>
       </li>
       <li>
-        W przypadku konieczności powierzenia przetwarzania Danych Osobowych,
-        Strony zawrą odrębną umowę powierzenia przetwarzania danych osobowych
-        zgodnie z art. 28 RODO.
+        <span class="pl-text">
+          Jeżeli jedna ze Stron będzie przetwarzać Dane Osobowe w imieniu
+          drugiej Strony jako podmiot przetwarzający, Strony przed rozpoczęciem
+          takiego przetwarzania zawrą odrębną umowę powierzenia przetwarzania
+          danych osobowych zgodnie z art. 28 RODO.
+        </span>
+        <span class="en-text">
+          If one Party processes Personal Data on behalf of the other Party as a
+          processor, the Parties shall, before such processing begins, enter
+          into a separate data processing agreement in accordance with Article
+          28 GDPR.
+        </span>
       </li>
     </ol>
 
-    <h2>§8 Odpowiedzialność</h2>
+    <h2>§8 Odpowiedzialność / Liability</h2>
     <ol>
       <li>
-        W przypadku naruszenia postanowień niniejszej umowy, Strona naruszająca
-        ponosi odpowiedzialność za wyrządzoną szkodę na zasadach ogólnych
-        Kodeksu cywilnego.
+        <span class="pl-text">
+          W przypadku naruszenia postanowień niniejszej umowy, Strona
+          naruszająca ponosi odpowiedzialność za wyrządzoną szkodę na zasadach
+          ogólnych Kodeksu cywilnego.
+        </span>
+        <span class="en-text">
+          In the event of a breach of this Agreement, the breaching Party shall
+          be liable for the damage caused under the general rules of the Polish
+          Civil Code.
+        </span>
       </li>
       <li>
-        Odpowiedzialność obejmuje zarówno szkodę rzeczywistą (damnum emergens),
-        jak i utracone korzyści (lucrum cessans).
+        <span class="pl-text">
+          Odpowiedzialność obejmuje zarówno szkodę rzeczywistą (damnum
+          emergens), jak i utracone korzyści (lucrum cessans).
+        </span>
+        <span class="en-text">
+          Liability shall cover both actual loss (damnum emergens) and lost
+          profits (lucrum cessans).
+        </span>
       </li>
       <li>
-        Strona naruszająca zobowiązana jest do podjęcia wszelkich działań w celu
-        minimalizacji skutków naruszenia.
+        <span class="pl-text">
+          Strona naruszająca zobowiązana jest do podjęcia wszelkich działań w
+          celu minimalizacji skutków naruszenia.
+        </span>
+        <span class="en-text">
+          The breaching Party shall take all reasonable actions to minimize the
+          effects of the breach.
+        </span>
       </li>
     </ol>
 
-    <h2>§9 Postanowienia końcowe</h2>
+    <h2>§9 Postanowienia końcowe / Final Provisions</h2>
     <ol>
-      <li>Niniejsza umowa podlega prawu polskiemu.</li>
       <li>
-        Wszelkie zmiany niniejszej umowy wymagają formy pisemnej pod rygorem
-        nieważności.
+        <span class="pl-text">Niniejsza umowa podlega prawu polskiemu.</span>
+        <span class="en-text">This Agreement shall be governed by Polish law.</span>
       </li>
       <li>
-        W sprawach nieuregulowanych niniejszą umową zastosowanie mają przepisy
-        Kodeksu cywilnego, ustawy o zwalczaniu nieuczciwej konkurencji z dnia 16
-        kwietnia 1993 r. oraz ustawy o ochronie informacji niejawnych, w
-        zakresie w jakim mają zastosowanie.
+        <span class="pl-text">
+          Zawarcie niniejszej umowy, jej zmiana, wypowiedzenie oraz składanie
+          oświadczeń związanych z jej wykonywaniem mogą następować w formie
+          dokumentowej, w tym za pośrednictwem poczty elektronicznej, poprzez
+          wymianę skanów podpisanych egzemplarzy albo przy użyciu
+          kwalifikowanego podpisu elektronicznego, podpisu zaufanego lub podpisu
+          osobistego, o ile bezwzględnie obowiązujące przepisy prawa nie
+          wymagają formy szczególnej.
+        </span>
+        <span class="en-text">
+          This Agreement may be concluded, amended or terminated, and statements
+          related to its performance may be made in documentary form, including
+          by e-mail, by exchanging scans of signed counterparts, or by using a
+          qualified electronic signature, trusted signature or personal
+          signature, unless mandatory provisions of law require a special form.
+        </span>
       </li>
       <li>
-        Ewentualne spory wynikające z niniejszej umowy Strony będą starały się
-        rozwiązywać polubownie. W przypadku braku porozumienia, spory
-        rozstrzygane będą przez sąd powszechny właściwy dla siedziby Strony
-        Ujawniającej.
+        <span class="pl-text">
+          W sprawach nieuregulowanych niniejszą umową zastosowanie mają przepisy
+          Kodeksu cywilnego, ustawy o zwalczaniu nieuczciwej konkurencji z dnia
+          16 kwietnia 1993 r. oraz ustawy o ochronie informacji niejawnych, w
+          zakresie w jakim mają zastosowanie.
+        </span>
+        <span class="en-text">
+          In matters not regulated by this Agreement, the provisions of the
+          Polish Civil Code, the Act of 16 April 1993 on Combating Unfair
+          Competition, and the Act on the Protection of Classified Information,
+          to the extent applicable, shall apply.
+        </span>
       </li>
       <li>
-        Jeżeli którekolwiek postanowienie niniejszej umowy zostanie uznane za
-        nieważne lub niewykonalne, nie wpłynie to na ważność i wykonalność
-        pozostałych postanowień.
+        <span class="pl-text">
+          Ewentualne spory wynikające z niniejszej umowy Strony będą starały się
+          rozwiązywać polubownie. W przypadku braku porozumienia, spory
+          rozstrzygane będą przez sąd powszechny właściwy miejscowo dla siedziby
+          pozwanego, chyba że Strony zgodnie postanowią inaczej.
+        </span>
+        <span class="en-text">
+          The Parties shall attempt to resolve any disputes arising out of this
+          Agreement amicably. Failing such resolution, disputes shall be settled
+          by the common court having territorial jurisdiction over the
+          defendant's registered office, unless the Parties agree otherwise.
+        </span>
       </li>
       <li>
-        Umowę sporządzono w dwóch jednobrzmiących egzemplarzach, po jednym dla
-        każdej ze Stron.
+        <span class="pl-text">
+          Jeżeli którekolwiek postanowienie niniejszej umowy zostanie uznane za
+          nieważne lub niewykonalne, nie wpłynie to na ważność i wykonalność
+          pozostałych postanowień.
+        </span>
+        <span class="en-text">
+          If any provision of this Agreement is held invalid or unenforceable,
+          this shall not affect the validity or enforceability of the remaining
+          provisions.
+        </span>
+      </li>
+      <li>
+        <span class="pl-text">
+          W przypadku sporządzenia niniejszej umowy w polskiej i angielskiej
+          wersji językowej, w razie rozbieżności wiążąca jest polska wersja
+          językowa.
+        </span>
+        <span class="en-text">
+          If this Agreement is prepared in both Polish and English language
+          versions, the Polish language version shall prevail in the event of
+          any discrepancy.
+        </span>
+      </li>
+      <li>
+        <span class="pl-text">
+          Umowę sporządzono w dwóch jednobrzmiących egzemplarzach, po jednym dla
+          każdej ze Stron, albo zawarto w formie elektronicznej lub
+          dokumentowej, przy czym każda ze Stron zachowuje swój egzemplarz lub
+          trwałe potwierdzenie jej treści.
+        </span>
+        <span class="en-text">
+          This Agreement has been drawn up in two identical counterparts, one
+          for each Party, or concluded in electronic or documentary form, in
+          which case each Party shall retain its own copy or durable record of
+          its contents.
+        </span>
       </li>
     </ol>
 
     <div class="signatures">
       <div class="signature-block">
-        <strong>Strona Ujawniająca</strong>
-        <span>(podpis i pieczęć)</span>
+        <strong>Strona Ujawniająca / Disclosing Party</strong>
+        <span>(podpis, podpis elektroniczny lub pieczęć / signature, electronic signature or seal)</span>
       </div>
       <div class="signature-block">
-        <strong>Strona Otrzymująca</strong>
-        <span>(Leszek Pawlak)</span>
+        <strong>Strona Otrzymująca / Receiving Party</strong>
+        <span>(Leszek Pawlak, podpis lub podpis elektroniczny / signature or electronic signature)</span>
       </div>
     </div>
   </body>

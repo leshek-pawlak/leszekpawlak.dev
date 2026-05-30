@@ -93,9 +93,8 @@
     },
     "nda_section": {
       "title": "Non-Disclosure Agreement (NDA)",
-      "description": "The security of your data is my priority. Below you can review the NDA or download it for signing.",
-      "download": "Download NDA (PDF)",
-      "preview": "Preview Agreement"
+      "description": "The security of your data is my priority. Below you can download the bilingual NDA (PL/EN) ready for signature.",
+      "download": "Download NDA PL/EN"
     }
   },
   "footer": {

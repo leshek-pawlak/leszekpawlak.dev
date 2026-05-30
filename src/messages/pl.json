@@ -93,9 +93,8 @@
     },
     "nda_section": {
       "title": "Umowa o poufności (NDA)",
-      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem. Poniżej możesz zapoznać się z umową NDA lub pobrać ją do podpisu.",
-      "download": "Pobierz NDA (PDF)",
-      "preview": "Podgląd umowy"
+      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem. Poniżej pobierzesz dwujęzyczną umowę NDA (PL/EN) gotową do podpisu.",
+      "download": "Pobierz NDA PL/EN"
     }
   },
   "footer": {

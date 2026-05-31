@@ -5,6 +5,7 @@ import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
 import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
+import { CookieBanner } from "@/components/CookieBanner";
 import { TimeTheme } from "@/components/TimeTheme";
 import "../globals.css";
 
@@ -64,6 +65,7 @@ export default async function LocaleLayout({
       suppressHydrationWarning
     >
       <head>
+        <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script dangerouslySetInnerHTML={{ __html: timeThemeScript }} />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
@@ -72,6 +74,7 @@ export default async function LocaleLayout({
           <Navigation />
           <main className="flex-1">{children}</main>
           <Footer />
+          <CookieBanner />
         </NextIntlClientProvider>
       </body>
     </html>

@@ -99,5 +99,9 @@
   },
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone."
+  },
+  "cookies": {
+    "message": "Ta strona używa plików cookies, aby zapewnić najlepsze wrażenia z przeglądania. Kontynuując, wyrażasz zgodę na ich użycie.",
+    "accept": "Rozumiem"
   }
 }

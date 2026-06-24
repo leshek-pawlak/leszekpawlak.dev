@@ -7,6 +7,7 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { TimeTheme } from "@/components/TimeTheme";
+import { Analytics } from "@vercel/analytics";
 import "../globals.css";
 
 const geistSans = Geist({
@@ -67,6 +68,7 @@ export default async function LocaleLayout({
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
         <script dangerouslySetInnerHTML={{ __html: timeThemeScript }} />
+        <Analytics />
       </head>
       <body className="min-h-full flex flex-col bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>

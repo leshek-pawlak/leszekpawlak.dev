@@ -12,12 +12,12 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@sanity/client": "^7.23.0",
+    "@sanity/client": "^7.23.1",
     "@sanity/image-url": "^2.1.1",
     "@vercel/analytics": "^2.0.1",
     "motion": "^12.42.2",
     "next": "16.2.10",
-    "next-intl": "^4.13.1",
+    "next-intl": "^4.13.2",
     "next-sanity": "^13.1.1",
     "react": "19.2.7",
     "react-dom": "19.2.7"
@@ -30,6 +30,6 @@
     "eslint": "^10",
     "eslint-config-next": "16.2.10",
     "tailwindcss": "^4",
-    "typescript": "^6"
+    "typescript": "^7"
   }
 }

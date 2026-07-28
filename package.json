@@ -12,15 +12,15 @@
     "lint": "eslint"
   },
   "dependencies": {
-    "@sanity/client": "^7.23.0",
+    "@sanity/client": "^7.25.0",
     "@sanity/image-url": "^2.1.1",
     "@vercel/analytics": "^2.0.1",
     "motion": "^12.42.2",
-    "next": "16.2.10",
-    "next-intl": "^4.13.1",
-    "next-sanity": "^13.1.1",
-    "react": "19.2.7",
-    "react-dom": "19.2.7"
+    "next": "16.2.12",
+    "next-intl": "^4.13.4",
+    "next-sanity": "^13.2.2",
+    "react": "19.2.8",
+    "react-dom": "19.2.8"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4",
@@ -29,7 +29,7 @@
     "@types/react-dom": "^19",
     "@typescript/native-preview": "^7.0.0-dev.20260707.2",
     "eslint": "^10",
-    "eslint-config-next": "16.2.10",
+    "eslint-config-next": "16.2.12",
     "tailwindcss": "^4",
     "typescript": "^7.0.2"
   }

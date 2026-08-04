@@ -5,9 +5,19 @@ import { motion } from "motion/react";
 
 const experiences = [
   {
+    company: "Fungies.io",
+    role: { pl: "Senior Fullstack Engineer", en: "Senior Fullstack Engineer" },
+    period: { start: "2026-07", end: null },
+    description: {
+      pl: "Senior Fullstack Engineer w Fungies, platformie do monetyzacji i płatności dla produktów cyfrowych, gier i SaaS. Praca w monorepo TypeScript (pnpm + Turborepo) obejmująca dashboard dla merchantów w Next.js oraz sklep i checkout dla klientów po stronie frontendu, a także backend oparty o tRPC i TypeORM/PostgreSQL działający na AWS (ECS, RDS, Lambda). Skupienie na architekturze multi-tenant, integracjach z dostawcami płatności oraz embeddable checkout SDK, a także na CI/CD i observability utrzymujących całość w gotowości do wdrożeń.",
+      en: "Senior Fullstack Engineer at Fungies, a monetization and payments platform for digital products, games and SaaS. Working across a TypeScript monorepo (pnpm + Turborepo): a Next.js merchant dashboard and customer-facing store/checkout on the frontend, and a tRPC + TypeORM/PostgreSQL backend running on AWS (ECS, RDS, Lambda). Focused on multi-tenant architecture, payment provider integrations, and the embeddable checkout SDK, plus the CI/CD and observability that keep it all shippable.",
+    },
+    tech: ["TypeScript", "Next.js", "tRPC", "TypeORM", "PostgreSQL", "AWS"],
+  },
+  {
     company: "Equiem",
     role: { pl: "Senior Fullstack Engineer", en: "Senior Fullstack Engineer" },
-    period: { start: "2024-02", end: null },
+    period: { start: "2024-02", end: "2026-06" },
     description: {
       pl: "Praca nad najbardziej wydajnościowo wymagającą częścią aplikacji, obsługującą największy wolumen zapytań do bazy danych. Rozwój i optymalizacja mutacji GraphQL, zapytań i integracji API. Budowa i utrzymanie aplikacji React połączonych z serwisami Node.js.",
       en: "Collaborating on the most performance-sensitive part of the application, handling the highest volume of database queries. Developing and optimizing GraphQL mutations, queries, and API integrations. Building and maintaining React front-end applications connected to Node.js services.",

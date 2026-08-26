@@ -9,26 +9,6 @@ export function Hero() {
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      {/* Animated background blobs */}
-      <div className="absolute inset-0 overflow-hidden">
-        <div className="absolute top-1/4 left-1/6 w-[500px] h-[500px] bg-primary/10 animate-morph animate-float" />
-        <div
-          className="absolute bottom-1/4 right-1/6 w-[400px] h-[400px] bg-accent/10 animate-morph"
-          style={{ animationDelay: "-4s", animationDuration: "10s" }}
-        />
-        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-primary/5 animate-pulse-ring rounded-full" />
-      </div>
-
-      {/* Subtle grid pattern */}
-      <div
-        className="absolute inset-0 opacity-[0.03]"
-        style={{
-          backgroundImage:
-            "linear-gradient(var(--foreground) 1px, transparent 1px), linear-gradient(90deg, var(--foreground) 1px, transparent 1px)",
-          backgroundSize: "60px 60px",
-        }}
-      />
-
       <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.p
           initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}

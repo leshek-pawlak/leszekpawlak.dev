@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import { useTranslations } from "next-intl";
 
 const COOKIE_CONSENT_KEY = "cookie-consent-accepted";
@@ -10,32 +10,33 @@ export function CookieBanner() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const accepted = localStorage.getItem(COOKIE_CONSENT_KEY);
-    if (!accepted) {
+    try {
+      setVisible(!localStorage.getItem(COOKIE_CONSENT_KEY));
+    } catch {
       setVisible(true);
     }
   }, []);
 
   const accept = () => {
-    localStorage.setItem(COOKIE_CONSENT_KEY, "true");
-    setVisible(false);
+    try {
+      localStorage.setItem(COOKIE_CONSENT_KEY, "true");
+    } finally {
+      setVisible(false);
+    }
   };
 
   if (!visible) return null;
 
   return (
-    <div className="fixed bottom-0 left-0 right-0 z-50 bg-surface border-t border-surface-light/50 shadow-lg">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-3 flex flex-col sm:flex-row items-center justify-between gap-3">
-        <p className="text-sm text-muted text-center sm:text-left">
-          {t("message")}
-        </p>
-        <button
-          onClick={accept}
-          className="shrink-0 px-4 py-1.5 text-sm font-medium rounded-full bg-primary text-white hover:bg-primary-light transition-colors cursor-pointer"
-        >
-          {t("accept")}
-        </button>
-      </div>
-    </div>
+    <section className="rpg-cookie" aria-label={t("message")}>
+      <svg className="rpg-cookie-icon" viewBox="0 0 24 24" aria-hidden="true">
+        <path d="M12 3 4.5 6v5.4c0 4.6 3.2 8 7.5 9.6 4.3-1.6 7.5-5 7.5-9.6V6L12 3Z" />
+        <path d="m9 12 2 2 4-5" />
+      </svg>
+      <p>{t("message")}</p>
+      <button type="button" onClick={accept}>
+        {t("accept")}
+      </button>
+    </section>
   );
 }

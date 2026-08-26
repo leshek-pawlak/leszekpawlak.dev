@@ -1,19 +1,35 @@
 "use client";
 
 import { useEffect } from "react";
-
-function getTimeOfDay(): string {
-  const h = new Date().getHours();
-  if (h >= 6 && h < 18) return "day";
-  if (h >= 18 && h < 22) return "evening";
-  return "night";
-}
+import { getTimeOfDay, timeThemeScript } from "@/lib/timeTheme";
 
 export function TimeTheme() {
   useEffect(() => {
-    const time = getTimeOfDay();
-    document.documentElement.setAttribute("data-time", time);
-  });
+    const updateTheme = () => {
+      document.documentElement.setAttribute(
+        "data-time",
+        getTimeOfDay(new Date().getHours()),
+      );
+    };
+    const updateWhenVisible = () => {
+      if (!document.hidden) updateTheme();
+    };
 
-  return null;
+    updateTheme();
+    const interval = window.setInterval(updateTheme, 60_000);
+    document.addEventListener("visibilitychange", updateWhenVisible);
+
+    return () => {
+      window.clearInterval(interval);
+      document.removeEventListener("visibilitychange", updateWhenVisible);
+    };
+  }, []);
+
+  return (
+    <script
+      type={typeof window === "undefined" ? "text/javascript" : "text/plain"}
+      suppressHydrationWarning
+      dangerouslySetInnerHTML={{ __html: timeThemeScript }}
+    />
+  );
 }

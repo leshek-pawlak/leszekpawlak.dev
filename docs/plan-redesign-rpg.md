@@ -16,15 +16,15 @@ Etapy 0–5 dotyczą kompletnego redesignu strony. Dopiero po ich dopięciu real
 
 ### Architektura i obecny wygląd
 
-| Obszar | Stan w kodzie | Znaczenie dla redesignu |
-| --- | --- | --- |
-| Stos | Next.js App Router, React, TypeScript, Tailwind CSS 4, `motion`, `next-intl` | Wystarczy do redesignu. Ewentualną technologię minigry dobieramy dopiero w etapie 6; strona i menu nie będą renderowane w silniku gry. |
-| Routing | Sześć stron w `src/app/[locale]/`: główna, about, services, experience, workflow, contact | Menu RPG powinno korzystać z tych samych adresów i prawdziwych linków. |
-| Wspólny layout | `src/app/[locale]/layout.tsx`: język, fonty, inicjalizacja motywu, nawigacja, stopka, cookies, Analytics | To miejsce na wspólną ramę interfejsu. Nie należy odtwarzać integracji oddzielnie na każdej stronie. |
-| Styl | `src/app/globals.css`: tokeny kolorów, jasny dzień i wieczór, granatowa noc, gradienty, animowane plamy, poświaty | Sama zmiana kolorów nie wystarczy. Należy zmienić również kompozycję, obramowania, typografię, ikony i zachowanie dekoracji. |
-| Komponenty | Osobne komponenty sekcji; wszystkie obecnie klienckie; powtarzane nagłówki, karty, odstępy i animacje | Warto wprowadzić kilka wspólnych elementów UI, bez przepisywania całej architektury. |
-| Treści | `src/messages/pl.json`, `src/messages/en.json`; dodatkowo tablice umiejętności i doświadczenia w komponentach | RPG jest warstwą prezentacji istniejących danych. Nie zakładamy, że treści są już pobierane z CMS. |
-| Grafiki | Pierwotnie brak portretu i ilustracji fantasy. Użytkownik dostarczył portret „ChatGPT Image 30 lip 2026, 12_13_16.png” jako referencję do wygenerowania maga. | Przygotować autorską postać z zachowaniem podobieństwa, tło i dodatkowe dekoracje. Nie publikować automatycznie surowego zdjęcia referencyjnego. |
+| Obszar         | Stan w kodzie                                                                                                                                                 | Znaczenie dla redesignu                                                                                                                          |
+| -------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Stos           | Next.js App Router, React, TypeScript, Tailwind CSS 4, `motion`, `next-intl`                                                                                  | Wystarczy do redesignu. Ewentualną technologię minigry dobieramy dopiero w etapie 6; strona i menu nie będą renderowane w silniku gry.           |
+| Routing        | Sześć stron w `src/app/[locale]/`: główna, about, services, experience, workflow, contact                                                                     | Menu RPG powinno korzystać z tych samych adresów i prawdziwych linków.                                                                           |
+| Wspólny layout | `src/app/[locale]/layout.tsx`: język, fonty, inicjalizacja motywu, nawigacja, stopka, cookies, Analytics                                                      | To miejsce na wspólną ramę interfejsu. Nie należy odtwarzać integracji oddzielnie na każdej stronie.                                             |
+| Styl           | `src/app/globals.css`: tokeny kolorów, jasny dzień i wieczór, granatowa noc, gradienty, animowane plamy, poświaty                                             | Sama zmiana kolorów nie wystarczy. Należy zmienić również kompozycję, obramowania, typografię, ikony i zachowanie dekoracji.                     |
+| Komponenty     | Osobne komponenty sekcji; wszystkie obecnie klienckie; powtarzane nagłówki, karty, odstępy i animacje                                                         | Warto wprowadzić kilka wspólnych elementów UI, bez przepisywania całej architektury.                                                             |
+| Treści         | `src/messages/pl.json`, `src/messages/en.json`; dodatkowo tablice umiejętności i doświadczenia w komponentach                                                 | RPG jest warstwą prezentacji istniejących danych. Nie zakładamy, że treści są już pobierane z CMS.                                               |
+| Grafiki        | Pierwotnie brak portretu i ilustracji fantasy. Użytkownik dostarczył portret „ChatGPT Image 30 lip 2026, 12_13_16.png” jako referencję do wygenerowania maga. | Przygotować autorską postać z zachowaniem podobieństwa, tło i dodatkowe dekoracje. Nie publikować automatycznie surowego zdjęcia referencyjnego. |
 
 Obecny język wizualny wynika z dużych, wyśrodkowanych nagłówków, gradientowego tekstu, zaokrąglonych kart i przycisków oraz abstrakcyjnych animowanych teł. Docelowe menu powinno mieć bardziej uporządkowane panele, trwałą nawigację i wyraźną kartę bohatera.
 
@@ -48,28 +48,28 @@ Przed formułowaniem zaleceń architektonicznych przeczytano lokalne przewodniki
 
 Poniższa tabela jest listą kontrolną regresji, a nie deklaracją przeprowadzonych testów runtime.
 
-| Funkcja / zawartość | Gdzie jest zaimplementowana | Warunek zachowania |
-| --- | --- | --- |
-| Sześć podstron i nawigacja | `src/app/[locale]/`, `src/components/Navigation.tsx` | Wszystkie dotychczasowe adresy działają; aktywna pozycja menu jest widoczna; działają odświeżenie, link bezpośredni oraz Wstecz/Dalej. |
-| PL/EN i wykrywanie języka | `src/i18n/`, `src/proxy.ts`, oba pliki wiadomości | Zachować dwa języki, `localeDetection: true`, domyślny EN i przełączanie języka na odpowiadającej podstronie. |
-| Menu mobilne | `Navigation.tsx` | Wszystkie pozycje i przełącznik języka pozostają dostępne; po wybraniu linku menu się zamyka. |
-| Automatyczny motyw | `TimeTheme.tsx`, layout, `globals.css` | Zachować lokalny czas, trzy warianty i ustawienie właściwego motywu przed pierwszym wyświetleniem treści. |
-| Oferta na stronie głównej | `Hero.tsx`, namespace `hero` | Nazwisko, rzeczywista specjalizacja, opis korzyści, CTA do kontaktu/wyceny oraz CTA do usług nadal dostępne. |
-| Biografia i umiejętności | `AboutSection.tsx`, namespace `about` | Zachować pełną biografię i wszystkie 23 pozycje w czterech kategoriach. |
-| Cztery usługi | `ServicesSection.tsx`, namespace `services` | Zachować konsulting architektoniczny, wyceny i planowanie, Code Review & Mentoring oraz strategię integracji AI. |
-| Osiem pozycji doświadczenia | `ExperienceSection.tsx` | Zachować firmy, role, pełne opisy PL/EN, technologie, daty, lokalne formatowanie i oznaczenie „Obecnie”. |
-| Sześć etapów współpracy | `WorkflowTimeline.tsx`, namespace `workflow` | Zachować zapytanie, NDA, zakres, akceptację wyceny, dostarczenie/omówienie wyników i zakończenie współpracy. |
-| Pobieranie NDA | `WorkflowTimeline.tsx`, `public/nda-leszek-pawlak.pdf` | Zachować adres PDF, atrybut `download` i nazwę `NDA-Leszek-Pawlak-PL-EN.pdf`; przycisk dostępny w PL i EN. |
-| Źródło NDA i generator | `public/nda-leszek-pawlak.html`, `scripts/generate-nda-pdf.mjs` | Nie usuwać i nie przepisywać dokumentu w ramach oprawy RPG. Generator jest osobnym narzędziem wymagającym Puppeteera. |
-| Formularz kontaktowy | `ContactSection.tsx` | Zachować imię i nazwisko, email, wiadomość, wymagane pola, typ email, honeypot, stan wysyłania, blokadę przycisku, sukces, błąd i reset po sukcesie. |
-| Połączenie z Web3Forms | `ContactSection.tsx` | Zachować działający kontrakt wysyłki i konfigurację klucza; wygląd przycisku nie może zmienić sposobu dostarczania wiadomości. |
-| Istniejący endpoint kontaktowy | `src/app/api/contact/route.ts` | Nie usuwać ani nie osłabiać walidacji, honeypota, obsługi odpowiedzi i obecnego ograniczenia liczby zapytań. |
-| Baner cookies | `CookieBanner.tsx` | Zachować teksty PL/EN, zamknięcie i zapamiętywanie akceptacji pod kluczem `cookie-consent-accepted`. |
-| Analityka | `<Analytics />` w layoucie | Zachować montowanie integracji Vercel Analytics; nie przenosić jej do elementu, który znika przy zmianie panelu. |
-| Stopka | `Footer.tsx` | Zachować rok, prawa autorskie, GitHub i LinkedIn oraz bezpieczne otwieranie linków zewnętrznych. |
-| Metadane i tożsamość | layout, `public/favicon.svg`, `src/app/favicon.ico` | Zachować nazwisko, opis zawodowy, tytuły i Open Graph; zapewnić spójność favicon z nową oprawą. |
-| Animacje i responsywność | `motion`, `globals.css`, komponenty | Zachować animowane wejścia i reakcje na interakcje w nowym stylu; dodać wariant ograniczonego ruchu i nie uzależniać dostępu do treści od efektów. |
-| Przygotowanie do Sanity | `src/lib/sanity.ts`, `sanity/schemas/`, `next.config.ts` | Zachować klienta, schematy, pola PL/EN i konfigurację obrazów z CDN; nie usuwać przy okazji porządkowania CSS. |
+| Funkcja / zawartość            | Gdzie jest zaimplementowana                                     | Warunek zachowania                                                                                                                                   |
+| ------------------------------ | --------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Sześć podstron i nawigacja     | `src/app/[locale]/`, `src/components/Navigation.tsx`            | Wszystkie dotychczasowe adresy działają; aktywna pozycja menu jest widoczna; działają odświeżenie, link bezpośredni oraz Wstecz/Dalej.               |
+| PL/EN i wykrywanie języka      | `src/i18n/`, `src/proxy.ts`, oba pliki wiadomości               | Zachować dwa języki, `localeDetection: true`, domyślny EN i przełączanie języka na odpowiadającej podstronie.                                        |
+| Menu mobilne                   | `Navigation.tsx`                                                | Wszystkie pozycje i przełącznik języka pozostają dostępne; po wybraniu linku menu się zamyka.                                                        |
+| Automatyczny motyw             | `TimeTheme.tsx`, layout, `globals.css`                          | Zachować lokalny czas, trzy warianty i ustawienie właściwego motywu przed pierwszym wyświetleniem treści.                                            |
+| Oferta na stronie głównej      | `Hero.tsx`, namespace `hero`                                    | Nazwisko, rzeczywista specjalizacja, opis korzyści, CTA do kontaktu/wyceny oraz CTA do usług nadal dostępne.                                         |
+| Biografia i umiejętności       | `AboutSection.tsx`, namespace `about`                           | Zachować pełną biografię i wszystkie 23 pozycje w czterech kategoriach.                                                                              |
+| Cztery usługi                  | `ServicesSection.tsx`, namespace `services`                     | Zachować konsulting architektoniczny, wyceny i planowanie, Code Review & Mentoring oraz strategię integracji AI.                                     |
+| Osiem pozycji doświadczenia    | `ExperienceSection.tsx`                                         | Zachować firmy, role, pełne opisy PL/EN, technologie, daty, lokalne formatowanie i oznaczenie „Obecnie”.                                             |
+| Sześć etapów współpracy        | `WorkflowTimeline.tsx`, namespace `workflow`                    | Zachować zapytanie, NDA, zakres, akceptację wyceny, dostarczenie/omówienie wyników i zakończenie współpracy.                                         |
+| Pobieranie NDA                 | `WorkflowTimeline.tsx`, `public/nda-leszek-pawlak.pdf`          | Zachować adres PDF, atrybut `download` i nazwę `NDA-Leszek-Pawlak-PL-EN.pdf`; przycisk dostępny w PL i EN.                                           |
+| Źródło NDA i generator         | `public/nda-leszek-pawlak.html`, `scripts/generate-nda-pdf.mjs` | Nie usuwać i nie przepisywać dokumentu w ramach oprawy RPG. Generator jest osobnym narzędziem wymagającym Puppeteera.                                |
+| Formularz kontaktowy           | `ContactSection.tsx`                                            | Zachować imię i nazwisko, email, wiadomość, wymagane pola, typ email, honeypot, stan wysyłania, blokadę przycisku, sukces, błąd i reset po sukcesie. |
+| Połączenie z Web3Forms         | `ContactSection.tsx`                                            | Zachować działający kontrakt wysyłki i konfigurację klucza; wygląd przycisku nie może zmienić sposobu dostarczania wiadomości.                       |
+| Istniejący endpoint kontaktowy | `src/app/api/contact/route.ts`                                  | Nie usuwać ani nie osłabiać walidacji, honeypota, obsługi odpowiedzi i obecnego ograniczenia liczby zapytań.                                         |
+| Baner cookies                  | `CookieBanner.tsx`                                              | Zachować teksty PL/EN, zamknięcie i zapamiętywanie akceptacji pod kluczem `cookie-consent-accepted`.                                                 |
+| Analityka                      | `<Analytics />` w layoucie                                      | Zachować montowanie integracji Vercel Analytics; nie przenosić jej do elementu, który znika przy zmianie panelu.                                     |
+| Stopka                         | `Footer.tsx`                                                    | Zachować rok, prawa autorskie, GitHub i LinkedIn oraz bezpieczne otwieranie linków zewnętrznych.                                                     |
+| Metadane i tożsamość           | layout, `public/favicon.svg`, `src/app/favicon.ico`             | Zachować nazwisko, opis zawodowy, tytuły i Open Graph; zapewnić spójność favicon z nową oprawą.                                                      |
+| Animacje i responsywność       | `motion`, `globals.css`, komponenty                             | Zachować animowane wejścia i reakcje na interakcje w nowym stylu; dodać wariant ograniczonego ruchu i nie uzależniać dostępu do treści od efektów.   |
+| Przygotowanie do Sanity        | `src/lib/sanity.ts`, `sanity/schemas/`, `next.config.ts`        | Zachować klienta, schematy, pola PL/EN i konfigurację obrazów z CDN; nie usuwać przy okazji porządkowania CSS.                                       |
 
 ### Istotne rozróżnienia techniczne
 
@@ -87,26 +87,26 @@ Podczas pierwszego etapu wizualnego nie zmieniać tej topologii. Ewentualne ujed
 
 Poniższy podział wynika z preferencji opisanych przez użytkownika, nie z założenia, że trzeba odtworzyć którąkolwiek grę.
 
-| Inspiracja | Co przejmujemy jako zasadę | Jak zastosować to na stronie |
-| --- | --- | --- |
-| **Witcher 3** | Ruchome tło oraz czytelne przedstawienie wszystkich pozycji menu. | Na desktopie pełna lista sześciu stron jest stale widoczna, ma wyraźny aktywny wybór i proste etykiety. Tło porusza się subtelnie, nie przesuwając tekstu i kontrolek. |
-| **Bastion** | Główna inspiracja graficzna: bardziej malarska, barwna i jaśniejsza oprawa niż w inspiracji wiedźmińskiej. | Ilustracyjne materiały, wyraziste pociągnięcia pędzla, ciepłe złoto/ochra, morski błękit, zieleń i jasne refleksy. Kolor i światło pozostają widoczne także przy ciemnych panelach. |
-| **Trine** | Interaktywny ekran z postacią jako pomysł na późniejszą zabawę. | Osobna faza po ukończeniu strony: sterowany mag, telekineza bloków, mróz utrwalający rzeźbę i lawa rozpoczynająca nową budowę. |
+| Inspiracja    | Co przejmujemy jako zasadę                                                                                 | Jak zastosować to na stronie                                                                                                                                                        |
+| ------------- | ---------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Witcher 3** | Ruchome tło oraz czytelne przedstawienie wszystkich pozycji menu.                                          | Na desktopie pełna lista sześciu stron jest stale widoczna, ma wyraźny aktywny wybór i proste etykiety. Tło porusza się subtelnie, nie przesuwając tekstu i kontrolek.              |
+| **Bastion**   | Główna inspiracja graficzna: bardziej malarska, barwna i jaśniejsza oprawa niż w inspiracji wiedźmińskiej. | Ilustracyjne materiały, wyraziste pociągnięcia pędzla, ciepłe złoto/ochra, morski błękit, zieleń i jasne refleksy. Kolor i światło pozostają widoczne także przy ciemnych panelach. |
+| **Trine**     | Interaktywny ekran z postacią jako pomysł na późniejszą zabawę.                                            | Osobna faza po ukończeniu strony: sterowany mag, telekineza bloków, mróz utrwalający rzeźbę i lawa rozpoczynająca nową budowę.                                                      |
 
 Docelowo: malarska tawerna połączona z pracownią maga, czytelne menu na pierwszym planie oraz rozpoznawalny Leszek jako postać do zrekrutowania. **Bastion wyznacza wygląd; Witcher 3 organizację menu i atmosferę ruchu; Trine zakres późniejszej interakcji.** Nie sprowadzać całości do prawie czarnego, realistycznego interfejsu tylko dlatego, że pierwszą inspiracją jest Witcher 3.
 
 Grafiki będą autorskie. Nie kopiujemy znaków, gotowych interfejsów, postaci ani plików z wymienionych gier. Dane zawodowe i funkcjonalność pozostają niezależną warstwą HTML.
 
-| Element | Proponowana zmiana |
-| --- | --- |
-| Kompozycja | Stała rama menu, boczna nawigacja na dużym ekranie, aktywny panel treści i wyróżniona karta postaci. |
-| Tło | Malarska scena z wyraźnym kolorem i światłem, spokojniejsze obszary pod tekstem; czytelne ciemne panele ponad ilustracją. Dzień jaśniejszy i bardziej barwny od nocy. |
-| Karty | Mniejsze zaokrąglenia, cienkie podwójne obramowania, ornament narożnika i subtelny cień zamiast dużych obłych kafli. |
+| Element    | Proponowana zmiana                                                                                                                                                       |
+| ---------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Kompozycja | Stała rama menu, boczna nawigacja na dużym ekranie, aktywny panel treści i wyróżniona karta postaci.                                                                     |
+| Tło        | Malarska scena z wyraźnym kolorem i światłem, spokojniejsze obszary pod tekstem; czytelne ciemne panele ponad ilustracją. Dzień jaśniejszy i bardziej barwny od nocy.    |
+| Karty      | Mniejsze zaokrąglenia, cienkie podwójne obramowania, ornament narożnika i subtelny cień zamiast dużych obłych kafli.                                                     |
 | Typografia | Geist pozostaje fontem tekstu i formularzy. Jeden dodatkowy krój o charakterze fantasy/serif wyłącznie dla dużych tytułów, po sprawdzeniu polskich znaków i czytelności. |
-| Kolory | Głęboki morski błękit, drewno, ochra, stare złoto, zieleń i kremowe refleksy; turkus magii jako akcent. Unikać jednolitej szarości lub sepii. |
-| Ikony | Spójne proste SVG: księga, zwój, kompas, tarcza, pióro, symbol postaci. Każda ważna ikona ma widoczną etykietę tekstową. |
-| Ruch | Oprócz wejść paneli: powolny ruch warstw scenerii, subtelna mgiełka/pył i oddech światła. Stałe pozycje menu, bez drgania liter i przesuwania obszarów klikalnych. |
-| CTA | „Zaproś do drużyny” z jasnym kontekstem „Kontakt i wycena”; drugie CTA nadal pokazuje zakres usług. |
+| Kolory     | Głęboki morski błękit, drewno, ochra, stare złoto, zieleń i kremowe refleksy; turkus magii jako akcent. Unikać jednolitej szarości lub sepii.                            |
+| Ikony      | Spójne proste SVG: księga, zwój, kompas, tarcza, pióro, symbol postaci. Każda ważna ikona ma widoczną etykietę tekstową.                                                 |
+| Ruch       | Oprócz wejść paneli: powolny ruch warstw scenerii, subtelna mgiełka/pył i oddech światła. Stałe pozycje menu, bez drgania liter i przesuwania obszarów klikalnych.       |
+| CTA        | „Zaproś do drużyny” z jasnym kontekstem „Kontakt i wycena”; drugie CTA nadal pokazuje zakres usług.                                                                      |
 
 Nie dodawać obowiązkowego intro, ekranu „Press Start”, automatycznej muzyki, własnego kursora ani mechaniki odblokowywania informacji. Nie chować istotnych opisów wyłącznie pod hoverem. Rekruter nie musi znać RPG, aby zrozumieć ofertę.
 
@@ -128,11 +128,11 @@ Zachować zwykłe przewijanie dokumentu. Nie wymuszać wysokości całej aplikac
 
 ### Zachowanie, którego nie zmieniamy
 
-| Wariant | Lokalny czas odwiedzającego | Docelowy klimat |
-| --- | --- | --- |
-| `day` | 06:00–17:59 | Barwna malarska tawerna/pracownia, światło z okna, ochra i morski błękit. Jaśniejsze otoczenie, nadal ciemne czytelne panele i mniej bieli niż na obecnej stronie. |
-| `evening` | 18:00–21:59 | Światło świec, bursztyn, ciemny brąz i fiolet. |
-| `night` | 22:00–05:59 | Głęboki granat i węgiel, chłodne światło księżyca, spokojna poświata magii. |
+| Wariant   | Lokalny czas odwiedzającego | Docelowy klimat                                                                                                                                                    |
+| --------- | --------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `day`     | 06:00–17:59                 | Barwna malarska tawerna/pracownia, światło z okna, ochra i morski błękit. Jaśniejsze otoczenie, nadal ciemne czytelne panele i mniej bieli niż na obecnej stronie. |
+| `evening` | 18:00–21:59                 | Światło świec, bursztyn, ciemny brąz i fiolet.                                                                                                                     |
+| `night`   | 22:00–05:59                 | Głęboki granat i węgiel, chłodne światło księżyca, spokojna poświata magii.                                                                                        |
 
 Źródłem czasu pozostaje zegar przeglądarki. Nie zastępować go czasem serwera, geolokalizacją, godzinami w Polsce ani samym `prefers-color-scheme`. Ręczny wybór motywu nie jest wymagany; ewentualne przyszłe ustawienie musi zachować opcję automatyczną jako domyślną.
 
@@ -140,15 +140,15 @@ Zachować zwykłe przewijanie dokumentu. Nie wymuszać wysokości całej aplikac
 
 Poniższe wartości są punktem startowym do makiety, nie zatwierdzoną paletą. Kontrast trzeba sprawdzić na rzeczywistych komponentach, również z przezroczystością i teksturą.
 
-| Token | Dzień | Wieczór | Noc |
-| --- | --- | --- | --- |
-| `--background` | `#202B30` | `#211C29` | `#0C111A` |
-| `--surface` | `#2D3B3E` | `#302733` | `#17202E` |
+| Token             | Dzień     | Wieczór   | Noc       |
+| ----------------- | --------- | --------- | --------- |
+| `--background`    | `#202B30` | `#211C29` | `#0C111A` |
+| `--surface`       | `#2D3B3E` | `#302733` | `#17202E` |
 | `--surface-light` | `#40514C` | `#433343` | `#253247` |
-| `--foreground` | `#F1E8D8` | `#F0E4DA` | `#E5EAF2` |
-| `--muted` | `#BFB3A0` | `#C1ACBC` | `#A9B8CC` |
-| `--primary` | `#D6B474` | `#D9A56C` | `#D3BC88` |
-| `--accent` | `#94B6A0` | `#B7A0D6` | `#8EACD8` |
+| `--foreground`    | `#F1E8D8` | `#F0E4DA` | `#E5EAF2` |
+| `--muted`         | `#BFB3A0` | `#C1ACBC` | `#A9B8CC` |
+| `--primary`       | `#D6B474` | `#D9A56C` | `#D3BC88` |
+| `--accent`        | `#94B6A0` | `#B7A0D6` | `#8EACD8` |
 
 Pozostawić istniejące nazwy tokenów i mapowanie `@theme inline`, aby etapowo przebudowywać komponenty. Uzupełnić warianty `--primary-light` i `--accent-light` oraz dodać semantyczne tokeny dla obramowania, fokusu, tekstu na przycisku, błędu i sukcesu. Kolory dekoracji powinny wynikać z tych samych wariantów, zamiast pozostawać zaszyte w SVG i klasach.
 
@@ -168,14 +168,14 @@ Aktualizacja bez przeładowania jest planowanym ulepszeniem istniejącej funkcji
 
 Prefiks języka pozostaje bez zmian: poniżej `/` oznacza odpowiednio `/pl` lub `/en`, a pozostałe adresy nadal występują w obu językach.
 
-| Trasa i komponent | Docelowy ekran | Co konkretnie zrobić |
-| --- | --- | --- |
-| `/` — `Hero.tsx` | Karta postaci | Zamiast wyłącznie centralnego napisu stworzyć panel z nazwiskiem, rzeczywistą rolą konsultanta, opisem wartości dla zespołu, skrótem specjalizacji i portretem/symbolem. Zachować oba CTA. |
-| `/about` — `AboutSection.tsx` | Postać i księga umiejętności | Biografię przedstawić jako historię postaci, bez skracania informacji. Cztery kategorie umiejętności pokazać jako czytelne grupy w księdze; każda technologia nadal widoczna. |
-| `/services` — `ServicesSection.tsx` | Zadania, w których mogę pomóc | Cztery usługi jako karty zleceń: rzeczywista nazwa, istniejący opis, metaforyczna ikona. Dodatkowe opisy rezultatu tylko po zatwierdzeniu, bez nowych obietnic zakresu. |
-| `/experience` — `ExperienceSection.tsx` | Dziennik wypraw | Zachować chronologię i osiem wpisów. Firmy jako zespoły, z którymi pracowałem, ale nazwy firm i stanowisk bez fikcyjnych zamienników. Aktualnej pozycji nie oznaczać jako ukończonego zadania. |
-| `/workflow` — `WorkflowTimeline.tsx` | Przebieg wspólnego questu | Dotychczasowe sześć etapów jako czytelna ścieżka. NDA może wizualnie przypominać zwój/pieczęć, ale nazwa i opis dokumentu pozostają dosłowne. |
-| `/contact` — `ContactSection.tsx` | Zaproszenie do drużyny | Formularz w panelu rekrutacji. Nagłówek może używać metafory, lecz pola, walidacja i komunikaty pozostają jednoznaczne. Bez nowych obowiązkowych pól i bez dodatkowego kroku przed wysłaniem. |
+| Trasa i komponent                       | Docelowy ekran                | Co konkretnie zrobić                                                                                                                                                                                                                             |
+| --------------------------------------- | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `/` — `Hero.tsx`                        | Karta postaci                 | Zamiast wyłącznie centralnego napisu stworzyć panel z nazwiskiem, rzeczywistą rolą konsultanta, opisem wartości dla zespołu, skrótem specjalizacji i portretem/symbolem. Zachować oba CTA.                                                       |
+| `/about` — `AboutSection.tsx`           | Postać i księga umiejętności  | Biografię przedstawić jako historię postaci, bez skracania informacji. Cztery kategorie umiejętności pokazać jako czytelne grupy w księdze; każda technologia nadal widoczna.                                                                    |
+| `/services` — `ServicesSection.tsx`     | Zadania, w których mogę pomóc | Cztery usługi jako karty zleceń: rzeczywista nazwa, istniejący opis, metaforyczna ikona. Dodatkowe opisy rezultatu tylko po zatwierdzeniu, bez nowych obietnic zakresu.                                                                          |
+| `/experience` — `ExperienceSection.tsx` | Dziennik wypraw               | Zachować chronologię i dziewięć wpisów (w tym aktualną pozycję dodaną przed etapem 2). Firmy jako zespoły, z którymi pracowałem, ale nazwy firm i stanowisk bez fikcyjnych zamienników. Aktualnej pozycji nie oznaczać jako ukończonego zadania. |
+| `/workflow` — `WorkflowTimeline.tsx`    | Przebieg wspólnego questu     | Dotychczasowe sześć etapów jako czytelna ścieżka. NDA może wizualnie przypominać zwój/pieczęć, ale nazwa i opis dokumentu pozostają dosłowne.                                                                                                    |
+| `/contact` — `ContactSection.tsx`       | Zaproszenie do drużyny        | Formularz w panelu rekrutacji. Nagłówek może używać metafory, lecz pola, walidacja i komunikaty pozostają jednoznaczne. Bez nowych obowiązkowych pól i bez dodatkowego kroku przed wysłaniem.                                                    |
 
 W nawigacji łączyć klimat z jasnością, np. „Postać · O mnie”, „Zadania · Usługi”, „Dziennik · Doświadczenie”, „Współpraca” i „Kontakt”. Nie używać samych nieoczywistych symboli. Dla EN przygotować naturalne odpowiedniki, a nie dosłowne tłumaczenie każdej metafory.
 
@@ -185,19 +185,19 @@ Klucz `services.development` oznacza obecnie Code Review & Mentoring. Nie interp
 
 ## 7. Mapa zmian w plikach i komponentach
 
-| Plik / grupa | Planowana zmiana | Granica bezpieczeństwa |
-| --- | --- | --- |
-| `src/app/globals.css` | Trzy palety RPG, tokeny stanów, obramowania, typografia, animacje i reduced motion. Stopniowo zastąpić dotychczasowe plamy i gradienty odpowiednikami pasującymi do świata. | Nie usuwać używanych klas przed migracją wszystkich wywołań; nie blokować przewijania globalnie. |
-| `src/app/[locale]/layout.tsx` | Wspólna rama strony, ewentualny font nagłówków, spójny obszar treści. | Pozostawić layout serwerowy, `await params`, `setRequestLocale`, provider, motyw, Analytics, stopkę i cookies. |
-| `src/components/Navigation.tsx` | Menu boczne na desktopie i rozwijane na mobile; aktywny wybór jak w RPG. | Nadal używać `Link` i `usePathname` z `@/i18n/navigation`; nie zastępować routingu lokalnym stanem zakładek. |
-| `src/components/TimeTheme.tsx` | Zachowanie obecnych reguł, aktualizacja czasu podczas otwartej sesji i sprzątanie efektów. | Nie powiązać motywu z językiem ani nie resetować go przy zmianie panelu. |
-| `Hero.tsx`, `AboutSection.tsx` | Karta postaci, biografia i grupy umiejętności we wspólnych panelach. | Jedno źródło danych dla powtarzanych specjalizacji; pełne treści pozostają dostępne. |
-| `ServicesSection.tsx`, `ExperienceSection.tsx`, `WorkflowTimeline.tsx` | Karty zadań, dziennik i ścieżka współpracy; wspólne nagłówki, tagi, obramowania. | Zachować wszystkie rekordy, kolejność istotną merytorycznie i link pobrania NDA. |
-| `ContactSection.tsx` | Wygląd pól, przycisków, fokusu i komunikatów. | W pierwszym kroku pozostawić `handleSubmit`, pola i kontrakt Web3Forms; nie łączyć zmiany wyglądu ze zmianą dostawcy. |
-| `Footer.tsx`, `CookieBanner.tsx` | Dopasowanie paneli, linków i przycisków do trzech palet. | Zachować lokalizację, zapamiętywanie akceptacji i pełne linki; nie przykrywać istotnych kontrolek. |
-| `src/messages/pl.json`, `src/messages/en.json` | Nowe etykiety fabularne, pomocnicze podpisy i dostępne nazwy kontrolek. | Aktualizować oba języki razem; zachować pełne znaczenie dotychczasowych informacji. |
-| `public/favicon.svg`, `src/app/favicon.ico` | Spójny znak LP lub osobisty symbol w nowej palecie. | Sprawdzić oba źródła ikon; sam SVG nie powinien pozostawić niespójnego favicon z App Routera. |
-| `src/i18n/`, `src/proxy.ts`, `src/app/api/contact/route.ts`, `sanity/`, `src/lib/sanity.ts`, `next.config.ts` | Co do zasady bez zmian funkcjonalnych. | Każda konieczna ingerencja osobno uzasadniona i sprawdzona. |
+| Plik / grupa                                                                                                  | Planowana zmiana                                                                                                                                                            | Granica bezpieczeństwa                                                                                                |
+| ------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------- |
+| `src/app/globals.css`                                                                                         | Trzy palety RPG, tokeny stanów, obramowania, typografia, animacje i reduced motion. Stopniowo zastąpić dotychczasowe plamy i gradienty odpowiednikami pasującymi do świata. | Nie usuwać używanych klas przed migracją wszystkich wywołań; nie blokować przewijania globalnie.                      |
+| `src/app/[locale]/layout.tsx`                                                                                 | Wspólna rama strony, ewentualny font nagłówków, spójny obszar treści.                                                                                                       | Pozostawić layout serwerowy, `await params`, `setRequestLocale`, provider, motyw, Analytics, stopkę i cookies.        |
+| `src/components/Navigation.tsx`                                                                               | Menu boczne na desktopie i rozwijane na mobile; aktywny wybór jak w RPG.                                                                                                    | Nadal używać `Link` i `usePathname` z `@/i18n/navigation`; nie zastępować routingu lokalnym stanem zakładek.          |
+| `src/components/TimeTheme.tsx`                                                                                | Zachowanie obecnych reguł, aktualizacja czasu podczas otwartej sesji i sprzątanie efektów.                                                                                  | Nie powiązać motywu z językiem ani nie resetować go przy zmianie panelu.                                              |
+| `Hero.tsx`, `AboutSection.tsx`                                                                                | Karta postaci, biografia i grupy umiejętności we wspólnych panelach.                                                                                                        | Jedno źródło danych dla powtarzanych specjalizacji; pełne treści pozostają dostępne.                                  |
+| `ServicesSection.tsx`, `ExperienceSection.tsx`, `WorkflowTimeline.tsx`                                        | Karty zadań, dziennik i ścieżka współpracy; wspólne nagłówki, tagi, obramowania.                                                                                            | Zachować wszystkie rekordy, kolejność istotną merytorycznie i link pobrania NDA.                                      |
+| `ContactSection.tsx`                                                                                          | Wygląd pól, przycisków, fokusu i komunikatów.                                                                                                                               | W pierwszym kroku pozostawić `handleSubmit`, pola i kontrakt Web3Forms; nie łączyć zmiany wyglądu ze zmianą dostawcy. |
+| `Footer.tsx`, `CookieBanner.tsx`                                                                              | Dopasowanie paneli, linków i przycisków do trzech palet.                                                                                                                    | Zachować lokalizację, zapamiętywanie akceptacji i pełne linki; nie przykrywać istotnych kontrolek.                    |
+| `src/messages/pl.json`, `src/messages/en.json`                                                                | Nowe etykiety fabularne, pomocnicze podpisy i dostępne nazwy kontrolek.                                                                                                     | Aktualizować oba języki razem; zachować pełne znaczenie dotychczasowych informacji.                                   |
+| `public/favicon.svg`, `src/app/favicon.ico`                                                                   | Spójny znak LP lub osobisty symbol w nowej palecie.                                                                                                                         | Sprawdzić oba źródła ikon; sam SVG nie powinien pozostawić niespójnego favicon z App Routera.                         |
+| `src/i18n/`, `src/proxy.ts`, `src/app/api/contact/route.ts`, `sanity/`, `src/lib/sanity.ts`, `next.config.ts` | Co do zasady bez zmian funkcjonalnych.                                                                                                                                      | Każda konieczna ingerencja osobno uzasadniona i sprawdzona.                                                           |
 
 Proponowane nowe elementy, tworzone tylko wtedy, gdy mają faktyczne zastosowanie:
 
@@ -249,26 +249,28 @@ Każdy etap powinien kończyć się działającą stroną. Odhaczone są jedynie
 ### Etap 0 — środowisko i punkt odniesienia
 
 - [x] Użytkownik potwierdził działające środowisko dev po instalacji wszystkich pakietów. Nie planować naprawy konfiguracji na podstawie wcześniejszej niepełnej instalacji.
-- [ ] Uruchomić `npm run lint` i `npm run build`; zapisać istniejące problemy oddzielnie od regresji redesignu.
+- [x] Uruchomić `npm run lint` i `npm run build`; zapisać istniejące problemy oddzielnie od regresji redesignu. Próby z 26.08.2026: lint blokuje obsługa TypeScript 7 przez `typescript-eslint`; domyślny Turbopack zatrzymuje w sandboxie ograniczenie tworzenia procesu na porcie. Po etapie 2 oficjalny wariant `next build --webpack` oraz osobny `tsc --noEmit` przeszły poprawnie. Szczegóły w [raporcie makiety](design/rpg/README.md) i [raporcie etapu 2](design/rpg/stage-2-report.md).
 - [ ] Obejrzeć wszystkie strony PL/EN na desktopie i mobile, zrobić bazowe zrzuty dzień/wieczór/noc i przejść listę funkcji z rozdziału 3.
-- [ ] Potwierdzić używaną konfigurację wysyłki bez ujawniania kluczy. Testy UI wykonywać z atrapą odpowiedzi; prawdziwy test dostarczenia maila uzgodnić osobno.
+- [x] Potwierdzić używaną konfigurację wysyłki bez ujawniania kluczy. Formularz używa bezpośrednio Web3Forms i publicznej zmiennej konfiguracyjnej; osobny `/api/contact` ma własną konfigurację, ale obecny UI go nie wywołuje. Test UI etapu 2 objął wyłącznie natywną walidację bez wysyłki; prawdziwy test dostarczenia maila nadal wymaga osobnego uzgodnienia.
 
 Wynik: znany stan wyjściowy i działające narzędzia weryfikacji.
 
 ### Etap 1 — zatwierdzenie kierunku
 
 - [x] Uzgodniono podział inspiracji: Witcher 3 — menu/ruch tła, Bastion — oprawa graficzna, Trine — osobna późniejsza interakcja; dostarczono portret do wygenerowania maga.
-- [ ] Przygotować makietę karty postaci oraz formularza: desktop/mobile, trzy pory. Formularz służy do sprawdzenia czytelności kontrolek, nie tylko atrakcyjności hero.
-- [ ] Zatwierdzić paletę, typografię, ramy, ikony i etykiety PL/EN przed przenoszeniem ich na wszystkie podstrony.
+- [x] Przygotować makietę karty postaci oraz formularza: desktop/mobile, trzy pory. Formularz służy do sprawdzenia czytelności kontrolek, nie tylko atrakcyjności hero. Interaktywny podgląd PL/EN, uruchomienie i wyniki sprawdzeń: [docs/design/rpg/README.md](design/rpg/README.md). Makieta jest odizolowana od działającej aplikacji i symuluje wysyłkę.
+- [x] Zatwierdzić paletę, typografię, ramy, ikony i etykiety PL/EN przed przenoszeniem ich na wszystkie podstrony. Użytkownik zatwierdził makietę 26.08.2026 i polecił rozpocząć integrację.
 
 Wynik: zatwierdzony wzorzec interfejsu; brak konieczności projektowania każdej podstrony od zera.
 
 ### Etap 2 — fundament wizualny i automatyka czasu
 
-- [ ] Wprowadzić trzy zestawy tokenów, semantyczne kolory stanów i wspólne panele/przyciski.
-- [ ] Zbudować ramę menu i responsywną nawigację, zachowując dotychczasowe linki oraz locale.
-- [ ] Zachować inicjalizację motywu przed hydratacją; dodać aktualizację przy zmianie pory w otwartej karcie oraz testy granic.
-- [ ] Dopasować stopkę i cookies; sprawdzić, że wspólny layout nadal montuje wszystkie integracje.
+- [x] Wprowadzić trzy zestawy tokenów, semantyczne kolory stanów i wspólne panele/przyciski.
+- [x] Zbudować ramę menu i responsywną nawigację, zachowując dotychczasowe linki oraz locale.
+- [x] Zachować inicjalizację motywu przed hydratacją; dodać aktualizację przy zmianie pory w otwartej karcie oraz testy granic.
+- [x] Dopasować stopkę i cookies; sprawdzić, że wspólny layout nadal montuje wszystkie integracje.
+
+Raport wdrożenia i weryfikacji etapu 2: [docs/design/rpg/stage-2-report.md](design/rpg/stage-2-report.md).
 
 Wynik: wszystkie istniejące strony działają w nowej ramie, nawet zanim każda sekcja otrzyma docelowy układ.
 
@@ -312,19 +314,19 @@ Wynik: dodatkowa zabawa na ekranie głównym i trwała lokalna rzeźba, przy zac
 
 Nie ma obecnie gotowej infrastruktury testowej w repozytorium. Przy wdrożeniu dodać tylko testy pokrywające realne ryzyka: regułę czasu oraz zachowania użytkownika. Dobór narzędzia ustalić przy bazowej weryfikacji działającego środowiska; testy przeglądarkowe mogą korzystać np. z Playwright, a czysta funkcja z lekkiego runnera zgodnego z projektem. Testy minigry są osobnym rozszerzeniem w etapie 6.
 
-| Obszar | Scenariusze wymagane przed odbiorem |
-| --- | --- |
-| Routing i języki | 6 tras × 2 języki; wejście bezpośrednie, odświeżenie, Wstecz/Dalej, aktywna pozycja, przełączenie PL/EN bez utraty podstrony; osobno wejście na `/` i detekcja locale. |
-| Trzy pory | Zrzuty wszystkich tras w dzień, wieczór i noc; brak jasnego błysku przy pełnym załadowaniu; spójność wszystkich komponentów. |
-| Granice czasu | 05:59 → noc, 06:00 → dzień, 17:59 → dzień, 18:00 → wieczór, 21:59 → wieczór, 22:00 → noc; 00:00 → noc. Sprawdzić zmianę podczas otwartej karty i po powrocie z tła, również w innej strefie klienta. |
-| Mobile i powiększenie | Szerokości 320, 390, 768, 1024 i 1440 px; brak poziomego przewijania, przyciętych opisów, kolizji menu, klawiatury ekranowej, CTA i banera; kontrola 200% zoom. |
-| Kontakt | Puste pola, błędny email, honeypot, wysyłanie i blokada powtórnego kliknięcia, sukces z resetem, odpowiedź błędna i awaria sieci z możliwością ponowienia. Automatycznie z mockiem, bez rzeczywistych maili. |
-| Endpoint kontaktowy | Osobno zachowanie `/api/contact`: walidacja, honeypot, limit, błąd dostawcy i brak konfiguracji. Nie utożsamiać go z obecną ścieżką formularza. |
-| NDA | Przycisk działa z obu języków, pobiera istniejący PDF z dotychczasową nazwą; pliki PDF/HTML i generator pozostają w repozytorium. |
-| Cookies | Widoczny baner w nowym profilu testowym; akceptacja ukrywa go i pozostaje skuteczna po odświeżeniu oraz zmianie locale. |
-| Integracje | Stopka prowadzi do obecnych profili; Analytics pozostaje zamontowane i wymaga sprawdzenia w środowisku podglądowym; konfiguracja Sanity nie została usunięta. |
-| Dostępność | Pełne przejście klawiaturą, widoczny fokus, poprawne nagłówki i nazwy, status formularza, reduced motion, czytelność w trzech paletach. |
-| Treści i technika | Porównanie wszystkich 23 umiejętności, 4 usług, 8 wpisów doświadczenia i 6 etapów procesu; komplet PL/EN; brak nowych błędów konsoli/hydratacji; udany lint i build. |
+| Obszar                | Scenariusze wymagane przed odbiorem                                                                                                                                                                          |
+| --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Routing i języki      | 6 tras × 2 języki; wejście bezpośrednie, odświeżenie, Wstecz/Dalej, aktywna pozycja, przełączenie PL/EN bez utraty podstrony; osobno wejście na `/` i detekcja locale.                                       |
+| Trzy pory             | Zrzuty wszystkich tras w dzień, wieczór i noc; brak jasnego błysku przy pełnym załadowaniu; spójność wszystkich komponentów.                                                                                 |
+| Granice czasu         | 05:59 → noc, 06:00 → dzień, 17:59 → dzień, 18:00 → wieczór, 21:59 → wieczór, 22:00 → noc; 00:00 → noc. Sprawdzić zmianę podczas otwartej karty i po powrocie z tła, również w innej strefie klienta.         |
+| Mobile i powiększenie | Szerokości 320, 390, 768, 1024 i 1440 px; brak poziomego przewijania, przyciętych opisów, kolizji menu, klawiatury ekranowej, CTA i banera; kontrola 200% zoom.                                              |
+| Kontakt               | Puste pola, błędny email, honeypot, wysyłanie i blokada powtórnego kliknięcia, sukces z resetem, odpowiedź błędna i awaria sieci z możliwością ponowienia. Automatycznie z mockiem, bez rzeczywistych maili. |
+| Endpoint kontaktowy   | Osobno zachowanie `/api/contact`: walidacja, honeypot, limit, błąd dostawcy i brak konfiguracji. Nie utożsamiać go z obecną ścieżką formularza.                                                              |
+| NDA                   | Przycisk działa z obu języków, pobiera istniejący PDF z dotychczasową nazwą; pliki PDF/HTML i generator pozostają w repozytorium.                                                                            |
+| Cookies               | Widoczny baner w nowym profilu testowym; akceptacja ukrywa go i pozostaje skuteczna po odświeżeniu oraz zmianie locale.                                                                                      |
+| Integracje            | Stopka prowadzi do obecnych profili; Analytics pozostaje zamontowane i wymaga sprawdzenia w środowisku podglądowym; konfiguracja Sanity nie została usunięta.                                                |
+| Dostępność            | Pełne przejście klawiaturą, widoczny fokus, poprawne nagłówki i nazwy, status formularza, reduced motion, czytelność w trzech paletach.                                                                      |
+| Treści i technika     | Porównanie wszystkich 23 umiejętności, 4 usług, 9 wpisów doświadczenia i 6 etapów procesu; komplet PL/EN; brak nowych błędów konsoli/hydratacji; udany lint i build.                                         |
 
 Pełna macierz tras, języków i pór to 36 stanów na wybranej szerokości. Automatyczne zrzuty można wykonać dla całej macierzy na desktopie i telefonie, a pozostałe szerokości sprawdzić na reprezentatywnych ekranach: hero, długi wpis doświadczenia, workflow i formularz. Nie trzeba powielać każdej próby wysyłki dla każdego koloru.
 
@@ -350,11 +352,11 @@ Proponowany zakres pierwszej wersji: jedna scena 2D, jeden mag, ograniczony zest
 
 ### Stan trwały i stan luźnych bloków
 
-| Obiekt | Trwałość | Reguła |
-| --- | --- | --- |
-| Pozycja maga, wybór bloku, efekty zaklęć | Tylko bieżąca sesja sceny | Nie muszą przetrwać odświeżenia. |
-| Luźne bloki i niezamrożony układ | Tylko pamięć | Nowy zestaw przy pełnym odświeżeniu/nowym wejściu i po użyciu lawy. Nie zapisywać ich automatycznie do `localStorage`. |
-| Zamrożona rzeźba | `localStorage` | Powstaje po jawnym użyciu mrozu; zachowuje kształt, pozycje i wygląd przy kolejnym wejściu. Nie podlega losowaniu. |
+| Obiekt                                   | Trwałość                  | Reguła                                                                                                                 |
+| ---------------------------------------- | ------------------------- | ---------------------------------------------------------------------------------------------------------------------- |
+| Pozycja maga, wybór bloku, efekty zaklęć | Tylko bieżąca sesja sceny | Nie muszą przetrwać odświeżenia.                                                                                       |
+| Luźne bloki i niezamrożony układ         | Tylko pamięć              | Nowy zestaw przy pełnym odświeżeniu/nowym wejściu i po użyciu lawy. Nie zapisywać ich automatycznie do `localStorage`. |
+| Zamrożona rzeźba                         | `localStorage`            | Powstaje po jawnym użyciu mrozu; zachowuje kształt, pozycje i wygląd przy kolejnym wejściu. Nie podlega losowaniu.     |
 
 Losować kształty, rozmiary, kolory/materiały i pozycje startowe w kontrolowanych granicach: przykładowo 12–18 bloków z kilku prostych rodzin. To wstępny parametr do dostrojenia po prototypie. Zestaw ma pozwalać na budowanie i mieścić się w scenie; nie używać nieograniczonego chaosu lub losowania bloków poza ekranem.
 
@@ -362,11 +364,11 @@ Losowanie odbywa się raz na wejście/pełne odświeżenie i po lawie, nie przy 
 
 ### Zaklęcia
 
-| Zaklęcie | Działanie | Ograniczenia |
-| --- | --- | --- |
-| Telekineza | Wybranie, uniesienie i przenoszenie luźnego bloku; opcjonalnie obrót i delikatne przyciąganie do siatki. | Nie porusza zamrożoną rzeźbą ani prawdziwym UI. Reakcja widoczna także bez animowanych efektów. |
-| Mróz | Zamrożenie bloków ułożonych w oznaczonym obszarze budowy, zebranie ich geometrii i zapis rzeźby. | Brak pustego zapisu. Jedna rzeźba; istniejącej nie zastępować przypadkowo nową. W pierwszej wersji odblokowanie/ponowna budowa następuje przez lawę. |
-| Lawa | Roztopienie całej rzeźby, usunięcie jej konkretnego klucza z `localStorage` i wygenerowanie świeżego zestawu luźnych bloków. | Nigdy `localStorage.clear()`. Operacja nie zmienia cookies, języka ani innych ustawień. Przy istniejącym zapisie zabezpieczyć przed przypadkowym skrótem, np. krótkim potwierdzeniem. |
+| Zaklęcie   | Działanie                                                                                                                    | Ograniczenia                                                                                                                                                                          |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Telekineza | Wybranie, uniesienie i przenoszenie luźnego bloku; opcjonalnie obrót i delikatne przyciąganie do siatki.                     | Nie porusza zamrożoną rzeźbą ani prawdziwym UI. Reakcja widoczna także bez animowanych efektów.                                                                                       |
+| Mróz       | Zamrożenie bloków ułożonych w oznaczonym obszarze budowy, zebranie ich geometrii i zapis rzeźby.                             | Brak pustego zapisu. Jedna rzeźba; istniejącej nie zastępować przypadkowo nową. W pierwszej wersji odblokowanie/ponowna budowa następuje przez lawę.                                  |
+| Lawa       | Roztopienie całej rzeźby, usunięcie jej konkretnego klucza z `localStorage` i wygenerowanie świeżego zestawu luźnych bloków. | Nigdy `localStorage.clear()`. Operacja nie zmienia cookies, języka ani innych ustawień. Przy istniejącym zapisie zabezpieczyć przed przypadkowym skrótem, np. krótkim potwierdzeniem. |
 
 Zwykłe odświeżenie, zmiana podstrony, pory dnia, języka lub zamknięcie gry nie usuwa poprawnego zapisu. Po mrozie kształt staje się nieruchomy, bez dalszego osiadania fizyki. Nie mieszać „zamrożenia wizualnego” z obietnicą zapisu: komunikat o zachowaniu na następne wejście dopiero po udanej operacji storage.
 
@@ -406,18 +408,18 @@ Najpierw sprawdzić mały prototyp DOM/SVG lub canvas 2D. Jeżeli potrzebna będ
 
 ### Osobna macierz odbioru minigry
 
-| Scenariusz | Oczekiwany wynik |
-| --- | --- |
-| Pierwsze wejście, brak zapisu | Mag i poprawny losowy zestaw; żadnej pustej rzeźby w storage. |
-| Odświeżenie bez użycia mrozu | Nowy losowy zestaw; niezamrożony układ nie wraca. |
-| Mróz → odświeżenie → ponowne wejście | Ta sama geometria rzeźby, blok po bloku; brak nadpisania losowaniem i brak drgań fizyki. |
-| Odświeżenie z istniejącą rzeźbą | Rzeźba bez zmian; zachowanie nowej puli luźnych bloków zgodne z zatwierdzoną interpretacją z rozdziału 11. |
-| Lawa → odświeżenie | Własny klucz rzeźby nie istnieje, stara rzeźba nie wraca, pojawiają się nowe bloki. |
-| Lawa przy innych danych strony | Klucz cookies i inne wpisy `localStorage` pozostają nietknięte. |
-| Przełączenie PL/EN, pory i podstrony | Brak skasowania zapisu lub nieplanowanego przelosowania w obrębie sesji; powrót do tej samej sceny. |
-| Resize / telefon po zapisaniu | Te same proporcje i układ dzięki współrzędnym świata; żaden blok nie ucieka poza dostępny obszar. |
+| Scenariusz                                  | Oczekiwany wynik                                                                                                 |
+| ------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Pierwsze wejście, brak zapisu               | Mag i poprawny losowy zestaw; żadnej pustej rzeźby w storage.                                                    |
+| Odświeżenie bez użycia mrozu                | Nowy losowy zestaw; niezamrożony układ nie wraca.                                                                |
+| Mróz → odświeżenie → ponowne wejście        | Ta sama geometria rzeźby, blok po bloku; brak nadpisania losowaniem i brak drgań fizyki.                         |
+| Odświeżenie z istniejącą rzeźbą             | Rzeźba bez zmian; zachowanie nowej puli luźnych bloków zgodne z zatwierdzoną interpretacją z rozdziału 11.       |
+| Lawa → odświeżenie                          | Własny klucz rzeźby nie istnieje, stara rzeźba nie wraca, pojawiają się nowe bloki.                              |
+| Lawa przy innych danych strony              | Klucz cookies i inne wpisy `localStorage` pozostają nietknięte.                                                  |
+| Przełączenie PL/EN, pory i podstrony        | Brak skasowania zapisu lub nieplanowanego przelosowania w obrębie sesji; powrót do tej samej sceny.              |
+| Resize / telefon po zapisaniu               | Te same proporcje i układ dzięki współrzędnym świata; żaden blok nie ucieka poza dostępny obszar.                |
 | Błędny JSON, nieznana wersja, limit storage | Kontrolowany komunikat, działająca strona, brak fałszywej informacji o zapisie lub bezgłośnego kasowania danych. |
-| Klawiatura, mysz, dotyk i reduced motion | Te same podstawowe możliwości; fokus, przewijanie i wpisywanie wiadomości pozostają bez konfliktów. |
-| Wyjście / ukrycie karty / błąd modułu | Pętla gry zatrzymana, strona i kontakt nadal używalne. |
+| Klawiatura, mysz, dotyk i reduced motion    | Te same podstawowe możliwości; fokus, przewijanie i wpisywanie wiadomości pozostają bez konfliktów.              |
+| Wyjście / ukrycie karty / błąd modułu       | Pętla gry zatrzymana, strona i kontakt nadal używalne.                                                           |
 
 Jednostkowo testować walidację snapshotu, operacje storage, granice losowania i reguły mróz/lawa. W przeglądarce sprawdzić pełen cykl budowa → mróz → odświeżenie → lawa → odświeżenie oraz brak regresji podstawowej strony. Nie wystarczy sam wizualny efekt lodu lub stopienia.

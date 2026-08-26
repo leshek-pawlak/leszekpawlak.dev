@@ -1,5 +1,4 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
 import { NextIntlClientProvider } from "next-intl";
 import { getMessages, setRequestLocale } from "next-intl/server";
 import { routing } from "@/i18n/routing";
@@ -7,18 +6,9 @@ import { Navigation } from "@/components/Navigation";
 import { Footer } from "@/components/Footer";
 import { CookieBanner } from "@/components/CookieBanner";
 import { TimeTheme } from "@/components/TimeTheme";
+import { RpgAtmosphere } from "@/components/RpgAtmosphere";
 import { Analytics } from "@vercel/analytics/next";
 import "../globals.css";
-
-const geistSans = Geist({
-  variable: "--font-geist-sans",
-  subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
-});
 
 export function generateStaticParams() {
   return routing.locales.map((locale) => ({ locale }));
@@ -40,14 +30,6 @@ export const metadata: Metadata = {
   },
 };
 
-const timeThemeScript = `
-(function() {
-  var h = new Date().getHours();
-  var t = (h >= 6 && h < 18) ? 'day' : (h >= 18 && h < 22) ? 'evening' : 'night';
-  document.documentElement.setAttribute('data-time', t);
-})();
-`;
-
 export default async function LocaleLayout({
   children,
   params,
@@ -62,21 +44,29 @@ export default async function LocaleLayout({
   return (
     <html
       lang={locale}
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased scroll-smooth`}
+      className="h-full antialiased scroll-smooth"
+      data-scroll-behavior="smooth"
       suppressHydrationWarning
     >
       <head>
         <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
-        <script dangerouslySetInnerHTML={{ __html: timeThemeScript }} />
         <Analytics />
       </head>
-      <body className="min-h-full flex flex-col bg-background text-foreground">
+      <body className="min-h-full bg-background text-foreground">
         <NextIntlClientProvider messages={messages}>
           <TimeTheme />
-          <Navigation />
-          <main className="flex-1">{children}</main>
-          <Footer />
-          <CookieBanner />
+          <div className="rpg-app-shell">
+            <RpgAtmosphere />
+            <a className="rpg-skip-link" href="#main-content">
+              {locale === "pl" ? "Przejdź do treści" : "Skip to content"}
+            </a>
+            <Navigation />
+            <main className="rpg-page" id="main-content">
+              {children}
+            </main>
+            <Footer />
+            <CookieBanner />
+          </div>
         </NextIntlClientProvider>
       </body>
     </html>

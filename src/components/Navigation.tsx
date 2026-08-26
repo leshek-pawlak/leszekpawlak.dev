@@ -1,19 +1,86 @@
 "use client";
 
+import { useEffect, useRef, useState } from "react";
 import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
-import { useState } from "react";
+
+type NavIcon = "star" | "book" | "spark" | "compass" | "map" | "letter";
+
+const paths = ["star", "book", "spark", "compass", "map", "letter"] as const;
+
+function MenuIcon({ icon }: { icon: NavIcon }) {
+  const drawings: Record<NavIcon, React.ReactNode> = {
+    star: (
+      <path d="m12 2 1.7 6.3L20 10l-6.3 1.7L12 18l-1.7-6.3L4 10l6.3-1.7L12 2Z" />
+    ),
+    book: (
+      <path d="M4 5.2C6.8 5.2 9.1 6 12 8v11c-2.9-2-5.2-2.8-8-2.8v-11Zm16 0c-2.8 0-5.1.8-8 2.8v11c2.9-2 5.2-2.8 8-2.8v-11Z" />
+    ),
+    spark: <path d="m13 2-6 10h5l-1 10 6-11h-5l1-9Z" />,
+    compass: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <path d="m15.5 8.5-2 5-5 2 2-5 5-2Z" />
+      </>
+    ),
+    map: <path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16" />,
+    letter: <path d="M3 6h18v13H3V6Zm0 1 9 7 9-7" />,
+  };
+
+  return (
+    <svg className="rpg-nav-icon" viewBox="0 0 24 24" aria-hidden="true">
+      {drawings[icon]}
+    </svg>
+  );
+}
 
 export function Navigation() {
   const t = useTranslations("nav");
   const pathname = usePathname();
   const params = useParams();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const menuButton = useRef<HTMLButtonElement>(null);
+  const mobileMenu = useRef<HTMLElement>(null);
 
-  const locale = params.locale as string;
-  const otherLocale = locale === "pl" ? "en" : "pl";
-
+  const locale = params.locale === "pl" ? "pl" : "en";
+  const labels = {
+    pl: {
+      heading: "POZNAJ SWOJEGO SOJUSZNIKA",
+      subtitle: "KONSULTANT · TWÓJ SOJUSZNIK",
+      time: { day: "Dzień", evening: "Wieczór", night: "Noc" },
+      menu: "Menu",
+      open: "Otwórz menu",
+      close: "Zamknij menu",
+      elsewhere: "POZA TAWERNĄ",
+      titles: [
+        "Karta postaci",
+        "Historia postaci",
+        "Księga zaklęć",
+        "Dziennik wypraw",
+        "Wspólny quest",
+        "Zaproś do drużyny",
+      ],
+    },
+    en: {
+      heading: "MEET YOUR NEXT ALLY",
+      subtitle: "CONSULTANT · YOUR ALLY",
+      time: { day: "Day", evening: "Evening", night: "Night" },
+      menu: "Menu",
+      open: "Open menu",
+      close: "Close menu",
+      elsewhere: "BEYOND THE TAVERN",
+      titles: [
+        "Character sheet",
+        "Origin story",
+        "Spellbook",
+        "Adventure log",
+        "A shared quest",
+        "Invite to your party",
+      ],
+    },
+  } as const;
+  const copy = labels[locale];
   const links = [
     { href: "/", label: t("home") },
     { href: "/about", label: t("about") },
@@ -23,103 +90,171 @@ export function Navigation() {
     { href: "/contact", label: t("contact") },
   ] as const;
 
-  return (
-    <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-xl border-b border-surface-light/50">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <Link href="/" className="text-xl font-bold gradient-text">
-          LP
-        </Link>
+  useEffect(() => {
+    if (!mobileOpen) return;
 
-        {/* Desktop nav */}
-        <ul className="hidden md:flex items-center gap-6">
-          {links.map((link) => (
-            <li key={link.href}>
-              <Link
-                href={link.href}
-                className={`text-sm font-medium transition-colors animated-underline ${
-                  pathname === link.href
-                    ? "text-primary"
-                    : "text-muted hover:text-foreground"
-                }`}
-              >
-                {link.label}
-              </Link>
-            </li>
-          ))}
-          <li>
-            <Link
-              href={pathname}
-              locale={otherLocale}
-              className="text-sm font-medium px-3 py-1.5 rounded-full border border-surface-light hover:border-primary transition-colors text-muted hover:text-primary"
-            >
-              {otherLocale.toUpperCase()}
-            </Link>
-          </li>
-        </ul>
+    const closeWithEscape = (event: KeyboardEvent) => {
+      if (event.key === "Escape") {
+        setMobileOpen(false);
+        menuButton.current?.focus();
+        return;
+      }
 
-        {/* Mobile hamburger */}
-        <button
-          onClick={() => setMobileOpen(!mobileOpen)}
-          className="md:hidden p-2 text-muted hover:text-foreground"
-          aria-label="Toggle menu"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            {mobileOpen ? (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M6 18L18 6M6 6l12 12"
-              />
-            ) : (
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M4 6h16M4 12h16M4 18h16"
-              />
-            )}
-          </svg>
-        </button>
-      </nav>
+      if (event.key !== "Tab" || !mobileMenu.current) return;
+      const focusable = Array.from(
+        mobileMenu.current.querySelectorAll<HTMLElement>("a[href]"),
+      );
+      const first = focusable.at(0);
+      const last = focusable.at(-1);
 
-      {/* Mobile menu */}
-      {mobileOpen && (
-        <div className="md:hidden bg-surface/95 backdrop-blur-md border-b border-surface-light">
-          <ul className="px-4 py-4 space-y-3">
-            {links.map((link) => (
+      if (event.shiftKey && document.activeElement === first) {
+        event.preventDefault();
+        last?.focus();
+      } else if (!event.shiftKey && document.activeElement === last) {
+        event.preventDefault();
+        first?.focus();
+      }
+    };
+
+    document.addEventListener("keydown", closeWithEscape);
+    mobileMenu.current?.querySelector<HTMLElement>("a[href]")?.focus();
+    return () => document.removeEventListener("keydown", closeWithEscape);
+  }, [mobileOpen]);
+
+  const menu = (
+    <>
+      <p className="rpg-menu-heading">{copy.heading}</p>
+      <nav
+        aria-label={locale === "pl" ? "Nawigacja główna" : "Main navigation"}
+      >
+        <ul className="rpg-menu-list">
+          {links.map((link, index) => {
+            const active = pathname === link.href;
+            return (
               <li key={link.href}>
                 <Link
                   href={link.href}
+                  className="rpg-menu-item"
+                  aria-current={active ? "page" : undefined}
                   onClick={() => setMobileOpen(false)}
-                  className={`block text-sm font-medium py-2 transition-colors ${
-                    pathname === link.href
-                      ? "text-primary"
-                      : "text-muted hover:text-foreground"
-                  }`}
                 >
-                  {link.label}
+                  <MenuIcon icon={paths[index]} />
+                  <span>
+                    <strong>{copy.titles[index]}</strong>
+                    <small>{link.label}</small>
+                  </span>
+                  {active && (
+                    <span className="rpg-menu-diamond" aria-hidden="true">
+                      ◆
+                    </span>
+                  )}
                 </Link>
               </li>
+            );
+          })}
+        </ul>
+      </nav>
+      <div className="rpg-menu-external">
+        <p>{copy.elsewhere}</p>
+        <a
+          href="https://github.com/leshek-pawlak"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          GitHub <span aria-hidden="true">↗</span>
+        </a>
+        <a
+          href="https://linkedin.com/in/leszek-pawlak"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          LinkedIn <span aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </>
+  );
+
+  return (
+    <>
+      <header className="rpg-header">
+        <Link href="/" className="rpg-brand" aria-label="Leszek Pawlak">
+          <span className="rpg-brand-mark" aria-hidden="true">
+            LP
+          </span>
+          <span>
+            <strong>LESZEK PAWLAK</strong>
+            <small>{copy.subtitle}</small>
+          </span>
+        </Link>
+
+        <div className="rpg-header-actions">
+          <div
+            className="rpg-time"
+            aria-label={
+              locale === "pl" ? "Automatyczna pora" : "Automatic time of day"
+            }
+          >
+            <span className="rpg-time-day">{copy.time.day}</span>
+            <span className="rpg-time-evening">{copy.time.evening}</span>
+            <span className="rpg-time-night">{copy.time.night}</span>
+            <small>{locale === "pl" ? "automatycznie" : "automatic"}</small>
+          </div>
+          <div className="rpg-locales" aria-label="Język / Language">
+            {(["pl", "en"] as const).map((targetLocale, index) => (
+              <span key={targetLocale}>
+                {index > 0 && <span aria-hidden="true">/</span>}
+                <Link
+                  href={pathname}
+                  locale={targetLocale}
+                  hrefLang={targetLocale}
+                  aria-current={targetLocale === locale ? "page" : undefined}
+                >
+                  {targetLocale.toUpperCase()}
+                </Link>
+              </span>
             ))}
-            <li>
-              <Link
-                href={pathname}
-                locale={otherLocale}
-                onClick={() => setMobileOpen(false)}
-                className="inline-block text-sm font-medium px-3 py-1.5 rounded-full border border-surface-light text-muted hover:text-primary"
-              >
-                {otherLocale.toUpperCase()}
-              </Link>
-            </li>
-          </ul>
+          </div>
+          <button
+            ref={menuButton}
+            className="rpg-menu-toggle"
+            type="button"
+            aria-expanded={mobileOpen}
+            aria-controls="rpg-mobile-menu"
+            aria-label={mobileOpen ? copy.close : copy.open}
+            onClick={() => setMobileOpen((open) => !open)}
+          >
+            <svg viewBox="0 0 24 24" aria-hidden="true">
+              {mobileOpen ? (
+                <path d="M5 5l14 14M19 5 5 19" />
+              ) : (
+                <path d="M4 7h16M4 12h16M4 17h16" />
+              )}
+            </svg>
+            <span>{copy.menu}</span>
+          </button>
         </div>
+      </header>
+
+      <aside className="rpg-sidebar">{menu}</aside>
+
+      {mobileOpen && (
+        <>
+          <button
+            className="rpg-menu-backdrop"
+            type="button"
+            tabIndex={-1}
+            aria-label={copy.close}
+            onClick={() => setMobileOpen(false)}
+          />
+          <aside
+            ref={mobileMenu}
+            className="rpg-mobile-menu"
+            id="rpg-mobile-menu"
+          >
+            {menu}
+          </aside>
+        </>
       )}
-    </header>
+    </>
   );
 }

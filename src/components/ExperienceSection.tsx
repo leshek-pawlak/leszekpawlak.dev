@@ -111,77 +111,69 @@ function formatDate(dateStr: string, locale: string): string {
 
 export function ExperienceSection() {
   const t = useTranslations("experience");
+  const rpg = useTranslations("rpg");
   const locale = useLocale() as "pl" | "en";
 
   return (
-    <section className="py-24 pt-32">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
+    <section className="rpg-content-section">
+      <div className="rpg-content-inner">
+        <motion.header
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl font-bold mb-16 gradient-text"
+          className="rpg-section-intro"
         >
-          {t("title")}
-        </motion.h2>
+          <p className="rpg-eyebrow">{rpg("experienceKicker")}</p>
+          <h1 className="rpg-section-title">{t("title")}</h1>
+          <div className="rpg-section-rule" aria-hidden="true" />
+        </motion.header>
 
-        <div className="relative">
-          {/* Timeline line */}
-          <div className="absolute left-0 md:left-8 top-0 bottom-0 w-px bg-surface-light" />
-
-          <div className="space-y-12">
-            {experiences.map((exp, idx) => (
-              <motion.div
-                key={`${exp.company}-${exp.period.start}`}
-                initial={{ opacity: 0, x: -30, filter: "blur(6px)" }}
-                whileInView={{ opacity: 1, x: 0, filter: "blur(0px)" }}
-                viewport={{ once: true }}
-                transition={{
-                  delay: 0.05 * idx,
-                  duration: 0.6,
-                  ease: [0.16, 1, 0.3, 1],
-                }}
-                className="relative pl-8 md:pl-20"
-              >
-                {/* Timeline dot */}
-                <div className="absolute left-0 md:left-8 top-2 w-3 h-3 -translate-x-1.5 rounded-full bg-primary animate-pulse-ring" />
-
-                <div className="p-6 rounded-2xl bg-surface border border-surface-light hover:border-primary/30 transition-all hover-tilt">
-                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2 mb-3">
-                    <h3 className="text-xl font-semibold text-foreground">
-                      {exp.company}
-                    </h3>
-                    <span className="text-sm text-muted whitespace-nowrap">
-                      {formatDate(exp.period.start, locale)} —{" "}
-                      {exp.period.end
-                        ? formatDate(exp.period.end, locale)
-                        : t("present")}
+        <div className="rpg-journal">
+          {experiences.map((exp, idx) => (
+            <motion.article
+              key={`${exp.company}-${exp.period.start}`}
+              initial={{ opacity: 0, x: -26 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: "-40px" }}
+              transition={{
+                delay: 0.04 * idx,
+                duration: 0.55,
+                ease: [0.16, 1, 0.3, 1],
+              }}
+              className="rpg-journal-entry"
+            >
+              <div className="rpg-journal-index" aria-hidden="true">
+                <span>{String(idx + 1).padStart(2, "0")}</span>
+                <i />
+              </div>
+              <div className="rpg-journal-card rpg-panel">
+                <header>
+                  <p>
+                    {rpg("quest")} {String(idx + 1).padStart(2, "0")}
+                  </p>
+                  <time>
+                    {formatDate(exp.period.start, locale)} —{" "}
+                    {exp.period.end
+                      ? formatDate(exp.period.end, locale)
+                      : t("present")}
+                  </time>
+                </header>
+                <h2>{exp.company}</h2>
+                <p className="rpg-journal-role">{exp.role[locale]}</p>
+                <p className="rpg-journal-description">
+                  {exp.description[locale]}
+                </p>
+                <div className="rpg-tag-list">
+                  {exp.tech.map((tech) => (
+                    <span key={tech} className="rpg-tag">
+                      {tech}
                     </span>
-                  </div>
-
-                  <p className="text-primary font-medium text-sm mb-3">
-                    {exp.role[locale]}
-                  </p>
-
-                  <p className="text-muted text-sm leading-relaxed mb-4">
-                    {exp.description[locale]}
-                  </p>
-
-                  <div className="flex flex-wrap gap-2">
-                    {exp.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2.5 py-1 text-xs rounded-full bg-primary/10 text-primary border border-primary/20"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                  ))}
                 </div>
-              </motion.div>
-            ))}
-          </div>
+              </div>
+            </motion.article>
+          ))}
         </div>
       </div>
     </section>

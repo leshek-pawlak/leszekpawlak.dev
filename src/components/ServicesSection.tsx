@@ -80,33 +80,27 @@ const services = [
 
 export function ServicesSection() {
   const t = useTranslations("services");
+  const rpg = useTranslations("rpg");
 
   return (
-    <section className="py-24 pt-32">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
+    <section className="rpg-content-section">
+      <div className="rpg-content-inner">
+        <motion.header
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl font-bold mb-4 gradient-text"
+          className="rpg-section-intro"
         >
-          {t("title")}
-        </motion.h2>
+          <p className="rpg-eyebrow">{rpg("servicesKicker")}</p>
+          <h1 className="rpg-section-title">{t("title")}</h1>
+          <p className="rpg-section-summary">{t("subtitle")}</p>
+          <div className="rpg-section-rule" aria-hidden="true" />
+        </motion.header>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg text-muted mb-16 max-w-2xl"
-        >
-          {t("subtitle")}
-        </motion.p>
-
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div className="rpg-spell-grid">
           {services.map((service, idx) => (
-            <motion.div
+            <motion.article
               key={service.key}
               initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -116,18 +110,20 @@ export function ServicesSection() {
                 duration: 0.6,
                 ease: [0.16, 1, 0.3, 1],
               }}
-              className="group p-8 rounded-2xl bg-surface border border-surface-light hover:border-primary/50 transition-all hover-tilt"
+              className="rpg-spell-card rpg-panel"
             >
-              <div className="text-primary mb-4 group-hover:text-accent transition-colors group-hover:scale-110 transform duration-300">
-                {service.icon}
+              <div className="rpg-spell-heading">
+                <span className="rpg-spell-index">
+                  {rpg("spell")} {String(idx + 1).padStart(2, "0")}
+                </span>
+                <div className="rpg-spell-icon" aria-hidden="true">
+                  {service.icon}
+                </div>
               </div>
-              <h3 className="text-xl font-semibold mb-3 text-foreground">
-                {t(`${service.key}.title`)}
-              </h3>
-              <p className="text-muted leading-relaxed">
-                {t(`${service.key}.description`)}
-              </p>
-            </motion.div>
+              <h2>{t(`${service.key}.title`)}</h2>
+              <p>{t(`${service.key}.description`)}</p>
+              <i aria-hidden="true">✦</i>
+            </motion.article>
           ))}
         </div>
       </div>

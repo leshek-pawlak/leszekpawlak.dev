@@ -1,70 +1,108 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { Link } from "@/i18n/navigation";
+import magePortrait from "../../docs/design/rpg/leszek-mage-card-v3.png";
+
+const tools = ["TypeScript", "React", "Node.js"];
 
 export function Hero() {
   const t = useTranslations("hero");
+  const rpg = useTranslations("rpg");
+  const [firstName, ...lastNameParts] = t("name").split(" ");
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
-      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg sm:text-xl text-muted mb-2 font-medium"
+    <section className="rpg-hero">
+      <div className="rpg-hero-layout">
+        <motion.header
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
+          className="rpg-hero-identity"
         >
-          {t("greeting")}
-        </motion.p>
+          <p className="rpg-eyebrow">{rpg("characterKicker")}</p>
+          <h1 className="rpg-hero-name">
+            <span>{firstName}</span>
+            <strong>{lastNameParts.join(" ")}</strong>
+          </h1>
+          <p className="rpg-professional-title">{t("title")}</p>
+        </motion.header>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, delay: 0.1, ease: [0.16, 1, 0.3, 1] }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-bold mb-4 gradient-text"
+        <motion.figure
+          initial={{ opacity: 0, scale: 0.96 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.75, delay: 0.08 }}
+          className="rpg-portrait-card"
         >
-          {t("name")}
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, delay: 0.2, ease: [0.16, 1, 0.3, 1] }}
-          className="text-xl sm:text-2xl lg:text-3xl font-medium text-foreground/80 mb-6"
-        >
-          {t("title")}
-        </motion.p>
-
-        <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, delay: 0.3, ease: [0.16, 1, 0.3, 1] }}
-          className="text-base sm:text-lg text-muted max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          {t("subtitle")}
-        </motion.p>
+          <div className="rpg-portrait-frame">
+            <Image
+              src={magePortrait}
+              alt={`${t("name")} — ${rpg("className")}`}
+              className="rpg-portrait-image"
+              sizes="(max-width: 720px) 88vw, (max-width: 1099px) 42vw, 29vw"
+              placeholder="blur"
+              preload
+            />
+            <i className="rpg-frame-corner rpg-frame-corner-tl" />
+            <i className="rpg-frame-corner rpg-frame-corner-tr" />
+            <i className="rpg-frame-corner rpg-frame-corner-bl" />
+            <i className="rpg-frame-corner rpg-frame-corner-br" />
+          </div>
+          <figcaption>
+            <span>{rpg("classLabel")}</span>
+            <strong>{rpg("className")}</strong>
+            <small>{rpg("classCaption")}</small>
+          </figcaption>
+        </motion.figure>
 
         <motion.div
-          initial={{ opacity: 0, y: 30, filter: "blur(10px)" }}
-          animate={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          transition={{ duration: 0.7, delay: 0.4, ease: [0.16, 1, 0.3, 1] }}
-          className="flex flex-col sm:flex-row gap-4 justify-center"
+          initial={{ opacity: 0, y: 24 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.65, delay: 0.18 }}
+          className="rpg-character-story"
         >
-          <Link
-            href="/contact"
-            className="group relative px-8 py-3.5 rounded-full bg-primary hover:bg-primary-light text-white font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25"
-          >
-            <span className="relative z-10">{t("cta")}</span>
-          </Link>
-          <Link
-            href="/services"
-            className="px-8 py-3.5 rounded-full border border-surface-light hover:border-primary text-foreground font-medium transition-all hover:scale-105 hover:bg-surface"
-          >
-            {t("ctaSecondary")}
-          </Link>
+          <p className="rpg-story-line">{rpg("storyLine")}</p>
+          <p className="rpg-hero-summary">{t("subtitle")}</p>
+
+          <dl className="rpg-character-facts">
+            <div>
+              <dt>12+</dt>
+              <dd>{rpg("years")}</dd>
+            </div>
+            <div>
+              <dt>✦</dt>
+              <dd>{rpg("specialty")}</dd>
+            </div>
+          </dl>
+
+          <div className="rpg-hero-actions">
+            <Link href="/contact" className="rpg-primary-button">
+              <span>{t("cta")}</span>
+              <span aria-hidden="true">→</span>
+            </Link>
+            <Link href="/services" className="rpg-secondary-link">
+              {t("ctaSecondary")}
+            </Link>
+          </div>
+          <p className="rpg-estimate-note">{rpg("estimateNote")}</p>
         </motion.div>
+
+        <motion.aside
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.7, delay: 0.32 }}
+          className="rpg-equipment"
+          aria-label={rpg("equipment")}
+        >
+          <span>{rpg("equipment")}</span>
+          <div>
+            {tools.map((tool) => (
+              <strong key={tool}>{tool}</strong>
+            ))}
+          </div>
+        </motion.aside>
       </div>
     </section>
   );

@@ -97,6 +97,31 @@
       "download": "Download NDA PL/EN"
     }
   },
+  "rpg": {
+    "characterKicker": "AN ALLY FOR YOUR PARTY",
+    "classLabel": "CHARACTER CLASS",
+    "className": "TypeScript Mage",
+    "classCaption": "Architecture. Code. Shared quests.",
+    "storyLine": "The best quests are a team effort.",
+    "years": "years of experience",
+    "specialty": "Architecture and code quality",
+    "equipment": "TOOLS OF THE TRADE",
+    "estimateNote": "Let's talk about your project and a free estimate.",
+    "aboutKicker": "ORIGIN STORY",
+    "skillsCount": "{count} skills across four areas",
+    "servicesKicker": "SPELLBOOK",
+    "spell": "SPELL",
+    "experienceKicker": "ADVENTURE LOG",
+    "quest": "QUEST",
+    "workflowKicker": "A SHARED QUEST",
+    "stage": "STAGE",
+    "contactKicker": "THE START OF A SHARED ADVENTURE",
+    "contactTitle": "Invite me to your party.",
+    "formTitle": "A message to the mage",
+    "partySupport": "SUPPORT FOR YOUR PARTY",
+    "questTitle": "Your quest. My experience.",
+    "ndaTrust": "Trust comes first."
+  },
   "footer": {
     "rights": "All rights reserved."
   },

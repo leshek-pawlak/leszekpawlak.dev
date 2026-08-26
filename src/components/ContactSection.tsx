@@ -1,11 +1,18 @@
 "use client";
 
+import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion } from "motion/react";
 import { useState } from "react";
+import runestone from "../../docs/design/rpg/arcane-runestone-card-v3.png";
+
+const serviceKeys = ["consulting", "estimation", "development", "ai"] as const;
 
 export function ContactSection() {
   const t = useTranslations("contact");
+  const rpg = useTranslations("rpg");
+  const services = useTranslations("services");
+  const workflow = useTranslations("workflow");
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -49,108 +56,124 @@ export function ContactSection() {
   }
 
   return (
-    <section className="py-24 pt-32">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl font-bold mb-4 gradient-text"
+    <section className="rpg-content-section rpg-contact-section">
+      <div className="rpg-content-inner">
+        <motion.header
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          className="rpg-section-intro"
         >
-          {t("title")}
-        </motion.h2>
+          <p className="rpg-eyebrow">{rpg("contactKicker")}</p>
+          <h1 className="rpg-section-title">{rpg("contactTitle")}</h1>
+          <p className="rpg-section-summary">{t("subtitle")}</p>
+          <div className="rpg-section-rule" aria-hidden="true" />
+        </motion.header>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg text-muted mb-12"
-        >
-          {t("subtitle")}
-        </motion.p>
+        <div className="rpg-contact-layout">
+          <motion.form
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.12, duration: 0.6 }}
+            onSubmit={handleSubmit}
+            className="rpg-contact-form rpg-panel"
+            aria-busy={status === "sending"}
+          >
+            <h2>{rpg("formTitle")}</h2>
 
-        <motion.form
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.2, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          onSubmit={handleSubmit}
-          className="max-w-xl space-y-6"
-        >
-          {/* Honeypot */}
-          <input
-            type="text"
-            name="website"
-            className="hidden"
-            tabIndex={-1}
-            autoComplete="off"
-          />
-
-          <div>
-            <label
-              htmlFor="name"
-              className="block text-sm font-medium text-foreground mb-2"
-            >
-              {t("name")}
-            </label>
             <input
               type="text"
-              id="name"
-              name="name"
-              required
-              className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground placeholder:text-muted"
+              name="website"
+              className="rpg-honeypot"
+              tabIndex={-1}
+              autoComplete="off"
+              aria-hidden="true"
             />
-          </div>
 
-          <div>
-            <label
-              htmlFor="email"
-              className="block text-sm font-medium text-foreground mb-2"
+            <div className="rpg-field">
+              <label htmlFor="name">{t("name")}</label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                required
+                autoComplete="name"
+              />
+            </div>
+
+            <div className="rpg-field">
+              <label htmlFor="email">{t("email")}</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                required
+                autoComplete="email"
+              />
+            </div>
+
+            <div className="rpg-field">
+              <label htmlFor="message">{t("message")}</label>
+              <textarea id="message" name="message" rows={6} required />
+            </div>
+
+            <button
+              type="submit"
+              disabled={status === "sending"}
+              className="rpg-primary-button"
             >
-              {t("email")}
-            </label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              required
-              className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground placeholder:text-muted"
-            />
-          </div>
+              <span>{status === "sending" ? t("sending") : t("send")}</span>
+              <span aria-hidden="true">→</span>
+            </button>
 
-          <div>
-            <label
-              htmlFor="message"
-              className="block text-sm font-medium text-foreground mb-2"
-            >
-              {t("message")}
-            </label>
-            <textarea
-              id="message"
-              name="message"
-              rows={5}
-              required
-              className="w-full px-4 py-3 rounded-xl bg-surface border border-surface-light focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary transition-colors text-foreground placeholder:text-muted resize-none"
-            />
-          </div>
+            <div className="rpg-form-status" role="status" aria-live="polite">
+              {status === "success" && (
+                <p className="rpg-form-success">{t("success")}</p>
+              )}
+              {status === "error" && (
+                <p className="rpg-form-error">{t("error")}</p>
+              )}
+            </div>
+          </motion.form>
 
-          <button
-            type="submit"
-            disabled={status === "sending"}
-            className="px-8 py-3.5 rounded-full bg-primary hover:bg-primary-light text-white font-medium transition-all hover:scale-105 hover:shadow-lg hover:shadow-primary/25 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100"
+          <motion.aside
+            initial={{ opacity: 0, y: 24 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.22, duration: 0.6 }}
+            className="rpg-support-panel rpg-panel"
           >
-            {status === "sending" ? t("sending") : t("send")}
-          </button>
+            <div className="rpg-runestone" aria-hidden="true">
+              <Image
+                src={runestone}
+                alt=""
+                sizes="(max-width: 720px) 54vw, 240px"
+                placeholder="blur"
+              />
+            </div>
+            <p className="rpg-eyebrow">{rpg("partySupport")}</p>
+            <h2>{rpg("questTitle")}</h2>
+            <ul>
+              {serviceKeys.map((key) => (
+                <li key={key}>
+                  <span aria-hidden="true">✦</span>
+                  {services(`${key}.title`)}
+                </li>
+              ))}
+            </ul>
 
-          {status === "success" && (
-            <p className="text-accent font-medium">{t("success")}</p>
-          )}
-          {status === "error" && (
-            <p className="text-red-400 font-medium">{t("error")}</p>
-          )}
-        </motion.form>
+            <div className="rpg-contact-trust">
+              <h3>{rpg("ndaTrust")}</h3>
+              <p>{workflow("nda_section.description")}</p>
+              <a
+                href="/nda-leszek-pawlak.pdf"
+                download="NDA-Leszek-Pawlak-PL-EN.pdf"
+                className="rpg-secondary-link"
+              >
+                {workflow("nda_section.download")}
+              </a>
+            </div>
+          </motion.aside>
+        </div>
       </div>
     </section>
   );

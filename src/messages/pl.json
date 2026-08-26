@@ -97,6 +97,31 @@
       "download": "Pobierz NDA PL/EN"
     }
   },
+  "rpg": {
+    "characterKicker": "POSTAĆ DO TWOJEJ DRUŻYNY",
+    "classLabel": "KLASA POSTACI",
+    "className": "Mag TypeScriptu",
+    "classCaption": "Architektura. Kod. Wspólne questy.",
+    "storyLine": "Dobre questy przechodzi się razem.",
+    "years": "lat doświadczenia",
+    "specialty": "Architektura i jakość kodu",
+    "equipment": "SPRAWDZONE NARZĘDZIA",
+    "estimateNote": "Porozmawiajmy o projekcie i wycenie.",
+    "aboutKicker": "HISTORIA POSTACI",
+    "skillsCount": "{count} umiejętności w czterech obszarach",
+    "servicesKicker": "KSIĘGA ZAKLĘĆ",
+    "spell": "ZAKLĘCIE",
+    "experienceKicker": "DZIENNIK WYPRAW",
+    "quest": "WYPRAWA",
+    "workflowKicker": "WSPÓLNY QUEST",
+    "stage": "ETAP",
+    "contactKicker": "POCZĄTEK WSPÓLNEJ WYPRAWY",
+    "contactTitle": "Zaproś mnie do drużyny.",
+    "formTitle": "Wiadomość do maga",
+    "partySupport": "WSPARCIE DLA DRUŻYNY",
+    "questTitle": "Twój quest. Moje doświadczenie.",
+    "ndaTrust": "Najpierw zaufanie."
+  },
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone."
   },

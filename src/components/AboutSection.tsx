@@ -28,44 +28,41 @@ const skills = {
 
 export function AboutSection() {
   const t = useTranslations("about");
+  const rpg = useTranslations("rpg");
+  const skillCount = Object.values(skills).flat().length;
 
   return (
-    <section className="py-24 pt-32">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.h2
+    <section className="rpg-content-section">
+      <div className="rpg-content-inner">
+        <motion.header
           initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-4xl sm:text-5xl font-bold mb-8 gradient-text"
+          className="rpg-section-intro"
         >
-          {t("title")}
-        </motion.h2>
+          <p className="rpg-eyebrow">{rpg("aboutKicker")}</p>
+          <h1 className="rpg-section-title">{t("title")}</h1>
+          <div className="rpg-section-rule" aria-hidden="true" />
+        </motion.header>
 
-        <motion.p
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
-          whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.1, duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-          className="text-lg text-muted max-w-3xl mb-16 leading-relaxed"
-        >
-          {t("bio")}
-        </motion.p>
-
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ delay: 0.2 }}
-          className="text-2xl font-semibold mb-8 text-foreground"
+          transition={{ delay: 0.1, duration: 0.6 }}
+          className="rpg-about-summary rpg-panel"
         >
-          {t("skills")}
-        </motion.h3>
+          <p>{t("bio")}</p>
+          <strong>{rpg("skillsCount", { count: skillCount })}</strong>
+        </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <h2 className="rpg-subsection-title">{t("skills")}</h2>
+
+        <div className="rpg-dossier-grid">
           {(Object.keys(skills) as Array<keyof typeof skills>).map(
             (category, idx) => (
-              <motion.div
+              <motion.article
                 key={category}
                 initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
@@ -75,22 +72,20 @@ export function AboutSection() {
                   duration: 0.6,
                   ease: [0.16, 1, 0.3, 1],
                 }}
-                className="p-6 rounded-2xl bg-surface border border-surface-light hover-tilt"
+                className="rpg-dossier-panel rpg-panel"
               >
-                <h4 className="text-sm font-semibold uppercase tracking-wider text-primary mb-4">
-                  {t(`skillCategories.${category}`)}
-                </h4>
-                <div className="flex flex-wrap gap-2">
+                <span className="rpg-panel-index">
+                  {String(idx + 1).padStart(2, "0")}
+                </span>
+                <h3>{t(`skillCategories.${category}`)}</h3>
+                <div className="rpg-tag-list">
                   {skills[category].map((skill) => (
-                    <span
-                      key={skill}
-                      className="px-3 py-1.5 text-sm rounded-full bg-surface-light text-foreground/80 border border-surface-light hover:border-primary/50 hover:text-primary transition-all duration-300"
-                    >
+                    <span key={skill} className="rpg-tag">
                       {skill}
                     </span>
                   ))}
                 </div>
-              </motion.div>
+              </motion.article>
             ),
           )}
         </div>

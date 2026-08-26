@@ -123,6 +123,32 @@
     "questTitle": "Twój quest. Moje doświadczenie.",
     "ndaTrust": "Najpierw zaufanie."
   },
+  "metadata": {
+    "home": {
+      "title": "Konsultant TypeScript & React",
+      "description": "12+ lat doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej."
+    },
+    "about": {
+      "title": "O mnie",
+      "description": "Poznaj Leszka Pawlaka — niezależnego konsultanta TypeScript, React i Node.js z ponad dekadą doświadczenia w systemach produkcyjnych."
+    },
+    "services": {
+      "title": "Usługi konsultingowe",
+      "description": "Konsulting architektoniczny, wycena projektów, code review, mentoring i strategia integracji AI dla zespołów tworzących aplikacje webowe."
+    },
+    "experience": {
+      "title": "Doświadczenie",
+      "description": "Ponad 12 lat doświadczenia Leszka Pawlaka w TypeScript, React, Node.js, architekturze aplikacji, produktach cyfrowych i systemach płatności."
+    },
+    "workflow": {
+      "title": "Jak wygląda współpraca",
+      "description": "Przejrzysty proces współpracy: od pierwszego zapytania i NDA, przez zakres i wycenę, po dostarczenie oraz omówienie wyników."
+    },
+    "contact": {
+      "title": "Kontakt",
+      "description": "Opisz swój projekt lub wyzwanie techniczne i zaproś do zespołu doświadczonego konsultanta TypeScript i React."
+    }
+  },
   "footer": {
     "rights": "Wszelkie prawa zastrzeżone."
   },

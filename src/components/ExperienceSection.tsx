@@ -147,13 +147,14 @@ export function ExperienceSection() {
               className="rpg-journal-entry"
             >
               <div className="rpg-journal-index" aria-hidden="true">
-                <span>{String(idx + 1).padStart(2, "0")}</span>
+                <span>{String(experiences.length - idx).padStart(2, "0")}</span>
                 <i />
               </div>
               <div className="rpg-journal-card rpg-panel">
                 <header>
                   <p>
-                    {rpg("quest")} {String(idx + 1).padStart(2, "0")}
+                    {rpg("quest")}{" "}
+                    {String(experiences.length - idx).padStart(2, "0")}
                   </p>
                   <time>
                     {formatDate(exp.period.start, locale)} —{" "}

@@ -1,6 +1,6 @@
 # Plan redesignu: Leszek Pawlak jako postać do zrekrutowania
 
-Data analizy i aktualizacji: 26.08.2026. Status: plan zaakceptowany kierunkowo przez użytkownika, uzupełniony o referencję portretu, inspiracje Witcher 3 / Bastion / Trine i końcowy etap minigry. Kod strony nie został jeszcze przebudowany.
+Data analizy: 26.08.2026. Ostatnia aktualizacja: 27.08.2026. Status: użytkownik odebrał etapy 0–5 redesignu. Publikacja wymaga osobnej zgody, a minigra pozostaje etapem 6 na osobnej podstronie.
 
 ## 1. Cel i granice zmian
 
@@ -57,7 +57,7 @@ Poniższa tabela jest listą kontrolną regresji, a nie deklaracją przeprowadzo
 | Oferta na stronie głównej      | `Hero.tsx`, namespace `hero`                                    | Nazwisko, rzeczywista specjalizacja, opis korzyści, CTA do kontaktu/wyceny oraz CTA do usług nadal dostępne.                                         |
 | Biografia i umiejętności       | `AboutSection.tsx`, namespace `about`                           | Zachować pełną biografię i wszystkie 23 pozycje w czterech kategoriach.                                                                              |
 | Cztery usługi                  | `ServicesSection.tsx`, namespace `services`                     | Zachować konsulting architektoniczny, wyceny i planowanie, Code Review & Mentoring oraz strategię integracji AI.                                     |
-| Osiem pozycji doświadczenia    | `ExperienceSection.tsx`                                         | Zachować firmy, role, pełne opisy PL/EN, technologie, daty, lokalne formatowanie i oznaczenie „Obecnie”.                                             |
+| Dziewięć pozycji doświadczenia | `ExperienceSection.tsx`                                         | Zachować firmy, role, pełne opisy PL/EN, technologie, daty, lokalne formatowanie i oznaczenie „Obecnie”.                                             |
 | Sześć etapów współpracy        | `WorkflowTimeline.tsx`, namespace `workflow`                    | Zachować zapytanie, NDA, zakres, akceptację wyceny, dostarczenie/omówienie wyników i zakończenie współpracy.                                         |
 | Pobieranie NDA                 | `WorkflowTimeline.tsx`, `public/nda-leszek-pawlak.pdf`          | Zachować adres PDF, atrybut `download` i nazwę `NDA-Leszek-Pawlak-PL-EN.pdf`; przycisk dostępny w PL i EN.                                           |
 | Źródło NDA i generator         | `public/nda-leszek-pawlak.html`, `scripts/generate-nda-pdf.mjs` | Nie usuwać i nie przepisywać dokumentu w ramach oprawy RPG. Generator jest osobnym narzędziem wymagającym Puppeteera.                                |
@@ -298,25 +298,29 @@ Wynik: gotowa oprawa bez pogorszenia użyteczności.
 
 ### Etap 5 — regresja i publikacja po akceptacji
 
-- [ ] Przejść macierz testów z rozdziału 10 i ponownie wykonać lint/build.
-- [ ] Porównać treści, linki, obrazy, metadane i wydajność ze stanem bazowym.
-- [ ] Udostępnić wersję podglądową do akceptacji użytkownika; publikację produkcyjną wykonać dopiero po osobnej zgodzie.
-- [ ] Utrzymać małe, rozdzielone zmiany, aby można było cofnąć oprawę bez migracji danych lub zmiany usług zewnętrznych.
+- [x] Przejść macierz testów z rozdziału 10 i ponownie wykonać lint/build. Build, typy i testy przechodzą; lint został uruchomiony, ale nadal zatrzymuje go znana niezgodność `typescript-eslint` z TypeScript 7 przed analizą plików.
+- [x] Porównać treści, linki, obrazy, metadane i wydajność ze stanem bazowym. Treści i funkcje są kompletne; aktualny pomiar wydajności zapisano jako punkt bazowy, ponieważ przed redesignem nie wykonano równoważnego pomiaru produkcyjnego.
+- [x] Udostępnić wersję podglądową do akceptacji użytkownika; publikację produkcyjną wykonać dopiero po osobnej zgodzie.
+- [x] Utrzymać małe, rozdzielone zmiany, aby można było cofnąć oprawę bez migracji danych lub zmiany usług zewnętrznych.
+
+Raport regresji, metadanych, testów i pomiaru etapu 5: [docs/design/rpg/stage-5-report.md](design/rpg/stage-5-report.md).
+
+Użytkownik potwierdził zakończenie etapu 5 dnia 27.08.2026. Nie jest to zgoda na publikację.
 
 ### Etap 6 — minigra „Pracownia maga”, po ukończeniu redesignu
 
-- [ ] Dopiero po odbiorze etapów 0–5 przygotować mały prototyp ruchu maga i telekinezy bloków, oddzielony od działającego menu.
+- [ ] Po odebraniu etapów 0–5 przygotować na osobnej lokalizowanej podstronie mały prototyp 2D ruchu maga i telekinezy bloków, oddzielony od działającego menu i strony głównej.
 - [ ] Zrealizować losowanie luźnych bloków, budowanie kształtu, mróz zapisujący nieruchomą rzeźbę oraz lawę usuwającą zapis i tworzącą nowy zestaw.
 - [ ] Dodać walidowany i wersjonowany zapis `localStorage`, odtwarzanie przy powrocie, obsługę odmowy zapisu i uszkodzonych danych.
 - [ ] Zapewnić mysz, klawiaturę i dotyk, wyjście z interakcji, reduced motion oraz brak przejmowania skrótów w formularzach.
 - [ ] Sprawdzić, że minigra nie wpływa na trasy, locale, motyw, cookies, NDA, formularz ani analitykę.
 - [ ] Odebrać minigrę osobno, z macierzą z rozdziału 12. Nie uzależniać publikacji gotowego redesignu od ukończenia tej fazy.
 
-Wynik: dodatkowa zabawa na ekranie głównym i trwała lokalna rzeźba, przy zachowaniu kompletnej strony zawodowej.
+Wynik: dodatkowa podstrona zabawy i trwała lokalna rzeźba, przy zachowaniu kompletnej strony zawodowej oraz lekkiej strony głównej.
 
 ## 10. Testy i warunki odbioru
 
-Nie ma obecnie gotowej infrastruktury testowej w repozytorium. Przy wdrożeniu dodać tylko testy pokrywające realne ryzyka: regułę czasu oraz zachowania użytkownika. Dobór narzędzia ustalić przy bazowej weryfikacji działającego środowiska; testy przeglądarkowe mogą korzystać np. z Playwright, a czysta funkcja z lekkiego runnera zgodnego z projektem. Testy minigry są osobnym rozszerzeniem w etapie 6.
+W etapie 5 dodano lekki zestaw testów wbudowanego runnera Node, pokrywający regułę czasu, kontrakt wysyłki formularza oraz oddzielny endpoint kontaktowy. Testy przeglądarkowe redesignu wykonano przez kontrolowany lokalny podgląd bez dodawania frameworka E2E do zależności. Testy minigry są osobnym rozszerzeniem w etapie 6.
 
 | Obszar                | Scenariusze wymagane przed odbiorem                                                                                                                                                                          |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
@@ -338,21 +342,21 @@ Pełna macierz tras, języków i pór to 36 stanów na wybranej szerokości. Aut
 
 ## 11. Ustalenia i pozostałe decyzje
 
-Ustalone: plan bazowy zaakceptowany; wszystkie funkcjonalności i trzy pory zostają; portret użytkownika stanowi referencję maga; tło i dodatkowe grafiki przygotowuje asystent; inspiracje mają role opisane w rozdziale 4; minigra jest ostatnią fazą, nie elementem blokującym redesign; dev działa po instalacji pakietów.
+Ustalone: plan bazowy zaakceptowany; etapy 0–5 odebrane; wszystkie funkcjonalności i trzy pory zostają; portret użytkownika stanowi referencję maga; tło i dodatkowe grafiki przygotowuje asystent; inspiracje mają role opisane w rozdziale 4; minigra jest ostatnią fazą, nie elementem blokującym redesign; dev działa po instalacji pakietów.
 
 Przyjęty poziom narracji: metafory w nagłówkach, menu i CTA, a opisy usług, doświadczenia, NDA i pól kontaktowych pozostają rzeczowe. Ostateczne podobieństwo portretu, kadrowanie, paletę oraz etykiety oceniamy na pierwszych grafikach i makietach.
 
-**Do potwierdzenia przed minigrą:** czy przy istniejącej rzeźbie nowy losowy zestaw luźnych bloków ma być widoczny obok niej? Roboczo przyjmujemy, że tak, aby jednocześnie spełnić trwałość rzeźby i losowanie bloków przy każdym odświeżeniu. Rzeźba nie zmienia się ani nie znika od samego odświeżenia. Alternatywa to pokazywanie nowych bloków dopiero po lawie — byłby to jawny wyjątek od reguły każdego odświeżenia, więc wymaga decyzji użytkownika.
+Przed etapem 6 użytkownik potwierdził trzy decyzje. Minigra otrzyma osobną kartę nawigacji i lokalizowaną podstronę, ponieważ strona główna nie ma miejsca na pełną scenę. Gra pozostaje 2D, co pasuje do przyjętej oprawy i ogranicza koszt dla przeglądarki. Przy istniejącej zamrożonej rzeźbie obok niej pojawia się nowy losowy zestaw luźnych bloków; rzeźba nie zmienia się ani nie znika od odświeżenia. Dopiero lawa usuwa trwały zapis i rozpoczyna nowy cykl.
 
 ## 12. Specyfikacja końcowej minigry
 
 ### Cel i granica interakcji
 
-Na ekranie głównym można uruchomić niewielką pracownię: poruszać magiem, magicznie przenosić bloki, zbudować dowolny kształt, utrwalić go mrozem, wrócić później do swojej rzeźby i roztopić ją lawą, by zacząć ponownie.
+Na osobnej podstronie „Pracownia maga” można poruszać magiem, magicznie przenosić bloki, zbudować dowolny kształt, utrwalić go mrozem, wrócić później do swojej rzeźby i roztopić ją lawą, by zacząć ponownie. Do pracowni prowadzi widoczna pozycja wspólnej nawigacji, a wejście do gry nie jest wymagane do korzystania z portfolio.
 
 Bloki mogą przypominać fragmenty fantastycznego interfejsu — panele, kamienne tabliczki, fragmenty ram — ale **nie są prawdziwymi przyciskami menu ani polami formularza**. Telekineza nie może zabrać odwiedzającemu linku do kontaktu lub utrudnić czytania treści. Nie dodawać zadań obowiązkowych, punktacji ani ekranów odblokowania oferty.
 
-Proponowany zakres pierwszej wersji: jedna scena 2D, jeden mag, ograniczony zestaw prostych kształtów, trzy zaklęcia i jedna zapisana rzeźba na przeglądarkę. Ruch nie wymaga rozbudowanej platformówki, walki, skakania ani symulacji 3D.
+Zatwierdzony zakres pierwszej wersji: jedna scena 2D, jeden mag, ograniczony zestaw prostych kształtów, trzy zaklęcia i jedna zapisana rzeźba na przeglądarkę. Ruch nie wymaga rozbudowanej platformówki, walki, skakania ani symulacji 3D.
 
 ### Stan trwały i stan luźnych bloków
 
@@ -376,7 +380,7 @@ Losowanie odbywa się raz na wejście/pełne odświeżenie i po lawie, nie przy 
 
 Zwykłe odświeżenie, zmiana podstrony, pory dnia, języka lub zamknięcie gry nie usuwa poprawnego zapisu. Po mrozie kształt staje się nieruchomy, bez dalszego osiadania fizyki. Nie mieszać „zamrożenia wizualnego” z obietnicą zapisu: komunikat o zachowaniu na następne wejście dopiero po udanej operacji storage.
 
-**Robocza interpretacja przy istniejącym zapisie:** odtworzyć rzeźbę i obok wylosować nową pulę luźnych bloków, bez nadpisywania zapisu. Do czasu lawy nie można zastąpić zamrożonej rzeźby kolejnym mrozem. To zachowanie wymaga potwierdzenia wskazanego w rozdziale 11.
+**Zatwierdzone zachowanie przy istniejącym zapisie:** odtworzyć rzeźbę i obok wylosować nową pulę luźnych bloków, bez nadpisywania zapisu. Do czasu lawy nie można zastąpić zamrożonej rzeźby kolejnym mrozem.
 
 ### Kontrakt zapisu
 
@@ -396,10 +400,11 @@ Desktop: klawisze ruchu działają tylko po wejściu w scenę; mysz służy do w
 
 Telefon: widoczne sterowanie ruchem, wybór zaklęć i obsługa przenoszenia przez dotyk. Przechwytywać gest tylko wewnątrz aktywnej sceny; pozostawić przewijanie strony poza nią. UI i instrukcje w PL/EN. Reduced motion ogranicza cząsteczki, trzęsienie i błyski, ale pozwala wykonywać te same akcje.
 
-Scena ma własny przycisk wejścia/wyjścia i nie zasłania pełnej listy stron na desktopie. Nie jest ekranem startowym blokującym portal. Zapisana rzeźba może być wyświetlana jako spokojna dekoracja bez uruchamiania całej symulacji. Awaria modułu gry pozostawia normalną stronę, kontakt i nawigację działające.
+Scena działa na osobnej podstronie dostępnej z własnej pozycji wspólnej nawigacji. Ma wyraźne wejście w sterowanie i wyjście z interakcji; nie jest ekranem startowym blokującym portal i nie obciąża obowiązkowego uruchomienia strony głównej. Zapisana rzeźba może być wyświetlana w pracowni jako spokojna dekoracja bez uruchamiania całej symulacji. Awaria modułu gry pozostawia pozostałe strony, kontakt i nawigację działające.
 
 ### Proponowana architektura — dopiero w etapie 6
 
+- `src/app/[locale]/playground/page.tsx` — lokalizowana podstrona pracowni z własnymi metadanymi; nowa pozycja prowadzi do niej ze wspólnej nawigacji.
 - `src/components/rpg/playground/MagePlayground.tsx` — klientowy punkt wejścia ładowany na żądanie, pomoc i kontrolki.
 - `src/components/rpg/playground/PlaygroundScene.tsx` — scena, postać, render bloków i obsługa interakcji; nie zawiera prawdziwej nawigacji strony.
 - `src/components/rpg/playground/SculpturePreview.tsx` — lekki podgląd zwalidowanej rzeźby, bez aktywnej gry.
@@ -408,7 +413,7 @@ Scena ma własny przycisk wejścia/wyjścia i nie zasłania pełnej listy stron 
 - `src/lib/rpg/blocks.ts` — generator zestawu z wstrzykiwanym źródłem losowości, ograniczeniami sceny i stabilnymi identyfikatorami.
 - `public/images/rpg/playground/` — ewentualne osobne sprite'y maga, materiały i efekty przygotowane według potrzeb prototypu; nie zakładać, że statyczny portret wystarczy do animacji chodzenia.
 
-Najpierw sprawdzić mały prototyp DOM/SVG lub canvas 2D. Jeżeli potrzebna będzie fizyka, jej bibliotekę dobrać do udowodnionej potrzeby i ładować tylko w module gry. Nie dodawać ciężkiego silnika do globalnego layoutu. Zatrzymywać pętlę animacji po wyjściu, ukryciu karty lub przejściu na inną stronę; zachować stan sesji potrzebny po powrocie.
+Najpierw sprawdzić mały prototyp DOM/SVG lub canvas 2D. Jeżeli potrzebna będzie fizyka 2D, jej bibliotekę dobrać do udowodnionej potrzeby i ładować tylko na podstronie gry. Nie dodawać ciężkiego silnika do globalnego layoutu ani strony głównej. Zatrzymywać pętlę animacji po wyjściu, ukryciu karty przeglądarki lub przejściu na inną stronę; zachować stan sesji potrzebny po powrocie.
 
 ### Osobna macierz odbioru minigry
 
@@ -417,7 +422,7 @@ Najpierw sprawdzić mały prototyp DOM/SVG lub canvas 2D. Jeżeli potrzebna będ
 | Pierwsze wejście, brak zapisu               | Mag i poprawny losowy zestaw; żadnej pustej rzeźby w storage.                                                    |
 | Odświeżenie bez użycia mrozu                | Nowy losowy zestaw; niezamrożony układ nie wraca.                                                                |
 | Mróz → odświeżenie → ponowne wejście        | Ta sama geometria rzeźby, blok po bloku; brak nadpisania losowaniem i brak drgań fizyki.                         |
-| Odświeżenie z istniejącą rzeźbą             | Rzeźba bez zmian; zachowanie nowej puli luźnych bloków zgodne z zatwierdzoną interpretacją z rozdziału 11.       |
+| Odświeżenie z istniejącą rzeźbą             | Rzeźba bez zmian; obok pojawia się nowa losowa pula luźnych bloków, bez nadpisania trwałego zapisu.              |
 | Lawa → odświeżenie                          | Własny klucz rzeźby nie istnieje, stara rzeźba nie wraca, pojawiają się nowe bloki.                              |
 | Lawa przy innych danych strony              | Klucz cookies i inne wpisy `localStorage` pozostają nietknięte.                                                  |
 | Przełączenie PL/EN, pory i podstrony        | Brak skasowania zapisu lub nieplanowanego przelosowania w obrębie sesji; powrót do tej samej sceny.              |

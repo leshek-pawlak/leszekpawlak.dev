@@ -123,6 +123,32 @@
     "questTitle": "Your quest. My experience.",
     "ndaTrust": "Trust comes first."
   },
+  "metadata": {
+    "home": {
+      "title": "TypeScript & React Consultant",
+      "description": "12+ years of JavaScript ecosystem experience. I help teams make better architectural decisions, avoid costly mistakes, and ship faster."
+    },
+    "about": {
+      "title": "About me",
+      "description": "Meet Leszek Pawlak — an independent TypeScript, React, and Node.js consultant with over a decade of production systems experience."
+    },
+    "services": {
+      "title": "Consulting services",
+      "description": "Architecture consulting, project estimation, code review, mentoring, and AI integration strategy for teams building web applications."
+    },
+    "experience": {
+      "title": "Experience",
+      "description": "Over 12 years of Leszek Pawlak's experience in TypeScript, React, Node.js, application architecture, digital products, and payment systems."
+    },
+    "workflow": {
+      "title": "How we work together",
+      "description": "A transparent consulting process: from the first inquiry and NDA through scope and estimate to delivery and review."
+    },
+    "contact": {
+      "title": "Contact",
+      "description": "Describe your project or technical challenge and invite an experienced TypeScript and React consultant to your team for a free estimate."
+    }
+  },
   "footer": {
     "rights": "All rights reserved."
   },

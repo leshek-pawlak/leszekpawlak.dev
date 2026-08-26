@@ -2,9 +2,9 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { useState } from "react";
-import runestone from "../../docs/design/rpg/arcane-runestone-card-v3.png";
+import { rpgImages } from "@/lib/rpgImages";
 
 const serviceKeys = ["consulting", "estimation", "development", "ai"] as const;
 
@@ -13,6 +13,7 @@ export function ContactSection() {
   const rpg = useTranslations("rpg");
   const services = useTranslations("services");
   const workflow = useTranslations("workflow");
+  const reduceMotion = useReducedMotion();
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -59,7 +60,7 @@ export function ContactSection() {
     <section className="rpg-content-section rpg-contact-section">
       <div className="rpg-content-inner">
         <motion.header
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="rpg-section-intro"
@@ -72,7 +73,7 @@ export function ContactSection() {
 
         <div className="rpg-contact-layout">
           <motion.form
-            initial={{ opacity: 0, y: 24 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.12, duration: 0.6 }}
             onSubmit={handleSubmit}
@@ -126,7 +127,12 @@ export function ContactSection() {
               <span aria-hidden="true">→</span>
             </button>
 
-            <div className="rpg-form-status" role="status" aria-live="polite">
+            <div
+              className="rpg-form-status"
+              role="status"
+              aria-live="polite"
+              aria-atomic="true"
+            >
               {status === "success" && (
                 <p className="rpg-form-success">{t("success")}</p>
               )}
@@ -137,17 +143,20 @@ export function ContactSection() {
           </motion.form>
 
           <motion.aside
-            initial={{ opacity: 0, y: 24 }}
+            initial={reduceMotion ? false : { opacity: 0, y: 24 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.22, duration: 0.6 }}
             className="rpg-support-panel rpg-panel"
           >
             <div className="rpg-runestone" aria-hidden="true">
               <Image
-                src={runestone}
+                src={rpgImages.runestone.src}
                 alt=""
+                width={rpgImages.runestone.width}
+                height={rpgImages.runestone.height}
                 sizes="(max-width: 720px) 54vw, 240px"
                 placeholder="blur"
+                blurDataURL={rpgImages.runestone.blurDataURL}
               />
             </div>
             <p className="rpg-eyebrow">{rpg("partySupport")}</p>

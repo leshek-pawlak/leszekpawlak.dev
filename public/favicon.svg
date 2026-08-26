@@ -1,11 +1,16 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
   <defs>
-    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#4f46e5" />
-      <stop offset="100%" stop-color="#0d9488" />
+    <linearGradient id="shield" x1="10" y1="6" x2="54" y2="58" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#1d3040" />
+      <stop offset="1" stop-color="#0b1421" />
+    </linearGradient>
+    <linearGradient id="gold" x1="18" y1="15" x2="46" y2="49" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#f1e4bb" />
+      <stop offset="1" stop-color="#c5a46d" />
     </linearGradient>
   </defs>
-
-  <text x="16" y="22.5" font-family="system-ui, sans-serif" font-size="15" font-weight="700" fill="url(#g)"
-    text-anchor="middle">LP</text>
+  <path d="M7 5h50v36c0 8-10 15-25 19C17 56 7 49 7 41V5Z" fill="url(#shield)" stroke="url(#gold)" stroke-width="2" />
+  <path d="M12 10h40v29c0 6-8 11-20 15-12-4-20-9-20-15V10Z" fill="none" stroke="#d5c291" stroke-opacity=".3" />
+  <path d="m32 11 4 5-4 5-4-5 4-5Z" fill="#9fc8eb" stroke="#f1e4bb" stroke-width=".8" />
+  <text x="32" y="43" fill="url(#gold)" font-family="Georgia, serif" font-size="23" text-anchor="middle" font-weight="700">LP</text>
 </svg>

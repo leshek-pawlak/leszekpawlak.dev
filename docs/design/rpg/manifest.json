@@ -1,7 +1,12 @@
 {
   "createdAt": "2026-08-26",
   "tool": "image_gen.imagegen (built-in)",
-  "status": "source artwork; not integrated or optimized",
+  "status": "source artwork integrated; optimized WebP exports generated for the application",
+  "applicationExports": {
+    "directory": "public/images/rpg/",
+    "generator": "scripts/optimize-rpg-assets.mjs",
+    "manifest": "public/images/rpg/manifest.json"
+  },
   "assets": [
     {
       "file": "docs/design/rpg/leszek-mage-card-v3.png",

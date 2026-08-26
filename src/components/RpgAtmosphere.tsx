@@ -1,17 +1,18 @@
 import Image from "next/image";
-import tavernBackground from "../../docs/design/rpg/tavern-workshop-background-v1.png";
+import { rpgImages } from "@/lib/rpgImages";
 
 export function RpgAtmosphere() {
   return (
     <div className="rpg-atmosphere" aria-hidden="true">
       <Image
         className="rpg-background-image"
-        src={tavernBackground}
+        src={rpgImages.background.src}
         alt=""
         fill
         sizes="100vw"
         preload
         placeholder="blur"
+        blurDataURL={rpgImages.background.blurDataURL}
         draggable={false}
       />
       <div className="rpg-background-veil" />

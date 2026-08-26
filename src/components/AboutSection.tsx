@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const skills = {
   languages: [
@@ -29,13 +29,16 @@ const skills = {
 export function AboutSection() {
   const t = useTranslations("about");
   const rpg = useTranslations("rpg");
+  const reduceMotion = useReducedMotion();
   const skillCount = Object.values(skills).flat().length;
 
   return (
     <section className="rpg-content-section">
       <div className="rpg-content-inner">
         <motion.header
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          initial={
+            reduceMotion ? false : { opacity: 0, y: 30, filter: "blur(8px)" }
+          }
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -47,7 +50,7 @@ export function AboutSection() {
         </motion.header>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ delay: 0.1, duration: 0.6 }}
@@ -64,7 +67,11 @@ export function AboutSection() {
             (category, idx) => (
               <motion.article
                 key={category}
-                initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+                initial={
+                  reduceMotion
+                    ? false
+                    : { opacity: 0, y: 30, filter: "blur(8px)" }
+                }
                 whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
                 viewport={{ once: true }}
                 transition={{

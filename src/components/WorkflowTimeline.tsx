@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const steps = [
   {
@@ -117,12 +117,13 @@ const steps = [
 export function WorkflowTimeline() {
   const t = useTranslations("workflow");
   const rpg = useTranslations("rpg");
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="rpg-content-section">
       <div className="rpg-content-inner">
         <motion.header
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           className="rpg-section-intro"
@@ -137,7 +138,7 @@ export function WorkflowTimeline() {
           {steps.map((step, index) => (
             <motion.article
               key={step.key}
-              initial={{ opacity: 0, y: 28 }}
+              initial={reduceMotion ? false : { opacity: 0, y: 28 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.5, delay: index * 0.06 }}
@@ -158,7 +159,7 @@ export function WorkflowTimeline() {
         </div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.3 }}

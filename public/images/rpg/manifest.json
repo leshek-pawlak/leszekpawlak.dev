@@ -1,0 +1,30 @@
+{
+  "generatedBy": "scripts/optimize-rpg-assets.mjs",
+  "format": "webp",
+  "assets": {
+    "background": {
+      "src": "/images/rpg/tavern-workshop-background.webp",
+      "width": 1672,
+      "height": 941,
+      "bytes": 94146,
+      "sourceBytes": 1862323,
+      "blurDataURL": "data:image/webp;base64,UklGRlgAAABXRUJQVlA4IEwAAADwAwCdASoYAA4APxF8tFGsKCUisAgBgCIJZQC7AGlgBqHqVq/o+WoAAP76XlxLf9ucUAYJzA8UwoSL19PBV9bSLIXq9q0uuW74QAAA"
+    },
+    "portrait": {
+      "src": "/images/rpg/leszek-mage-card.webp",
+      "width": 1024,
+      "height": 1536,
+      "bytes": 154624,
+      "sourceBytes": 2253612,
+      "blurDataURL": "data:image/webp;base64,UklGRoYAAABXRUJQVlA4IHoAAACwBACdASoYACQAPw1ytFAsJyWisBqqqYAhiWUAxzAWYrj0SMzQwojButwfUQdgAP7r2sEEktjW/l+QSc5FbkRPouOuRCOAesrqRDd4MX7zKvhCO+oTZItQYa3Wxib7ShoSZNWOr+pY9/QzmrWct5Fxtmw8i4YG65gAAA=="
+    },
+    "runestone": {
+      "src": "/images/rpg/arcane-runestone-card.webp",
+      "width": 720,
+      "height": 720,
+      "bytes": 22584,
+      "sourceBytes": 1353640,
+      "blurDataURL": "data:image/webp;base64,UklGRloAAABXRUJQVlA4IE4AAACwAwCdASoYABgAPvFmp1AppaOit+gBMB4JQBfJBkocEqBUudosgAD+689j+MCRdcVm2DIIemXnc7TJwDlx68IoBRFLgQh4W928hxyAAAA="
+    }
+  }
+}

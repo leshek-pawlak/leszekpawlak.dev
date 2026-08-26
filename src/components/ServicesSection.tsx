@@ -1,7 +1,7 @@
 "use client";
 
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 
 const services = [
   {
@@ -81,12 +81,15 @@ const services = [
 export function ServicesSection() {
   const t = useTranslations("services");
   const rpg = useTranslations("rpg");
+  const reduceMotion = useReducedMotion();
 
   return (
     <section className="rpg-content-section">
       <div className="rpg-content-inner">
         <motion.header
-          initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+          initial={
+            reduceMotion ? false : { opacity: 0, y: 30, filter: "blur(8px)" }
+          }
           whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
           viewport={{ once: true }}
           transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
@@ -102,7 +105,11 @@ export function ServicesSection() {
           {services.map((service, idx) => (
             <motion.article
               key={service.key}
-              initial={{ opacity: 0, y: 30, filter: "blur(8px)" }}
+              initial={
+                reduceMotion
+                  ? false
+                  : { opacity: 0, y: 30, filter: "blur(8px)" }
+              }
               whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
               viewport={{ once: true }}
               transition={{

@@ -2,22 +2,23 @@
 
 import Image from "next/image";
 import { useTranslations } from "next-intl";
-import { motion } from "motion/react";
+import { motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
-import magePortrait from "../../docs/design/rpg/leszek-mage-card-v3.png";
+import { rpgImages } from "@/lib/rpgImages";
 
 const tools = ["TypeScript", "React", "Node.js"];
 
 export function Hero() {
   const t = useTranslations("hero");
   const rpg = useTranslations("rpg");
+  const reduceMotion = useReducedMotion();
   const [firstName, ...lastNameParts] = t("name").split(" ");
 
   return (
     <section className="rpg-hero">
       <div className="rpg-hero-layout">
         <motion.header
-          initial={{ opacity: 0, y: 24 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, ease: [0.16, 1, 0.3, 1] }}
           className="rpg-hero-identity"
@@ -31,18 +32,21 @@ export function Hero() {
         </motion.header>
 
         <motion.figure
-          initial={{ opacity: 0, scale: 0.96 }}
+          initial={reduceMotion ? false : { opacity: 0, scale: 0.96 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.75, delay: 0.08 }}
           className="rpg-portrait-card"
         >
           <div className="rpg-portrait-frame">
             <Image
-              src={magePortrait}
-              alt={`${t("name")} — ${rpg("className")}`}
+              src={rpgImages.portrait.src}
+              alt={rpg("portraitAlt")}
+              width={rpgImages.portrait.width}
+              height={rpgImages.portrait.height}
               className="rpg-portrait-image"
               sizes="(max-width: 720px) 88vw, (max-width: 1099px) 42vw, 29vw"
               placeholder="blur"
+              blurDataURL={rpgImages.portrait.blurDataURL}
               preload
             />
             <i className="rpg-frame-corner rpg-frame-corner-tl" />
@@ -58,7 +62,7 @@ export function Hero() {
         </motion.figure>
 
         <motion.div
-          initial={{ opacity: 0, y: 24 }}
+          initial={reduceMotion ? false : { opacity: 0, y: 24 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.65, delay: 0.18 }}
           className="rpg-character-story"
@@ -90,7 +94,7 @@ export function Hero() {
         </motion.div>
 
         <motion.aside
-          initial={{ opacity: 0 }}
+          initial={reduceMotion ? false : { opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.7, delay: 0.32 }}
           className="rpg-equipment"

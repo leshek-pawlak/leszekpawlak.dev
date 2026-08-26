@@ -276,19 +276,23 @@ Wynik: wszystkie istniejące strony działają w nowej ramie, nawet zanim każda
 
 ### Etap 3 — migracja ekranów i treści
 
-- [ ] Przebudować `Hero` i `AboutSection`, następnie usługi, doświadczenie, współpracę i kontakt.
-- [ ] Przenosić dane bez skracania rekordów, usuwania umiejętności lub zmieniania zakresu usług.
-- [ ] Aktualizować PL i EN równolegle; utrzymać dosłowne nazwy usług, formularza i dokumentów obok metafory.
-- [ ] Po każdym ekranie sprawdzić nawigację, stany interakcji, trzy motywy i widok mobilny.
+- [x] Przebudować `Hero` i `AboutSection`, następnie usługi, doświadczenie, współpracę i kontakt.
+- [x] Przenosić dane bez skracania rekordów, usuwania umiejętności lub zmieniania zakresu usług.
+- [x] Aktualizować PL i EN równolegle; utrzymać dosłowne nazwy usług, formularza i dokumentów obok metafory.
+- [x] Po każdym ekranie sprawdzić nawigację, stany interakcji, trzy motywy i widok mobilny.
+
+Raport wdrożenia i weryfikacji etapu 3: [docs/design/rpg/stage-3-report.md](design/rpg/stage-3-report.md).
 
 Wynik: spójna oprawa całego serwisu, nie pojedynczej strony.
 
 ### Etap 4 — ilustracje i dopracowanie
 
-- [ ] Dodać zatwierdzony portret/tło, ewentualny font nagłówków i spójne favicon.
-- [ ] Sprawdzić wagę zasobów, czytelność z tłem, rezerwację miejsca i wariant bez załadowanych obrazów.
-- [ ] Dopracować animacje, ograniczony ruch, fokus, komunikaty formularza i nakładanie się paneli.
-- [ ] Usunąć wyłącznie nieużywane style po sprawdzeniu wszystkich odwołań; zachować funkcje i przygotowane integracje.
+- [x] Dodać zatwierdzony portret/tło, ewentualny font nagłówków i spójne favicon.
+- [x] Sprawdzić wagę zasobów, czytelność z tłem, rezerwację miejsca i wariant bez załadowanych obrazów.
+- [x] Dopracować animacje, ograniczony ruch, fokus, komunikaty formularza i nakładanie się paneli.
+- [x] Usunąć wyłącznie nieużywane style po sprawdzeniu wszystkich odwołań; zachować funkcje i przygotowane integracje.
+
+Raport wdrożenia i weryfikacji etapu 4: [docs/design/rpg/stage-4-report.md](design/rpg/stage-4-report.md).
 
 Wynik: gotowa oprawa bez pogorszenia użyteczności.
 

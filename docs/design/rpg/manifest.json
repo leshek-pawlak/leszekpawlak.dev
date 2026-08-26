@@ -1,0 +1,43 @@
+{
+  "createdAt": "2026-08-26",
+  "tool": "image_gen.imagegen (built-in)",
+  "status": "source artwork; not integrated or optimized",
+  "assets": [
+    {
+      "file": "docs/design/rpg/leszek-mage-card-v3.png",
+      "source": "/Users/leszek/.codex/generated_images/01a03f0b-2a14-7c71-953a-a7afb0c7fa14/exec-add39501-9956-459a-ab57-4b4441979b07.png",
+      "role": "opaque character card",
+      "width": 1024,
+      "height": 1536,
+      "format": "png",
+      "channels": 3,
+      "hasAlpha": false,
+      "bytes": 2253612,
+      "sha256": "f12c493ac86431cb458d1e947588eb5ad7c5b6cbc08cc71bd5d3e6fae5c91ebf"
+    },
+    {
+      "file": "docs/design/rpg/tavern-workshop-background-v1.png",
+      "source": "/Users/leszek/.codex/generated_images/01a03f0b-2a14-7c71-953a-a7afb0c7fa14/exec-9e8e1c7b-b7b0-4b22-a941-7e0a90e389f7.png",
+      "role": "background base layer",
+      "width": 1672,
+      "height": 941,
+      "format": "png",
+      "channels": 3,
+      "hasAlpha": false,
+      "bytes": 1862323,
+      "sha256": "ba1c9dc066bcbc4286e2b43b59d4879f0f1c08561296933ebc73cfedd67e3428"
+    },
+    {
+      "file": "docs/design/rpg/arcane-runestone-card-v3.png",
+      "source": "/Users/leszek/.codex/generated_images/01a03f0b-2a14-7c71-953a-a7afb0c7fa14/exec-529c0f5e-a57e-4f7e-83e9-0173867de41a.png",
+      "role": "opaque prop card",
+      "width": 1254,
+      "height": 1254,
+      "format": "png",
+      "channels": 3,
+      "hasAlpha": false,
+      "bytes": 1353640,
+      "sha256": "17184b5307f291aeb11e57379b48a502ed2d53c4e54a8475ea553f926e26cf5f"
+    }
+  ]
+}

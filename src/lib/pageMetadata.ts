@@ -7,6 +7,7 @@ export type PageMetadataKey =
   | "services"
   | "experience"
   | "workflow"
+  | "playground"
   | "contact";
 
 const pagePaths: Record<PageMetadataKey, string> = {
@@ -15,6 +16,7 @@ const pagePaths: Record<PageMetadataKey, string> = {
   services: "/services",
   experience: "/experience",
   workflow: "/workflow",
+  playground: "/playground",
   contact: "/contact",
 };
 

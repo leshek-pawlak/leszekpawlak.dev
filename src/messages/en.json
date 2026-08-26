@@ -5,6 +5,7 @@
     "services": "Services",
     "experience": "Experience",
     "workflow": "Workflow",
+    "playground": "2D game",
     "contact": "Contact"
   },
   "hero": {
@@ -123,6 +124,52 @@
     "questTitle": "Your quest. My experience.",
     "ndaTrust": "Trust comes first."
   },
+  "playground": {
+    "kicker": "INTERACTIVE WORKSHOP",
+    "title": "Mage workshop",
+    "intro": "Enter a lightweight 2D game. Move stone blocks with telekinesis, build your own shape, and preserve it with frost in this browser.",
+    "loading": "Opening the workshop…",
+    "sceneLabel": "Mage workshop scene",
+    "buildZone": "SCULPTURE AREA",
+    "supplyZone": "LOOSE BLOCKS",
+    "start": "Enter the workshop",
+    "exit": "Return control to the page",
+    "inactive": "Game controls are inactive.",
+    "active": "Controls active. Escape returns control to the page.",
+    "mageLabel": "Leszek, the TypeScript mage",
+    "blockLabel": "Loose block {index}",
+    "frozenBlockLabel": "Frozen sculpture block {index}",
+    "telekinesis": "Telekinesis",
+    "telekinesisHint": "Select and drag a block. Use the arrow keys on a keyboard.",
+    "frost": "Frost",
+    "frostHint": "Saves the blocks placed inside the sculpture area.",
+    "lava": "Lava",
+    "lavaHint": "Melts the saved sculpture and creates a new set of blocks.",
+    "rotateLeft": "Rotate selected block left",
+    "rotateRight": "Rotate selected block right",
+    "moveMage": "Move the mage",
+    "moveUp": "Move the mage up",
+    "moveDown": "Move the mage down",
+    "moveLeft": "Move the mage left",
+    "moveRight": "Move the mage right",
+    "keyboardHelp": "Mage: WASD or arrows when the scene is focused. Block: Tab, Enter, and arrows. Escape ends game control.",
+    "localOnly": "The sculpture is stored only in this browser and is never sent to a server.",
+    "ready": "The workshop is ready. Move blocks into the marked area.",
+    "loaded": "Your frozen sculpture is back. A new set of blocks waits beside it.",
+    "selected": "Block selected. Drag it or use the arrow keys.",
+    "emptyFreeze": "Place at least one block inside the sculpture area first.",
+    "frozen": "The frost spell worked. Your sculpture will survive your next visit.",
+    "frozenMemory": "The sculpture is frozen for this session only — the browser refused storage access.",
+    "existing": "One sculpture is already frozen. Melt it with lava before saving another.",
+    "melted": "Lava melted the sculpture. A new set of blocks appeared.",
+    "refreshed": "A new set of loose blocks has been generated.",
+    "storageError": "The local save could not be changed. Your sculpture remains untouched.",
+    "invalidStorage": "An unreadable or newer save was found. You can remove it with the lava spell.",
+    "confirmTitle": "Melt the entire sculpture?",
+    "confirmDescription": "Lava removes only the workshop save. This action cannot be undone.",
+    "confirm": "Yes, cast lava",
+    "cancel": "Keep the sculpture"
+  },
   "metadata": {
     "home": {
       "title": "TypeScript & React Consultant",
@@ -143,6 +190,10 @@
     "workflow": {
       "title": "How we work together",
       "description": "A transparent consulting process: from the first inquiry and NDA through scope and estimate to delivery and review."
+    },
+    "playground": {
+      "title": "Mage workshop — 2D game",
+      "description": "A lightweight 2D game in Leszek Pawlak's portfolio: block telekinesis, a locally frozen sculpture, and a lava spell."
     },
     "contact": {
       "title": "Contact",

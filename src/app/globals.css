@@ -724,6 +724,33 @@ h4 {
   margin: 0 auto;
 }
 
+.rpg-playground-inner {
+  width: min(1240px, 100%);
+}
+
+.rpg-playground-intro {
+  max-width: 860px;
+}
+
+.rpg-playground-loading {
+  min-height: 430px;
+  display: grid;
+  place-content: center;
+  justify-items: center;
+  gap: 12px;
+  color: var(--muted);
+}
+
+.rpg-playground-loading span {
+  color: var(--accent-light);
+  font-size: 26px;
+  text-shadow: 0 0 18px var(--accent);
+}
+
+.rpg-playground-loading p {
+  margin: 0;
+}
+
 .rpg-section-intro {
   max-width: 780px;
   margin: 0 0 clamp(38px, 5vw, 64px);

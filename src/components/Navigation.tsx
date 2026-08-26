@@ -5,9 +5,24 @@ import { useTranslations } from "next-intl";
 import { Link, usePathname } from "@/i18n/navigation";
 import { useParams } from "next/navigation";
 
-type NavIcon = "star" | "book" | "spark" | "compass" | "map" | "letter";
+type NavIcon =
+  | "star"
+  | "book"
+  | "spark"
+  | "compass"
+  | "map"
+  | "rune"
+  | "letter";
 
-const paths = ["star", "book", "spark", "compass", "map", "letter"] as const;
+const paths = [
+  "star",
+  "book",
+  "spark",
+  "compass",
+  "map",
+  "rune",
+  "letter",
+] as const;
 
 function MenuIcon({ icon }: { icon: NavIcon }) {
   const drawings: Record<NavIcon, React.ReactNode> = {
@@ -25,6 +40,12 @@ function MenuIcon({ icon }: { icon: NavIcon }) {
       </>
     ),
     map: <path d="m3 5 6-2 6 2 6-2v16l-6 2-6-2-6 2V5Zm6-2v16m6-14v16" />,
+    rune: (
+      <>
+        <path d="M12 2 20 7v10l-8 5-8-5V7l8-5Z" />
+        <path d="m9 16 3-9 3 9-3-2-3 2Z" />
+      </>
+    ),
     letter: <path d="M3 6h18v13H3V6Zm0 1 9 7 9-7" />,
   };
 
@@ -59,6 +80,7 @@ export function Navigation() {
         "Księga zaklęć",
         "Dziennik wypraw",
         "Wspólny quest",
+        "Pracownia maga",
         "Zaproś do drużyny",
       ],
     },
@@ -76,6 +98,7 @@ export function Navigation() {
         "Spellbook",
         "Adventure log",
         "A shared quest",
+        "Mage workshop",
         "Invite to your party",
       ],
     },
@@ -87,6 +110,7 @@ export function Navigation() {
     { href: "/services", label: t("services") },
     { href: "/experience", label: t("experience") },
     { href: "/workflow", label: t("workflow") },
+    { href: "/playground", label: t("playground") },
     { href: "/contact", label: t("contact") },
   ] as const;
 

@@ -5,6 +5,7 @@
     "services": "Usługi",
     "experience": "Doświadczenie",
     "workflow": "Współpraca",
+    "playground": "Gra 2D",
     "contact": "Kontakt"
   },
   "hero": {
@@ -123,6 +124,52 @@
     "questTitle": "Twój quest. Moje doświadczenie.",
     "ndaTrust": "Najpierw zaufanie."
   },
+  "playground": {
+    "kicker": "INTERAKTYWNA PRACOWNIA",
+    "title": "Pracownia maga",
+    "intro": "Wejdź do lekkiej gry 2D. Przenieś kamienne bloki telekinezą, ułóż własny kształt i utrwal go mrozem w tej przeglądarce.",
+    "loading": "Otwieranie pracowni…",
+    "sceneLabel": "Scena pracowni maga",
+    "buildZone": "OBSZAR RZEŹBY",
+    "supplyZone": "LUŹNE BLOKI",
+    "start": "Wejdź do pracowni",
+    "exit": "Oddaj sterowanie stronie",
+    "inactive": "Sterowanie grą jest wyłączone.",
+    "active": "Sterowanie aktywne. Escape oddaje sterowanie stronie.",
+    "mageLabel": "Leszek, mag TypeScriptu",
+    "blockLabel": "Luźny blok {index}",
+    "frozenBlockLabel": "Zamrożony blok rzeźby {index}",
+    "telekinesis": "Telekineza",
+    "telekinesisHint": "Wybierz i przeciągnij blok. Klawiaturą użyj strzałek.",
+    "frost": "Mróz",
+    "frostHint": "Zapisuje bloki znajdujące się w obszarze rzeźby.",
+    "lava": "Lawa",
+    "lavaHint": "Topi zapisaną rzeźbę i tworzy nowy zestaw bloków.",
+    "rotateLeft": "Obróć wybrany blok w lewo",
+    "rotateRight": "Obróć wybrany blok w prawo",
+    "moveMage": "Ruch maga",
+    "moveUp": "Przesuń maga w górę",
+    "moveDown": "Przesuń maga w dół",
+    "moveLeft": "Przesuń maga w lewo",
+    "moveRight": "Przesuń maga w prawo",
+    "keyboardHelp": "Mag: WASD lub strzałki po ustawieniu fokusu na scenie. Blok: Tab, Enter i strzałki. Escape kończy sterowanie.",
+    "localOnly": "Rzeźba jest zapisywana tylko w tej przeglądarce i nie jest wysyłana na serwer.",
+    "ready": "Pracownia gotowa. Przenieś bloki do oznaczonego obszaru.",
+    "loaded": "Przywrócono zamrożoną rzeźbę. Obok czeka nowy zestaw bloków.",
+    "selected": "Blok wybrany. Przeciągnij go lub użyj strzałek.",
+    "emptyFreeze": "Najpierw umieść co najmniej jeden blok w obszarze rzeźby.",
+    "frozen": "Zaklęcie mrozu zadziałało. Rzeźba przetrwa kolejne wejście.",
+    "frozenMemory": "Rzeźba została zamrożona tylko na tę sesję — przeglądarka odmówiła zapisu.",
+    "existing": "Jedna rzeźba jest już zamrożona. Roztop ją lawą, aby zapisać inną.",
+    "melted": "Lawa roztopiła rzeźbę. Pojawił się nowy zestaw bloków.",
+    "refreshed": "Wylosowano nowy zestaw luźnych bloków.",
+    "storageError": "Nie udało się zmienić lokalnego zapisu. Rzeźba pozostała bez zmian.",
+    "invalidStorage": "Znaleziono nieczytelny lub nowszy zapis. Możesz usunąć go zaklęciem lawy.",
+    "confirmTitle": "Roztopić całą rzeźbę?",
+    "confirmDescription": "Lawa usunie wyłącznie zapis pracowni. Tej operacji nie można cofnąć.",
+    "confirm": "Tak, użyj lawy",
+    "cancel": "Zostaw rzeźbę"
+  },
   "metadata": {
     "home": {
       "title": "Konsultant TypeScript & React",
@@ -143,6 +190,10 @@
     "workflow": {
       "title": "Jak wygląda współpraca",
       "description": "Przejrzysty proces współpracy: od pierwszego zapytania i NDA, przez zakres i wycenę, po dostarczenie oraz omówienie wyników."
+    },
+    "playground": {
+      "title": "Pracownia maga — gra 2D",
+      "description": "Lekka gra 2D w portfolio Leszka Pawlaka: telekineza bloków, zamrażanie lokalnej rzeźby i zaklęcie lawy."
     },
     "contact": {
       "title": "Kontakt",

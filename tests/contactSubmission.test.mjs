@@ -8,48 +8,37 @@ const submission = {
   message: "Local mocked test",
 };
 
-test("submitContact preserves the Web3Forms contract", async () => {
-  const previousKey = process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
+test("submitContact uses the protected same-origin endpoint", async () => {
   let captured;
-  process.env.NEXT_PUBLIC_WEB3FORMS_KEY = "public-test-key";
+  const success = await submitContact(submission, async (url, init) => {
+    captured = { url: String(url), init };
+    return Response.json({ success: true });
+  });
 
-  try {
-    const success = await submitContact(submission, async (url, init) => {
-      captured = { url: String(url), init };
-      return new Response(JSON.stringify({ success: true }), {
-        headers: { "Content-Type": "application/json" },
-      });
-    });
-
-    assert.equal(success, true);
-    assert.equal(captured.url, "https://api.web3forms.com/submit");
-    assert.equal(captured.init.method, "POST");
-    assert.deepEqual(JSON.parse(captured.init.body), {
-      access_key: "public-test-key",
-      name: submission.name,
-      email: submission.email,
-      message: submission.message,
-      subject: "[leszekpawlak.dev] Wiadomość od Test User",
-    });
-  } finally {
-    if (previousKey === undefined) {
-      delete process.env.NEXT_PUBLIC_WEB3FORMS_KEY;
-    } else {
-      process.env.NEXT_PUBLIC_WEB3FORMS_KEY = previousKey;
-    }
-  }
+  assert.equal(success, true);
+  assert.equal(captured.url, "/api/contact");
+  assert.equal(captured.init.method, "POST");
+  assert.equal(captured.init.credentials, "same-origin");
+  assert.deepEqual(captured.init.headers, {
+    "Content-Type": "application/json",
+    "X-Requested-With": "XMLHttpRequest",
+  });
+  assert.deepEqual(JSON.parse(captured.init.body), submission);
+  assert.equal(captured.init.body.includes("access_key"), false);
 });
 
-test("submitContact reports provider failure and propagates network errors", async () => {
-  const providerFailure = await submitContact(
+test("submitContact reports endpoint failures and propagates network errors", async () => {
+  const httpFailure = await submitContact(
     submission,
-    async () =>
-      new Response(JSON.stringify({ success: false }), {
-        headers: { "Content-Type": "application/json" },
-      }),
+    async () => Response.json({ success: true }, { status: 503 }),
+  );
+  const applicationFailure = await submitContact(
+    submission,
+    async () => Response.json({ success: false }),
   );
 
-  assert.equal(providerFailure, false);
+  assert.equal(httpFailure, false);
+  assert.equal(applicationFailure, false);
   await assert.rejects(
     submitContact(submission, async () => {
       throw new Error("mocked network failure");

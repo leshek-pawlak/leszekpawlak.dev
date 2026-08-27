@@ -1,27 +1,41 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import { useTranslations } from "next-intl";
 
 const COOKIE_CONSENT_KEY = "cookie-consent-accepted";
+const COOKIE_CONSENT_EVENT = "cookie-consent-change";
+
+function subscribeToConsent(onStoreChange: () => void) {
+  window.addEventListener("storage", onStoreChange);
+  window.addEventListener(COOKIE_CONSENT_EVENT, onStoreChange);
+  return () => {
+    window.removeEventListener("storage", onStoreChange);
+    window.removeEventListener(COOKIE_CONSENT_EVENT, onStoreChange);
+  };
+}
+
+function isConsentMissing() {
+  try {
+    return !localStorage.getItem(COOKIE_CONSENT_KEY);
+  } catch {
+    return true;
+  }
+}
 
 export function CookieBanner() {
   const t = useTranslations("cookies");
-  const [visible, setVisible] = useState(false);
-
-  useEffect(() => {
-    try {
-      setVisible(!localStorage.getItem(COOKIE_CONSENT_KEY));
-    } catch {
-      setVisible(true);
-    }
-  }, []);
+  const visible = useSyncExternalStore(
+    subscribeToConsent,
+    isConsentMissing,
+    () => false,
+  );
 
   const accept = () => {
     try {
       localStorage.setItem(COOKIE_CONSENT_KEY, "true");
     } finally {
-      setVisible(false);
+      window.dispatchEvent(new Event(COOKIE_CONSENT_EVENT));
     }
   };
 

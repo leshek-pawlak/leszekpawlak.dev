@@ -4,7 +4,7 @@ import { resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import puppeteer from "puppeteer";
 
-const htmlPath = resolve("public/nda-leszek-pawlak.html");
+const htmlPath = resolve("scripts/nda-leszek-pawlak.html");
 const pdfPath = resolve("public/nda-leszek-pawlak.pdf");
 
 const browser = await puppeteer.launch();

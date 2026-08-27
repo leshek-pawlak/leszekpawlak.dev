@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import {
   useCallback,
   useEffect,
@@ -123,16 +124,15 @@ export function CuttingPlayground({ homeHref }: { homeHref: string }) {
     offsetX: number;
     offsetY: number;
   } | null>(null);
-  const initialSession = useRef<PlaygroundSession | null>(null);
-  if (!initialSession.current) {
-    initialSession.current = playgroundSession ?? createSession();
-  }
+  const [initialSession] = useState<PlaygroundSession>(() =>
+    playgroundSession ?? createSession(),
+  );
 
-  const [target, setTarget] = useState(initialSession.current.target);
-  const [blocks, setBlocks] = useState(initialSession.current.blocks);
-  const [nextBlock, setNextBlock] = useState(initialSession.current.nextBlock);
+  const [target, setTarget] = useState(initialSession.target);
+  const [blocks, setBlocks] = useState(initialSession.blocks);
+  const [nextBlock, setNextBlock] = useState(initialSession.nextBlock);
   const [seenTargetIds, setSeenTargetIds] = useState(
-    initialSession.current.seenTargetIds,
+    initialSession.seenTargetIds,
   );
   const [selectedBlockId, setSelectedBlockId] = useState<string | null>(null);
   const [status, setStatus] = useState<StatusKey>("ready");
@@ -708,12 +708,12 @@ export function CuttingPlayground({ homeHref }: { homeHref: string }) {
               aria-describedby="result-dialog-message"
             >
               <div className={styles.resultMage} aria-hidden="true">
-                <img
+                <Image
                   src={resultMageImage.src}
                   alt=""
                   width={resultMageImage.width}
                   height={resultMageImage.height}
-                  decoding="async"
+                  unoptimized
                 />
               </div>
 

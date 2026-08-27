@@ -1,23 +1,24 @@
 export type ContactSubmission = {
-  name: FormDataEntryValue | null;
-  email: FormDataEntryValue | null;
-  message: FormDataEntryValue | null;
+  name: string;
+  email: string;
+  message: string;
 };
 
 export async function submitContact(
   submission: ContactSubmission,
   fetcher: typeof fetch = fetch,
 ): Promise<boolean> {
-  const response = await fetcher("https://api.web3forms.com/submit", {
+  const response = await fetcher("/api/contact", {
     method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      access_key: process.env.NEXT_PUBLIC_WEB3FORMS_KEY,
-      ...submission,
-      subject: `[leszekpawlak.dev] Wiadomość od ${submission.name}`,
-    }),
+    credentials: "same-origin",
+    headers: {
+      "Content-Type": "application/json",
+      "X-Requested-With": "XMLHttpRequest",
+    },
+    body: JSON.stringify(submission),
   });
-  const data = await response.json();
+  if (!response.ok) return false;
 
+  const data = (await response.json()) as { success?: unknown };
   return data.success === true;
 }

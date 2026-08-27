@@ -36,9 +36,9 @@ export function ContactSection() {
 
     try {
       const success = await submitContact({
-        name: formData.get("name"),
-        email: formData.get("email"),
-        message: formData.get("message"),
+        name: String(formData.get("name") ?? ""),
+        email: String(formData.get("email") ?? ""),
+        message: String(formData.get("message") ?? ""),
       });
 
       if (success) {

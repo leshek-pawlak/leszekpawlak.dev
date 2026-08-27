@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useId, useRef, type KeyboardEvent } from "react";
 import { createPortal } from "react-dom";
 import styles from "./ContactSuccessModal.module.css";
@@ -57,12 +58,12 @@ export function ContactSuccessModal({
         aria-describedby={mageDescriptionId}
       >
         <div className={styles.mage} aria-hidden="true">
-          <img
+          <Image
             src="/images/rpg/results/mage-excellent.webp"
             alt=""
             width={585}
             height={1200}
-            decoding="async"
+            unoptimized
           />
         </div>
 

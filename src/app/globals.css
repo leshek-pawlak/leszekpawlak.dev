@@ -1125,15 +1125,16 @@ h4 {
 .rpg-dossier-panel {
   min-height: 220px;
   padding: 28px;
+  translate: 0 0;
   transition:
     border-color 0.25s ease,
-    transform 0.25s ease;
+    translate 0.25s ease;
 }
 
 .rpg-dossier-panel:hover,
 .rpg-spell-card:hover {
   border-color: color-mix(in srgb, var(--primary) 64%, transparent);
-  transform: translateY(-3px);
+  translate: 0 -3px;
 }
 
 .rpg-panel-index {
@@ -1161,9 +1162,10 @@ h4 {
   flex-direction: column;
   padding: clamp(25px, 4vw, 39px);
   overflow: hidden;
+  translate: 0 0;
   transition:
     border-color 0.25s ease,
-    transform 0.25s ease;
+    translate 0.25s ease;
 }
 
 .rpg-spell-heading {
@@ -2022,7 +2024,10 @@ h4 {
   }
 
   .rpg-dossier-panel:hover,
-  .rpg-spell-card:hover,
+  .rpg-spell-card:hover {
+    translate: 0 0;
+  }
+
   .rpg-primary-button:hover:not(:disabled) {
     transform: none;
   }

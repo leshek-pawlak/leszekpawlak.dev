@@ -61,6 +61,9 @@
     "send": "Wyślij wiadomość",
     "sending": "Wysyłanie...",
     "success": "Wiadomość wysłana! Odpowiem najszybciej jak to możliwe.",
+    "successKicker": "WIADOMOŚĆ DOSTARCZONA",
+    "successClose": "Zamknij",
+    "successMageAlt": "Mag TypeScriptu przyjmuje wiadomość z dumą, szacunkiem i aprobatą.",
     "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na email."
   },
   "workflow": {

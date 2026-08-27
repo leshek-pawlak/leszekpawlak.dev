@@ -8,6 +8,8 @@ Pierwszy prototyp był piaskownicą z magiem, telekinezą, mrozem, lawą i lokal
 
 Gra nadal działa wyłącznie na osobnych trasach `/pl/playground` i `/en/playground`, ma własną pozycję nawigacji i jest ładowana dynamicznie. Strona główna, automatyczne pory, cookies, kontakt, NDA i pozostałe podstrony nie zależą od modułu gry.
 
+Po udanej wysyłce formularza kontaktowego strona wykorzystuje wzorzec wizualny najlepszego wyniku: animowany portal na czarnym półprzezroczystym overlayu oraz tę samą ilustrację dumnego maga. Jest to osobny, lekki komponent kontaktu; nie ładuje logiki gry i nie zmienia kontraktu wysyłki Web3Forms.
+
 ## Pętla gry
 
 - Początek rundy losuje jedną ze 100 deterministycznie zbudowanych i ponumerowanych figur. Każda geometria w puli jest unikalna.

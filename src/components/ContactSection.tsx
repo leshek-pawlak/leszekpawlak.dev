@@ -3,7 +3,8 @@
 import Image from "next/image";
 import { useTranslations } from "next-intl";
 import { motion, useReducedMotion } from "motion/react";
-import { useState } from "react";
+import { useRef, useState } from "react";
+import { ContactSuccessModal } from "@/components/ContactSuccessModal";
 import { rpgImages } from "@/lib/rpgImages";
 import { submitContact } from "@/lib/contactSubmission";
 
@@ -15,6 +16,7 @@ export function ContactSection() {
   const services = useTranslations("services");
   const workflow = useTranslations("workflow");
   const reduceMotion = useReducedMotion();
+  const submitButtonRef = useRef<HTMLButtonElement>(null);
   const [status, setStatus] = useState<
     "idle" | "sending" | "success" | "error"
   >("idle");
@@ -48,6 +50,11 @@ export function ContactSection() {
     } catch {
       setStatus("error");
     }
+  }
+
+  function closeSuccessModal() {
+    setStatus("idle");
+    requestAnimationFrame(() => submitButtonRef.current?.focus());
   }
 
   return (
@@ -113,6 +120,7 @@ export function ContactSection() {
             </div>
 
             <button
+              ref={submitButtonRef}
               type="submit"
               disabled={status === "sending"}
               className="rpg-primary-button"
@@ -127,9 +135,6 @@ export function ContactSection() {
               aria-live="polite"
               aria-atomic="true"
             >
-              {status === "success" && (
-                <p className="rpg-form-success">{t("success")}</p>
-              )}
               {status === "error" && (
                 <p className="rpg-form-error">{t("error")}</p>
               )}
@@ -178,6 +183,16 @@ export function ContactSection() {
           </motion.aside>
         </div>
       </div>
+
+      {status === "success" && (
+        <ContactSuccessModal
+          kicker={t("successKicker")}
+          message={t("success")}
+          mageDescription={t("successMageAlt")}
+          closeLabel={t("successClose")}
+          onClose={closeSuccessModal}
+        />
+      )}
     </section>
   );
 }

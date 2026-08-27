@@ -71,6 +71,8 @@ Poniższa tabela jest listą kontrolną regresji, a nie deklaracją przeprowadzo
 | Animacje i responsywność       | `motion`, `globals.css`, komponenty                             | Zachować animowane wejścia i reakcje na interakcje w nowym stylu; dodać wariant ograniczonego ruchu i nie uzależniać dostępu do treści od efektów.   |
 | Przygotowanie do Sanity        | `src/lib/sanity.ts`, `sanity/schemas/`, `next.config.ts`        | Zachować klienta, schematy, pola PL/EN i konfigurację obrazów z CDN; nie usuwać przy okazji porządkowania CSS.                                       |
 
+**Aktualizacja formularza:** po udanej wysyłce `ContactSection.tsx` otwiera dostępny portal `ContactSuccessModal.tsx` z tą samą ilustracją dumnego maga, która odpowiada najlepszemu wynikowi gry. Modal nie zmienia kontraktu Web3Forms, blokuje przewijanie tła, obsługuje Escape oraz jawny przycisk zamknięcia i oddaje fokus do przycisku wysyłki.
+
 ### Istotne rozróżnienia techniczne
 
 **Kontakt ma obecnie dwie ścieżki w kodzie.** Formularz wysyła bezpośrednio do `https://api.web3forms.com/submit`, korzystając z `NEXT_PUBLIC_WEB3FORMS_KEY`. Nie wywołuje `/api/contact`. Endpoint serwerowy korzysta z `WEB3FORMS_ACCESS_KEY` i ma własne zabezpieczenia. Jego limit trzech zapytań na minutę w pamięci procesu nie chroni obecnej wysyłki z formularza.

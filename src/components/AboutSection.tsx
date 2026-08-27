@@ -67,12 +67,8 @@ export function AboutSection() {
             (category, idx) => (
               <motion.article
                 key={category}
-                initial={
-                  reduceMotion
-                    ? false
-                    : { opacity: 0, y: 30, filter: "blur(8px)" }
-                }
-                whileInView={{ opacity: 1, y: 0, filter: "blur(0px)" }}
+                initial={reduceMotion ? false : { opacity: 0, y: 30 }}
+                whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{
                   delay: 0.1 * idx,

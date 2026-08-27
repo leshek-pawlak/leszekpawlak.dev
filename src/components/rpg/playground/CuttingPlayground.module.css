@@ -745,6 +745,12 @@
   font-weight: 800;
 }
 
+.cutControls .confirmCut:hover:not(:disabled) {
+  border-color: #f0c879;
+  color: #07161d;
+  background: #72d7ef;
+}
+
 .cutControls button:disabled {
   opacity: 0.35;
   cursor: not-allowed;

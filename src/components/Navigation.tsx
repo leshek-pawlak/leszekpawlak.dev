@@ -69,7 +69,6 @@ export function Navigation() {
     pl: {
       heading: "POZNAJ SWOJEGO SOJUSZNIKA",
       subtitle: "KONSULTANT · TWÓJ SOJUSZNIK",
-      time: { day: "Dzień", evening: "Wieczór", night: "Noc" },
       menu: "Menu",
       open: "Otwórz menu",
       close: "Zamknij menu",
@@ -80,14 +79,13 @@ export function Navigation() {
         "Księga zaklęć",
         "Dziennik wypraw",
         "Wspólny quest",
-        "Pracownia maga",
+        "Pracownia kształtów",
         "Zaproś do drużyny",
       ],
     },
     en: {
       heading: "MEET YOUR NEXT ALLY",
       subtitle: "CONSULTANT · YOUR ALLY",
-      time: { day: "Day", evening: "Evening", night: "Night" },
       menu: "Menu",
       open: "Open menu",
       close: "Close menu",
@@ -98,7 +96,7 @@ export function Navigation() {
         "Spellbook",
         "Adventure log",
         "A shared quest",
-        "Mage workshop",
+        "Shape workshop",
         "Invite to your party",
       ],
     },
@@ -212,17 +210,6 @@ export function Navigation() {
         </Link>
 
         <div className="rpg-header-actions">
-          <div
-            className="rpg-time"
-            aria-label={
-              locale === "pl" ? "Automatyczna pora" : "Automatic time of day"
-            }
-          >
-            <span className="rpg-time-day">{copy.time.day}</span>
-            <span className="rpg-time-evening">{copy.time.evening}</span>
-            <span className="rpg-time-night">{copy.time.night}</span>
-            <small>{locale === "pl" ? "automatycznie" : "automatic"}</small>
-          </div>
           <div className="rpg-locales" aria-label="Język / Language">
             {(["pl", "en"] as const).map((targetLocale, index) => (
               <span key={targetLocale}>

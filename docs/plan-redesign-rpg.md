@@ -1,6 +1,6 @@
 # Plan redesignu: Leszek Pawlak jako postać do zrekrutowania
 
-Data analizy: 26.08.2026. Ostatnia aktualizacja: 27.08.2026. Status: użytkownik odebrał etapy 0–5 redesignu. Publikacja wymaga osobnej zgody, a minigra pozostaje etapem 6 na osobnej podstronie.
+Data analizy: 26.08.2026. Ostatnia aktualizacja: 27.08.2026. Status: użytkownik odebrał etapy 0–5 redesignu; funkcjonalny prototyp etapu 6 na osobnej podstronie jest gotowy do osobnego odbioru. Publikacja nadal wymaga osobnej zgody.
 
 ## 1. Cel i granice zmian
 
@@ -307,16 +307,18 @@ Raport regresji, metadanych, testów i pomiaru etapu 5: [docs/design/rpg/stage-5
 
 Użytkownik potwierdził zakończenie etapu 5 dnia 27.08.2026. Nie jest to zgoda na publikację.
 
-### Etap 6 — minigra „Pracownia maga”, po ukończeniu redesignu
+### Etap 6 — minigra „Pracownia kształtów”, po ukończeniu redesignu
 
-- [ ] Po odebraniu etapów 0–5 przygotować na osobnej lokalizowanej podstronie mały prototyp 2D ruchu maga i telekinezy bloków, oddzielony od działającego menu i strony głównej.
-- [ ] Zrealizować losowanie luźnych bloków, budowanie kształtu, mróz zapisujący nieruchomą rzeźbę oraz lawę usuwającą zapis i tworzącą nowy zestaw.
-- [ ] Dodać walidowany i wersjonowany zapis `localStorage`, odtwarzanie przy powrocie, obsługę odmowy zapisu i uszkodzonych danych.
-- [ ] Zapewnić mysz, klawiaturę i dotyk, wyjście z interakcji, reduced motion oraz brak przejmowania skrótów w formularzach.
-- [ ] Sprawdzić, że minigra nie wpływa na trasy, locale, motyw, cookies, NDA, formularz ani analitykę.
+- [x] Po odebraniu etapów 0–5 przygotować na osobnej lokalizowanej podstronie lekką grę logiczną 2D, oddzieloną od menu i strony głównej.
+- [x] Generować jedną ze 100 unikalnych sylwetek, których wynik powyżej 90% wymaga przycięcia identycznych niebieskich kwadratów; zapewnić niewyczerpujący się podajnik w praktycznym limicie planszy.
+- [x] Dodać wielokrotne cięcie wielokąta, przeciąganie, precyzyjny ruch, obrót, odkładanie klocka i ocenę podobieństwa pola po akcji „Gotowe”.
+- [x] Zapewnić mysz, klawiaturę i dotyk; na telefonie użyć powiększonego stołu z ośmioma uchwytami 44 × 44 px, podglądem zachowywanej strony i pułapką fokusu.
+- [x] Dodać pięć uzgodnionych progów odpowiedzi PL/EN i sprawdzić, że minigra nie wpływa na trasy, automatyczny motyw, cookies, NDA, formularz ani analitykę.
 - [ ] Odebrać minigrę osobno, z macierzą z rozdziału 12. Nie uzależniać publikacji gotowego redesignu od ukończenia tej fazy.
 
-Wynik: dodatkowa podstrona zabawy i trwała lokalna rzeźba, przy zachowaniu kompletnej strony zawodowej oraz lekkiej strony głównej.
+Raport funkcjonalnego prototypu i jego weryfikacji: [docs/design/rpg/stage-6-prototype-report.md](design/rpg/stage-6-prototype-report.md).
+
+Wynik: dodatkowa podstrona z pełną pętlą gry logicznej, przy zachowaniu kompletnej strony zawodowej oraz lekkiej strony głównej.
 
 ## 10. Testy i warunki odbioru
 
@@ -324,7 +326,7 @@ W etapie 5 dodano lekki zestaw testów wbudowanego runnera Node, pokrywający re
 
 | Obszar                | Scenariusze wymagane przed odbiorem                                                                                                                                                                          |
 | --------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Routing i języki      | 6 tras × 2 języki; wejście bezpośrednie, odświeżenie, Wstecz/Dalej, aktywna pozycja, przełączenie PL/EN bez utraty podstrony; osobno wejście na `/` i detekcja locale.                                       |
+| Routing i języki      | 7 tras × 2 języki po dodaniu pracowni; wejście bezpośrednie, odświeżenie, Wstecz/Dalej, aktywna pozycja, przełączenie PL/EN bez utraty podstrony; osobno wejście na `/` i detekcja locale.                   |
 | Trzy pory             | Zrzuty wszystkich tras w dzień, wieczór i noc; brak jasnego błysku przy pełnym załadowaniu; spójność wszystkich komponentów.                                                                                 |
 | Granice czasu         | 05:59 → noc, 06:00 → dzień, 17:59 → dzień, 18:00 → wieczór, 21:59 → wieczór, 22:00 → noc; 00:00 → noc. Sprawdzić zmianę podczas otwartej karty i po powrocie z tła, również w innej strefie klienta.         |
 | Mobile i powiększenie | Szerokości 320, 390, 768, 1024 i 1440 px; brak poziomego przewijania, przyciętych opisów, kolizji menu, klawiatury ekranowej, CTA i banera; kontrola 200% zoom.                                              |
@@ -336,7 +338,7 @@ W etapie 5 dodano lekki zestaw testów wbudowanego runnera Node, pokrywający re
 | Dostępność            | Pełne przejście klawiaturą, widoczny fokus, poprawne nagłówki i nazwy, status formularza, reduced motion, czytelność w trzech paletach.                                                                      |
 | Treści i technika     | Porównanie wszystkich 23 umiejętności, 4 usług, 9 wpisów doświadczenia i 6 etapów procesu; komplet PL/EN; brak nowych błędów konsoli/hydratacji; udany lint i build.                                         |
 
-Pełna macierz tras, języków i pór to 36 stanów na wybranej szerokości. Automatyczne zrzuty można wykonać dla całej macierzy na desktopie i telefonie, a pozostałe szerokości sprawdzić na reprezentatywnych ekranach: hero, długi wpis doświadczenia, workflow i formularz. Nie trzeba powielać każdej próby wysyłki dla każdego koloru.
+Pełna macierz siedmiu tras, dwóch języków i trzech pór to 42 stany na wybranej szerokości. Automatyczne zrzuty można wykonać dla całej macierzy na desktopie i telefonie, a pozostałe szerokości sprawdzić na reprezentatywnych ekranach: hero, długi wpis doświadczenia, workflow, pracownia i formularz. Nie trzeba powielać każdej próby wysyłki dla każdego koloru.
 
 **Definicja ukończenia:** strona jest rozpoznawalna jako menu RPG z Leszkiem jako bohaterem do współpracy; wszystkie trzy pory są ciemniejsze i odróżnialne; każda pozycja listy zachowanych funkcji ma potwierdzony wynik; żadna treść ani ścieżka kontaktu nie wymaga przechodzenia gry; użytkownik zaakceptował wygląd na komputerze i telefonie.
 
@@ -346,9 +348,48 @@ Ustalone: plan bazowy zaakceptowany; etapy 0–5 odebrane; wszystkie funkcjonaln
 
 Przyjęty poziom narracji: metafory w nagłówkach, menu i CTA, a opisy usług, doświadczenia, NDA i pól kontaktowych pozostają rzeczowe. Ostateczne podobieństwo portretu, kadrowanie, paletę oraz etykiety oceniamy na pierwszych grafikach i makietach.
 
-Przed etapem 6 użytkownik potwierdził trzy decyzje. Minigra otrzyma osobną kartę nawigacji i lokalizowaną podstronę, ponieważ strona główna nie ma miejsca na pełną scenę. Gra pozostaje 2D, co pasuje do przyjętej oprawy i ogranicza koszt dla przeglądarki. Przy istniejącej zamrożonej rzeźbie obok niej pojawia się nowy losowy zestaw luźnych bloków; rzeźba nie zmienia się ani nie znika od odświeżenia. Dopiero lawa usuwa trwały zapis i rozpoczyna nowy cykl.
+Minigra pozostaje na osobnej lokalizowanej podstronie i zachowuje lekki format 2D. Po przetestowaniu pierwszego prototypu użytkownik odrzucił piaskownicę z magiem, mrozem, lawą i trwałą rzeźbą jako niegrywalną. Aktualny kierunek to gra logiczna inspirowana Snipperclips i tangramem: losowana sylwetka, identyczne niebieskie kwadraty, wielokrotne przycinanie oraz ocena podobieństwa.
 
-## 12. Specyfikacja końcowej minigry
+## 12. Specyfikacja aktualnej minigry
+
+### Pętla rundy
+
+1. Przy wejściu losowana jest jedna ze 100 unikalnych, ponumerowanych sylwetek. Każdy wzór składa się z 5–8 części ze ściętym narożnikiem, dlatego wynik powyżej 90% wymaga przycinania klocków.
+2. Z prawego podajnika gracz dobiera identyczne niebieskie kwadraty. Nowy klocek pojawia się w strefie roboczej planszy; zbędny można odłożyć.
+3. Klocki można przeciągać, przesuwać klawiaturą, obracać co 15° i ciąć wielokrotnie.
+4. „Gotowe” rasteryzacyjnie porównuje sumę pól celu i ułożenia. Wynik to `część wspólna / suma pól`, więc karane są zarówno braki, jak i fragmenty wystające poza wzór. Ocena otwiera animowany modal z czarnym półprzezroczystym overlayem, komunikatem i reakcją Maga TypeScriptu właściwą dla progu.
+5. „Nowy kształt” czyści planszę i losuje figurę nieużytą wcześniej w bieżącej puli. Po wykorzystaniu wszystkich 100 figur rozpoczyna nową pulę bez natychmiastowego powtórzenia ostatniego celu. Stan rundy i historia puli mogą przetrwać przejście PL/EN lub do innej podstrony w tej samej karcie, ale nie są zapisywane w `localStorage`.
+6. Interfejs nie pokazuje liczby figur pozostałych w puli. W modalu „Jeszcze raz” rozpoczyna nową rundę, a „Wystarczy” wraca na lokalizowaną stronę główną.
+
+### Cięcie na komputerze i telefonie
+
+Wybranie „Przytnij” otwiera powiększony stół roboczy. Gracz wskazuje kolejno dwa z ośmiu dużych uchwytów: cztery rogi i środki czterech krawędzi. Linia pomiędzy nimi dzieli aktualny wielokąt, a nie pierwotny kwadrat, dlatego ten sam klocek można obrabiać kolejnymi cięciami. Niebieski podgląd pokazuje zachowywaną stronę; osobny przycisk ją odwraca. Zbyt małe, puste i niezmieniające klocka cięcie jest blokowane.
+
+Na telefonie stół jest dolnym panelem z uchwytami co najmniej 44 × 44 px. Nie wymaga swobodnego prowadzenia cienkiej linii palcem i nie zasłania małego klocka na planszy. Fokus zaczyna się na pierwszym uchwycie, Tab pozostaje w dialogu, Escape lub „Wróć bez cięcia” zamyka stół i oddaje fokus przyciskowi „Przytnij”.
+
+### Wynik i komunikaty
+
+| Wynik   | Komunikat                                     |
+| ------- | --------------------------------------------- |
+| 91–100% | „Jesteś naprawdę dobry w te klocki.”          |
+| 70–90%  | „Następnym razem zwróć uwagę na szczegóły.”   |
+| 50–69%  | „Chyba niezbyt się przyłożyłeś do tej pracy.” |
+| 30–49%  | „Zwyczajnie to olałeś.”                       |
+| 0–29%   | „Jesteś w tym beznadziejny.”                  |
+
+Pasmu 91–100% odpowiada dumny mag okazujący szacunek, 70–90% spokojna neutralność, 50–69% wyraźne rozczarowanie, 30–49% klasyczny facepalm pełen zażenowania, a 0–29% odwrócenie od gracza i anatomicznie poprawny gest zakończenia rozmowy. Pięć przezroczystych ilustracji WebP wykorzystuje portret użytkownika oraz spójny granatowo-złoty strój z karty postaci.
+
+### Implementacja i testy odbioru
+
+- `CuttingPlayground.tsx` zawiera planszę, podajnik, stół cięcia, pętlę rundy i portal wyniku; nadal jest ładowany dynamicznie wyłącznie na `/[locale]/playground`.
+- `cuttingGame.ts` zawiera czystą geometrię: deterministyczną pulę 100 celów, przycinanie półpłaszczyzną, transformacje wielokątów, rasteryzacyjną punktację i progi wyniku.
+- DOM/SVG i zdarzenia Pointer Events pozostają bez silnika gry, fizyki, pętli animacji i nowej zależności.
+- Testy jednostkowe obejmują unikalność 100 celów, pełny cykl bez powtórek, wymuszanie cięcia, wielokrotne cięcie, granice planszy, punktację oraz wszystkie progi komunikatów.
+- W przeglądarce sprawdzić dodanie, przeciągnięcie i odłożenie klocka, dwa cięcia tego samego elementu, zmianę zachowywanej strony, obrót, pięć wariantów wyniku, obie decyzje w modalu, nową rundę, PL/EN, 320–1440 px, fokus dialogów, dotyk i reduced motion.
+
+## 13. Archiwalna specyfikacja pierwszego prototypu
+
+Poniższy opis dokumentuje wcześniejszą decyzję i nie jest już zakresem implementacji. Został zastąpiony przez rozdział 12 po ocenie pierwszego prototypu jako pozbawionego właściwej pętli gry.
 
 ### Cel i granica interakcji
 

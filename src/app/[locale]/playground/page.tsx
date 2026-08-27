@@ -1,5 +1,5 @@
 import { getTranslations, setRequestLocale } from "next-intl/server";
-import { MagePlaygroundEntry } from "@/components/rpg/playground/MagePlaygroundEntry";
+import { PlaygroundEntry } from "@/components/rpg/playground/PlaygroundEntry";
 import { getPageMetadata } from "@/lib/pageMetadata";
 
 type PageProps = { params: Promise<{ locale: string }> };
@@ -23,7 +23,7 @@ export default async function PlaygroundPage({ params }: PageProps) {
           <p className="rpg-section-summary">{t("intro")}</p>
           <div className="rpg-section-rule" aria-hidden="true" />
         </header>
-        <MagePlaygroundEntry />
+        <PlaygroundEntry homeHref={`/${locale}`} />
       </div>
     </section>
   );

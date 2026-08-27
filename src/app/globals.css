@@ -303,43 +303,6 @@ h4 {
   gap: 24px;
 }
 
-.rpg-time {
-  position: relative;
-  padding-left: 24px;
-  color: var(--muted);
-  font-size: 12px;
-}
-
-.rpg-time::before {
-  content: "☼";
-  position: absolute;
-  left: 0;
-  top: -1px;
-  color: var(--primary);
-  font-size: 16px;
-}
-
-:root[data-time="night"] .rpg-time::before {
-  content: "☾";
-}
-
-.rpg-time > span {
-  display: none;
-}
-:root:not([data-time]) .rpg-time-day,
-:root[data-time="day"] .rpg-time-day,
-:root[data-time="evening"] .rpg-time-evening,
-:root[data-time="night"] .rpg-time-night {
-  display: inline;
-}
-
-.rpg-time small {
-  margin-left: 5px;
-  color: var(--quiet);
-  font-size: 9px;
-  letter-spacing: 0.04em;
-}
-
 .rpg-locales {
   display: flex;
   align-items: center;
@@ -1897,9 +1860,6 @@ h4 {
   }
   .rpg-header-actions {
     gap: 3px;
-  }
-  .rpg-time {
-    display: none;
   }
   .rpg-locales a {
     min-width: 31px;

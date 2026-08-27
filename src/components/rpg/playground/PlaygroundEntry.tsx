@@ -3,8 +3,9 @@
 import dynamic from "next/dynamic";
 import { useTranslations } from "next-intl";
 
-const MagePlayground = dynamic(
-  () => import("./MagePlayground").then((module) => module.MagePlayground),
+const CuttingPlayground = dynamic(
+  () =>
+    import("./CuttingPlayground").then((module) => module.CuttingPlayground),
   {
     ssr: false,
     loading: () => <PlaygroundLoading />,
@@ -21,6 +22,6 @@ function PlaygroundLoading() {
   );
 }
 
-export function MagePlaygroundEntry() {
-  return <MagePlayground />;
+export function PlaygroundEntry({ homeHref }: { homeHref: string }) {
+  return <CuttingPlayground homeHref={homeHref} />;
 }

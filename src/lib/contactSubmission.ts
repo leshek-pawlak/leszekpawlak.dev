@@ -8,14 +8,31 @@ export async function submitContact(
   submission: ContactSubmission,
   fetcher: typeof fetch = fetch,
 ): Promise<boolean> {
-  const response = await fetcher("/api/contact", {
-    method: "POST",
+  const configResponse = await fetcher("/api/contact", {
+    method: "GET",
     credentials: "same-origin",
+    cache: "no-store",
+    headers: { Accept: "application/json" },
+  });
+  if (!configResponse.ok) return false;
+
+  const config = (await configResponse.json()) as { accessKey?: unknown };
+  if (typeof config.accessKey !== "string" || config.accessKey.length === 0) {
+    return false;
+  }
+
+  const response = await fetcher("https://api.web3forms.com/submit", {
+    method: "POST",
     headers: {
       "Content-Type": "application/json",
-      "X-Requested-With": "XMLHttpRequest",
+      Accept: "application/json",
     },
-    body: JSON.stringify(submission),
+    body: JSON.stringify({
+      access_key: config.accessKey,
+      ...submission,
+      subject: `[leszekpawlak.dev] Wiadomość od ${submission.name}`,
+      botcheck: false,
+    }),
   });
   if (!response.ok) return false;
 

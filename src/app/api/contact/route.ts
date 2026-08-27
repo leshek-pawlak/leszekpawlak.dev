@@ -1,14 +1,24 @@
 import { NextResponse } from "next/server";
-import { handleContactRequest } from "@/lib/contactRoute";
+import { resolveWeb3FormsAccessKey } from "@/lib/contactConfig";
 
-export async function POST(request: Request) {
-  const result = await handleContactRequest(request);
-  return NextResponse.json(result.body, {
-    status: result.status,
-    headers: {
-      "Cache-Control": "no-store",
-      Vary: "Origin, Sec-Fetch-Site",
-      ...result.headers,
+export async function GET() {
+  const accessKey = resolveWeb3FormsAccessKey();
+
+  if (!accessKey) {
+    return NextResponse.json(
+      { error: "Contact service unavailable" },
+      {
+        status: 503,
+        headers: { "Cache-Control": "no-store" },
+      },
+    );
+  }
+
+  return NextResponse.json(
+    { accessKey },
+    {
+      status: 200,
+      headers: { "Cache-Control": "no-store" },
     },
-  });
+  );
 }

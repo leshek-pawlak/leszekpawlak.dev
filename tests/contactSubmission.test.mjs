@@ -8,39 +8,64 @@ const submission = {
   message: "Local mocked test",
 };
 
-test("submitContact uses the protected same-origin endpoint", async () => {
-  let captured;
+test("submitContact loads the public form key and submits from the browser", async () => {
+  const calls = [];
   const success = await submitContact(submission, async (url, init) => {
-    captured = { url: String(url), init };
+    calls.push({ url: String(url), init });
+    if (String(url) === "/api/contact") {
+      return Response.json({ accessKey: "public-test-key" });
+    }
     return Response.json({ success: true });
   });
 
   assert.equal(success, true);
-  assert.equal(captured.url, "/api/contact");
-  assert.equal(captured.init.method, "POST");
-  assert.equal(captured.init.credentials, "same-origin");
-  assert.deepEqual(captured.init.headers, {
-    "Content-Type": "application/json",
-    "X-Requested-With": "XMLHttpRequest",
+  assert.equal(calls.length, 2);
+  assert.equal(calls[0].url, "/api/contact");
+  assert.equal(calls[0].init.method, "GET");
+  assert.equal(calls[0].init.credentials, "same-origin");
+  assert.equal(calls[0].init.cache, "no-store");
+  assert.equal(calls[1].url, "https://api.web3forms.com/submit");
+  assert.equal(calls[1].init.method, "POST");
+  assert.deepEqual(JSON.parse(calls[1].init.body), {
+    access_key: "public-test-key",
+    ...submission,
+    subject: "[leszekpawlak.dev] Wiadomość od Test User",
+    botcheck: false,
   });
-  assert.deepEqual(JSON.parse(captured.init.body), submission);
-  assert.equal(captured.init.body.includes("access_key"), false);
 });
 
-test("submitContact reports endpoint failures and propagates network errors", async () => {
-  const httpFailure = await submitContact(
-    submission,
-    async () => Response.json({ success: true }, { status: 503 }),
-  );
-  const applicationFailure = await submitContact(
-    submission,
-    async () => Response.json({ success: false }),
-  );
+test("submitContact stops when the form key is unavailable", async () => {
+  let calls = 0;
+  const missingConfig = await submitContact(submission, async () => {
+    calls += 1;
+    return Response.json({ error: "unavailable" }, { status: 503 });
+  });
+  assert.equal(missingConfig, false);
+  assert.equal(calls, 1);
 
-  assert.equal(httpFailure, false);
-  assert.equal(applicationFailure, false);
+  calls = 0;
+  const invalidConfig = await submitContact(submission, async () => {
+    calls += 1;
+    return Response.json({ accessKey: null });
+  });
+  assert.equal(invalidConfig, false);
+  assert.equal(calls, 1);
+});
+
+test("submitContact reports Web3Forms failures and propagates network errors", async () => {
+  const providerFailure = await submitContact(submission, async (url) => {
+    if (String(url) === "/api/contact") {
+      return Response.json({ accessKey: "public-test-key" });
+    }
+    return Response.json({ success: false }, { status: 400 });
+  });
+
+  assert.equal(providerFailure, false);
   await assert.rejects(
-    submitContact(submission, async () => {
+    submitContact(submission, async (url) => {
+      if (String(url) === "/api/contact") {
+        return Response.json({ accessKey: "public-test-key" });
+      }
       throw new Error("mocked network failure");
     }),
     /mocked network failure/,

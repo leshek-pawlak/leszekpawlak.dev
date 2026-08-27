@@ -11,7 +11,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self' data:",
-  `connect-src 'self' https://vitals.vercel-insights.com${isDevelopment ? " https://va.vercel-scripts.com" : ""}`,
+  `connect-src 'self' https://api.web3forms.com https://vitals.vercel-insights.com${isDevelopment ? " https://va.vercel-scripts.com" : ""}`,
   "object-src 'none'",
   "base-uri 'self'",
   "form-action 'self'",

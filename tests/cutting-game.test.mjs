@@ -1,6 +1,7 @@
 import assert from "node:assert/strict";
 import test from "node:test";
 import {
+  BLOCK_SHAPE_TEMPLATES,
   GAME_WORLD_HEIGHT,
   GAME_WORLD_WIDTH,
   PUZZLE_TARGET_COUNT,
@@ -32,12 +33,56 @@ test("the pool contains 100 unique targets that require several cuts", () => {
     100,
   );
 
+  const areas = new Set();
+  const vertexCounts = new Set();
+  const pieceKinds = new Set();
+  let multiCutPieces = 0;
+  let totalPieces = 0;
+
+  for (const target of PUZZLE_TARGETS) {
+    assert.ok(target.polygons.length >= 5 && target.polygons.length <= 8);
+    assert.equal(target.pieceKinds.length, target.polygons.length);
+    assert.equal(target.pieceCutCounts.length, target.polygons.length);
+
+    target.polygons.forEach((polygon, index) => {
+      const area = Math.round(polygonArea(polygon));
+      areas.add(area);
+      vertexCounts.add(polygon.length);
+      pieceKinds.add(target.pieceKinds[index]);
+      totalPieces += 1;
+      if (target.pieceCutCounts[index] >= 2) multiCutPieces += 1;
+      assert.ok(area >= 2_500 && area <= 10_000);
+    });
+  }
+
+  assert.deepEqual([...vertexCounts].sort(), [3, 4, 5, 6]);
+  assert.ok(areas.size >= 7);
+  assert.deepEqual([...pieceKinds].sort(), [
+    "hexagon",
+    "irregular",
+    "parallelogram",
+    "pentagon",
+    "rectangle",
+    "rhombus",
+    "square",
+    "trapezoid",
+    "triangle",
+  ]);
+  assert.ok(multiCutPieces / totalPieces > 0.5);
+  assert.ok(
+    PUZZLE_TARGETS.filter((target) =>
+      target.pieceCutCounts.some((count) => count >= 2),
+    ).length >= 70,
+  );
+  assert.ok(
+    PUZZLE_TARGETS.filter((target) =>
+      target.pieceCutCounts.some((count) => count >= 4),
+    ).length >= 30,
+  );
+
   for (const randomValue of [0, 0.26, 0.51, 0.76, 0.99]) {
     const target = createPuzzleTarget(() => randomValue);
     assert.ok(target.polygons.length >= 5 && target.polygons.length <= 8);
-    assert.ok(
-      target.polygons.every((polygon) => polygonArea(polygon) === 8_750),
-    );
     assert.ok(
       target.polygons
         .flat()
@@ -54,6 +99,19 @@ test("the pool contains 100 unique targets that require several cuts", () => {
   const first = createPuzzleTarget(() => 0);
   const next = createPuzzleTarget(() => 0, [first.id]);
   assert.notEqual(next.id, first.id);
+});
+
+test("every target piece can be recreated with the available cutting anchors", () => {
+  for (const template of BLOCK_SHAPE_TEMPLATES) {
+    let block = createSquareBlock(template.name);
+    for (const cut of template.cuts) {
+      const result = applyBlockCut(block, cut.start, cut.end, cut.side);
+      assert.ok(result, `${template.name} failed on cut ${cut.start}-${cut.end}`);
+      block = result;
+    }
+
+    assert.deepEqual(block.polygon, template.polygon);
+  }
 });
 
 test("skipped targets do not return before the full pool is exhausted", () => {
@@ -114,6 +172,8 @@ test("similarity measures overlap and penalizes missing or excess area", () => {
   const target = {
     id: 1,
     polygons: [blockWorldPolygon(block)],
+    pieceKinds: ["square"],
+    pieceCutCounts: [0],
   };
 
   assert.equal(scoreSimilarity([block], target), 100);

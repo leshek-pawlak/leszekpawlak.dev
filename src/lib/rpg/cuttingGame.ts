@@ -27,7 +27,20 @@ export type CuttingBlock = {
 export type PuzzleTarget = {
   id: number;
   polygons: GamePoint[][];
+  pieceKinds: BlockShapeKind[];
+  pieceCutCounts: number[];
 };
+
+export type BlockShapeKind =
+  | "square"
+  | "rectangle"
+  | "triangle"
+  | "trapezoid"
+  | "parallelogram"
+  | "rhombus"
+  | "pentagon"
+  | "hexagon"
+  | "irregular";
 
 export type ScoreBand =
   | "excellent"
@@ -56,42 +69,111 @@ const square: GamePoint[] = [
   { x: 0, y: 100 },
 ];
 
-const cutTopLeft: GamePoint[] = [
-  { x: 50, y: 0 },
-  { x: 100, y: 0 },
-  { x: 100, y: 100 },
-  { x: 0, y: 100 },
-  { x: 0, y: 50 },
-];
-const cutTopRight: GamePoint[] = [
-  { x: 0, y: 0 },
-  { x: 50, y: 0 },
-  { x: 100, y: 50 },
-  { x: 100, y: 100 },
-  { x: 0, y: 100 },
-];
-const cutBottomRight: GamePoint[] = [
-  { x: 0, y: 0 },
-  { x: 100, y: 0 },
-  { x: 100, y: 50 },
-  { x: 50, y: 100 },
-  { x: 0, y: 100 },
-];
-const cutBottomLeft: GamePoint[] = [
-  { x: 0, y: 0 },
-  { x: 100, y: 0 },
-  { x: 100, y: 100 },
-  { x: 50, y: 100 },
-  { x: 0, y: 50 },
-];
-const cutPolygons = [
-  cutTopLeft,
-  cutTopRight,
-  cutBottomRight,
-  cutBottomLeft,
-] as const;
+type CutOperation = {
+  start: CutAnchorId;
+  end: CutAnchorId;
+  side: CutSide;
+};
 
-type GridCell = { x: number; y: number; cut: number };
+export type BlockShapeTemplate = {
+  name: string;
+  kind: BlockShapeKind;
+  cuts: CutOperation[];
+  polygon: GamePoint[];
+};
+
+function createBlockShapeTemplate(
+  name: string,
+  kind: BlockShapeKind,
+  cuts: CutOperation[],
+): BlockShapeTemplate {
+  const polygon = cuts.reduce(
+    (current, cut) =>
+      clipPolygon(
+        current,
+        CUT_ANCHORS[cut.start],
+        CUT_ANCHORS[cut.end],
+        cut.side,
+      ),
+    square,
+  );
+
+  if (polygon.length < 3 || polygonArea(polygon) < 1_500) {
+    throw new Error(`Invalid block shape template: ${name}`);
+  }
+
+  return { name, kind, cuts, polygon };
+}
+
+export const BLOCK_SHAPE_TEMPLATES: BlockShapeTemplate[] = [
+  createBlockShapeTemplate("square", "square", []),
+  createBlockShapeTemplate("half-rectangle", "rectangle", [
+    { start: "top", end: "bottom", side: "left" },
+  ]),
+  createBlockShapeTemplate("diagonal-triangle", "triangle", [
+    { start: "topLeft", end: "bottomRight", side: "left" },
+  ]),
+  createBlockShapeTemplate("small-triangle", "triangle", [
+    { start: "topLeft", end: "right", side: "right" },
+  ]),
+  createBlockShapeTemplate("slanted-trapezoid", "trapezoid", [
+    { start: "top", end: "bottomLeft", side: "right" },
+  ]),
+  createBlockShapeTemplate("corner-pentagon", "pentagon", [
+    { start: "top", end: "right", side: "left" },
+  ]),
+  createBlockShapeTemplate("centered-triangle", "triangle", [
+    { start: "topLeft", end: "right", side: "left" },
+    { start: "right", end: "bottomLeft", side: "left" },
+  ]),
+  createBlockShapeTemplate("parallelogram", "parallelogram", [
+    { start: "top", end: "bottomLeft", side: "right" },
+    { start: "topRight", end: "bottom", side: "left" },
+  ]),
+  createBlockShapeTemplate("slanted-parallelogram", "parallelogram", [
+    { start: "topLeft", end: "right", side: "left" },
+    { start: "bottomRight", end: "left", side: "left" },
+  ]),
+  createBlockShapeTemplate("opposite-corner-hexagon", "hexagon", [
+    { start: "top", end: "right", side: "left" },
+    { start: "bottom", end: "left", side: "left" },
+  ]),
+  createBlockShapeTemplate("double-corner-pentagon", "pentagon", [
+    { start: "top", end: "left", side: "right" },
+    { start: "top", end: "right", side: "left" },
+  ]),
+  createBlockShapeTemplate("arrow-quadrilateral", "irregular", [
+    { start: "topLeft", end: "right", side: "left" },
+    { start: "right", end: "bottom", side: "left" },
+  ]),
+  createBlockShapeTemplate("skewed-quadrilateral", "irregular", [
+    { start: "topLeft", end: "right", side: "left" },
+    { start: "top", end: "bottomRight", side: "left" },
+  ]),
+  createBlockShapeTemplate("narrow-triangle", "triangle", [
+    { start: "topLeft", end: "bottomRight", side: "left" },
+    { start: "topRight", end: "bottomLeft", side: "left" },
+  ]),
+  createBlockShapeTemplate("rhombus", "rhombus", [
+    { start: "top", end: "left", side: "right" },
+    { start: "top", end: "right", side: "left" },
+    { start: "right", end: "bottom", side: "left" },
+    { start: "bottom", end: "left", side: "left" },
+  ]),
+  createBlockShapeTemplate("faceted-hexagon", "hexagon", [
+    { start: "top", end: "right", side: "left" },
+    { start: "topRight", end: "bottom", side: "left" },
+    { start: "right", end: "bottomLeft", side: "left" },
+    { start: "bottom", end: "left", side: "left" },
+  ]),
+];
+
+type GridCell = {
+  x: number;
+  y: number;
+  shape: number;
+  rotation: number;
+};
 
 function seededRandom(seed: number): () => number {
   let state = seed >>> 0;
@@ -104,10 +186,16 @@ function seededRandom(seed: number): () => number {
   };
 }
 
-function createGridCells(seed: number): GridCell[] {
+function createGridCells(seed: number, targetId: number): GridCell[] {
   const random = seededRandom(seed * 97 + 31);
-  const desiredCount = 5 + (seed % 4);
-  const cells = new Map<string, Omit<GridCell, "cut">>();
+  const difficulty = targetId <= 30 ? 0 : targetId <= 70 ? 1 : 2;
+  const desiredCount =
+    difficulty === 0
+      ? 5 + (seed % 2)
+      : difficulty === 1
+        ? 6 + (seed % 2)
+        : 7 + (seed % 2);
+  const cells = new Map<string, Pick<GridCell, "x" | "y">>();
   cells.set("1,1", { x: 1, y: 1 });
   const directions = [
     { x: 1, y: 0 },
@@ -143,15 +231,56 @@ function createGridCells(seed: number): GridCell[] {
   const minimumX = Math.min(...normalized.map((cell) => cell.x));
   const minimumY = Math.min(...normalized.map((cell) => cell.y));
 
-  return normalized.map((cell, index) => ({
-    x: cell.x - minimumX,
-    y: cell.y - minimumY,
-    cut: (seed * 7 + cell.x * 3 + cell.y * 5 + index) % cutPolygons.length,
-  }));
+  const easyShapes = BLOCK_SHAPE_TEMPLATES.map((template, index) => ({
+    template,
+    index,
+  })).filter(({ template }) => template.cuts.length <= 1);
+  const doubleCutShapes = BLOCK_SHAPE_TEMPLATES.map((template, index) => ({
+    template,
+    index,
+  })).filter(({ template }) => template.cuts.length === 2);
+  const advancedShapes = BLOCK_SHAPE_TEMPLATES.map((template, index) => ({
+    template,
+    index,
+  })).filter(({ template }) => template.cuts.length >= 3);
+
+  return normalized.map((cell, index) => {
+    let pool = easyShapes;
+    if (difficulty === 2 && index < 2) pool = advancedShapes;
+    else if (difficulty >= 1 && index < 2) pool = doubleCutShapes;
+    else if (difficulty === 1 && random() > 0.42) pool = doubleCutShapes;
+    else if (difficulty === 2 && random() > 0.28) pool = doubleCutShapes;
+
+    const selected = pool[Math.floor(random() * pool.length)] ?? easyShapes[0];
+    return {
+      x: cell.x - minimumX,
+      y: cell.y - minimumY,
+      shape: selected.index,
+      rotation: Math.floor(random() * 4),
+    };
+  });
 }
 
 function cellsSignature(cells: GridCell[]): string {
-  return cells.map((cell) => `${cell.x},${cell.y},${cell.cut}`).join("|");
+  return cells
+    .map(
+      (cell) => `${cell.x},${cell.y},${cell.shape},${cell.rotation}`,
+    )
+    .join("|");
+}
+
+function rotatePolygonQuarterTurns(
+  polygon: GamePoint[],
+  quarterTurns: number,
+): GamePoint[] {
+  let rotated = polygon.map((point) => ({ ...point }));
+  for (let turn = 0; turn < quarterTurns % 4; turn += 1) {
+    rotated = rotated.map((point) => ({
+      x: GAME_BLOCK_SIZE - point.y,
+      y: point.x,
+    }));
+  }
+  return rotated;
 }
 
 function targetFromCells(id: number, cells: GridCell[]): PuzzleTarget {
@@ -164,10 +293,19 @@ function targetFromCells(id: number, cells: GridCell[]): PuzzleTarget {
     id,
     polygons: cells.map((cell) =>
       translatePolygon(
-        cutPolygons[cell.cut],
+        rotatePolygonQuarterTurns(
+          BLOCK_SHAPE_TEMPLATES[cell.shape].polygon,
+          cell.rotation,
+        ),
         originX + cell.x * GAME_BLOCK_SIZE,
         originY + cell.y * GAME_BLOCK_SIZE,
       ),
+    ),
+    pieceKinds: cells.map(
+      (cell) => BLOCK_SHAPE_TEMPLATES[cell.shape].kind,
+    ),
+    pieceCutCounts: cells.map(
+      (cell) => BLOCK_SHAPE_TEMPLATES[cell.shape].cuts.length,
     ),
   };
 }
@@ -177,11 +315,12 @@ function createTargetPool(): PuzzleTarget[] {
   const signatures = new Set<string>();
 
   for (let seed = 1; targets.length < PUZZLE_TARGET_COUNT; seed += 1) {
-    const cells = createGridCells(seed);
+    const targetId = targets.length + 1;
+    const cells = createGridCells(seed, targetId);
     const signature = cellsSignature(cells);
     if (signatures.has(signature)) continue;
     signatures.add(signature);
-    targets.push(targetFromCells(targets.length + 1, cells));
+    targets.push(targetFromCells(targetId, cells));
   }
 
   return targets;
@@ -215,6 +354,8 @@ export function createPuzzleTarget(
     polygons: target.polygons.map((polygon) =>
       polygon.map((point) => ({ ...point })),
     ),
+    pieceKinds: [...target.pieceKinds],
+    pieceCutCounts: [...target.pieceCutCounts],
   };
 }
 

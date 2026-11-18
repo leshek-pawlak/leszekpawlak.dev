@@ -12,7 +12,7 @@
     "greeting": "Hi, I'm",
     "name": "Leszek Pawlak",
     "title": "Agentic Engineer · TypeScript & React",
-    "subtitle": "12+ years in TypeScript, React and Node.js. Today I ship software with a party of AI agents I built and lead, and I help teams work the same way: faster, without losing quality.",
+    "subtitle": "12+ years in TypeScript, React and Node.js. Today AI agents write most of the code in a system I built myself, and I own the result: I slice the work, set acceptance criteria, test it and decide what ships. I help teams work the same way.",
     "cta": "Get a free estimate",
     "ctaSecondary": "How I can help"
   },
@@ -111,7 +111,7 @@
     "years": "years of experience",
     "specialty": "AI agents and code quality",
     "equipment": "TOOLS OF THE TRADE",
-    "estimateNote": "Let's talk about your project and a free estimate.",
+    "estimateNote": "Let's talk about your project, an estimate or a role on your team.",
     "aboutKicker": "ORIGIN STORY",
     "skillsCount": "{count} skills across four areas",
     "servicesKicker": "SPELLBOOK",

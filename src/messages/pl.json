@@ -12,7 +12,7 @@
     "greeting": "Cześć, jestem",
     "name": "Leszek Pawlak",
     "title": "Agentic Engineer · TypeScript & React",
-    "subtitle": "12+ lat w TypeScript, React i Node.js. Dziś dowożę oprogramowanie z drużyną agentów AI, którą sam zbudowałem i prowadzę. Pomagam zespołom pracować tak samo: szybciej i bez utraty jakości.",
+    "subtitle": "12+ lat w TypeScript, React i Node.js. Dziś większość kodu piszą agenci AI w systemie, który sam zbudowałem, a ja odpowiadam za wynik: dzielę pracę na małe kawałki, ustalam kryteria akceptacji, testuję i decyduję, co trafia na produkcję. Pomagam zespołom pracować tak samo.",
     "cta": "Zapytaj o wycenę",
     "ctaSecondary": "Jak mogę pomóc"
   },
@@ -111,7 +111,7 @@
     "years": "lat doświadczenia",
     "specialty": "Agenci AI i jakość kodu",
     "equipment": "SPRAWDZONE NARZĘDZIA",
-    "estimateNote": "Porozmawiajmy o projekcie i wycenie.",
+    "estimateNote": "Porozmawiajmy o projekcie, wycenie albo roli w Twoim zespole.",
     "aboutKicker": "HISTORIA POSTACI",
     "skillsCount": "{count} umiejętności w czterech obszarach",
     "servicesKicker": "KSIĘGA ZAKLĘĆ",

@@ -6,7 +6,7 @@ import { motion, useReducedMotion } from "motion/react";
 import { Link } from "@/i18n/navigation";
 import { rpgImages } from "@/lib/rpgImages";
 
-const tools = ["TypeScript", "React", "Node.js"];
+const tools = ["TypeScript", "React", "Node.js", "Claude Code"];
 
 export function Hero() {
   const t = useTranslations("hero");

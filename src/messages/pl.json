@@ -12,7 +12,7 @@
     "greeting": "Cześć, jestem",
     "name": "Leszek Pawlak",
     "title": "Agentic Engineer · TypeScript & React",
-    "subtitle": "12+ lat praktycznego doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej.",
+    "subtitle": "12+ lat w TypeScript, React i Node.js. Dziś dowożę oprogramowanie z drużyną agentów AI, którą sam zbudowałem i prowadzę. Pomagam zespołom pracować tak samo: szybciej i bez utraty jakości.",
     "cta": "Zapytaj o wycenę",
     "ctaSecondary": "Jak mogę pomóc"
   },
@@ -63,7 +63,7 @@
     "success": "Wiadomość wysłana! Odpowiem najszybciej jak to możliwe.",
     "successKicker": "WIADOMOŚĆ DOSTARCZONA",
     "successClose": "Zamknij",
-    "successMageAlt": "Mag TypeScriptu przyjmuje wiadomość z dumą, szacunkiem i aprobatą.",
+    "successMageAlt": "Przywoływacz agentów przyjmuje wiadomość z dumą, szacunkiem i aprobatą.",
     "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na email."
   },
   "workflow": {
@@ -104,12 +104,12 @@
   "rpg": {
     "characterKicker": "POSTAĆ DO TWOJEJ DRUŻYNY",
     "classLabel": "KLASA POSTACI",
-    "className": "Mag TypeScriptu",
-    "portraitAlt": "Portret Leszka Pawlaka jako maga TypeScriptu",
-    "classCaption": "Architektura. Kod. Wspólne questy.",
+    "className": "Przywoływacz agentów",
+    "portraitAlt": "Portret Leszka Pawlaka jako przywoływacza agentów",
+    "classCaption": "Plan. Agenci. Bramki jakości.",
     "storyLine": "Dobre questy przechodzi się razem.",
     "years": "lat doświadczenia",
-    "specialty": "Architektura i jakość kodu",
+    "specialty": "Agenci AI i jakość kodu",
     "equipment": "SPRAWDZONE NARZĘDZIA",
     "estimateNote": "Porozmawiajmy o projekcie i wycenie.",
     "aboutKicker": "HISTORIA POSTACI",
@@ -203,11 +203,11 @@
       "hopeless": "Mag kończy rozmowę."
     },
     "resultMageAlt": {
-      "excellent": "Mag TypeScriptu patrzy z dumą, szacunkiem i aprobatą.",
-      "details": "Mag TypeScriptu spokojnie przyjmuje spodziewany wynik.",
-      "effort": "Mag TypeScriptu krzyżuje ręce i okazuje wyraźne rozczarowanie.",
-      "ignored": "Mag TypeScriptu wykonuje pełen zażenowania facepalm.",
-      "hopeless": "Mag TypeScriptu odwraca się i unosi dłoń w geście zakończenia rozmowy."
+      "excellent": "Przywoływacz agentów patrzy z dumą, szacunkiem i aprobatą.",
+      "details": "Przywoływacz agentów spokojnie przyjmuje spodziewany wynik.",
+      "effort": "Przywoływacz agentów krzyżuje ręce i okazuje wyraźne rozczarowanie.",
+      "ignored": "Przywoływacz agentów wykonuje pełen zażenowania facepalm.",
+      "hopeless": "Przywoływacz agentów odwraca się i unosi dłoń w geście zakończenia rozmowy."
     }
   },
   "metadata": {

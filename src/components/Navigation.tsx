@@ -68,7 +68,7 @@ export function Navigation() {
   const labels = {
     pl: {
       heading: "POZNAJ SWOJEGO SOJUSZNIKA",
-      subtitle: "KONSULTANT · TWÓJ SOJUSZNIK",
+      subtitle: "AGENTIC ENGINEER · TWÓJ SOJUSZNIK",
       menu: "Menu",
       open: "Otwórz menu",
       close: "Zamknij menu",
@@ -85,7 +85,7 @@ export function Navigation() {
     },
     en: {
       heading: "MEET YOUR NEXT ALLY",
-      subtitle: "CONSULTANT · YOUR ALLY",
+      subtitle: "AGENTIC ENGINEER · YOUR ALLY",
       menu: "Menu",
       open: "Open menu",
       close: "Close menu",

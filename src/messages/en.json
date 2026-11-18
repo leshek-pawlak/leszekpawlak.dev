@@ -12,7 +12,7 @@
     "greeting": "Hi, I'm",
     "name": "Leszek Pawlak",
     "title": "Agentic Engineer · TypeScript & React",
-    "subtitle": "12+ years of hands-on experience in JavaScript ecosystems. I help teams make better architectural decisions, avoid costly mistakes, and ship faster.",
+    "subtitle": "12+ years in TypeScript, React and Node.js. Today I ship software with a party of AI agents I built and lead, and I help teams work the same way: faster, without losing quality.",
     "cta": "Get a free estimate",
     "ctaSecondary": "How I can help"
   },
@@ -63,7 +63,7 @@
     "success": "Message sent! I'll get back to you as soon as possible.",
     "successKicker": "MESSAGE DELIVERED",
     "successClose": "Close",
-    "successMageAlt": "The TypeScript mage receives the message with pride, respect, and approval.",
+    "successMageAlt": "The agent summoner receives the message with pride, respect, and approval.",
     "error": "Something went wrong. Please try again or email me directly."
   },
   "workflow": {
@@ -104,12 +104,12 @@
   "rpg": {
     "characterKicker": "AN ALLY FOR YOUR PARTY",
     "classLabel": "CHARACTER CLASS",
-    "className": "TypeScript Mage",
-    "portraitAlt": "Portrait of Leszek Pawlak as a TypeScript mage",
-    "classCaption": "Architecture. Code. Shared quests.",
+    "className": "Agent Summoner",
+    "portraitAlt": "Portrait of Leszek Pawlak as an agent summoner",
+    "classCaption": "Plan. Agents. Quality gates.",
     "storyLine": "The best quests are a team effort.",
     "years": "years of experience",
-    "specialty": "Architecture and code quality",
+    "specialty": "AI agents and code quality",
     "equipment": "TOOLS OF THE TRADE",
     "estimateNote": "Let's talk about your project and a free estimate.",
     "aboutKicker": "ORIGIN STORY",
@@ -203,11 +203,11 @@
       "hopeless": "The mage ends the conversation."
     },
     "resultMageAlt": {
-      "excellent": "The TypeScript mage looks on with pride, respect, and approval.",
-      "details": "The TypeScript mage calmly accepts the expected result.",
-      "effort": "The TypeScript mage crosses his arms and shows clear disappointment.",
-      "ignored": "The TypeScript mage performs a deeply embarrassed facepalm.",
-      "hopeless": "The TypeScript mage turns away and raises a hand to end the conversation."
+      "excellent": "The agent summoner looks on with pride, respect, and approval.",
+      "details": "The agent summoner calmly accepts the expected result.",
+      "effort": "The agent summoner crosses his arms and shows clear disappointment.",
+      "ignored": "The agent summoner performs a deeply embarrassed facepalm.",
+      "hopeless": "The agent summoner turns away and raises a hand to end the conversation."
     }
   },
   "metadata": {

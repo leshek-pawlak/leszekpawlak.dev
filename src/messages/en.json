@@ -13,7 +13,7 @@
     "name": "Leszek Pawlak",
     "title": "Agentic Engineer · TypeScript & React",
     "subtitle": "12+ years in TypeScript, React and Node.js. Today AI agents write most of the code in a system I built myself, and I own the result: I slice the work, set acceptance criteria, test it and decide what ships. I help teams work the same way.",
-    "cta": "Get a free estimate",
+    "cta": "Get in touch",
     "ctaSecondary": "How I can help"
   },
   "about": {
@@ -29,18 +29,18 @@
   },
   "services": {
     "title": "How I Help",
-    "subtitle": "Advisory built on 12+ years of shipping software, today with AI agents I built and run myself",
+    "subtitle": "Advisory built on 12+ years of shipping software, today with AI agents in a system I built myself",
     "consulting": {
       "title": "Architecture Consulting",
-      "description": "Deep-dive reviews of your TypeScript/React architecture. I help identify bottlenecks, suggest scalable patterns, and guide your team toward maintainable solutions."
+      "description": "Reviews of your TypeScript/React and Node.js architecture. I find bottlenecks, suggest patterns that scale, and help shape the code so AI agents can work in it safely: clear module boundaries, tests and contracts."
     },
     "estimation": {
       "title": "Project Estimation & Planning",
-      "description": "Realistic project estimation based on hands-on experience. From MVPs to complex systems — detailed requirements analysis, risk assessment, and roadmap planning."
+      "description": "Realistic estimates based on hands-on experience, from MVPs to complex systems: requirements analysis, risk assessment, and a plan split into small slices with acceptance criteria that can ship on their own."
     },
     "development": {
       "title": "Code Review & Mentoring",
-      "description": "Elevate your team's code quality. Thorough code reviews, best practices workshops, and hands-on mentoring in TypeScript, React, and Node.js."
+      "description": "Better code quality for your team: thorough code reviews, workshops, and hands-on mentoring in TypeScript, React and Node.js. I also teach how to review code written by AI agents and how to set review rules that catch their typical mistakes."
     },
     "ai": {
       "title": "AI-Native Delivery",

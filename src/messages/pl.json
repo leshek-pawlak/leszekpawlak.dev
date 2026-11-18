@@ -13,7 +13,7 @@
     "name": "Leszek Pawlak",
     "title": "Agentic Engineer · TypeScript & React",
     "subtitle": "12+ lat w TypeScript, React i Node.js. Dziś większość kodu piszą agenci AI w systemie, który sam zbudowałem, a ja odpowiadam za wynik: dzielę pracę na małe kawałki, ustalam kryteria akceptacji, testuję i decyduję, co trafia na produkcję. Pomagam zespołom pracować tak samo.",
-    "cta": "Zapytaj o wycenę",
+    "cta": "Napisz do mnie",
     "ctaSecondary": "Jak mogę pomóc"
   },
   "about": {
@@ -29,18 +29,18 @@
   },
   "services": {
     "title": "Jak pomagam",
-    "subtitle": "Doradztwo oparte na 12+ latach dowożenia projektów, dziś z agentami AI, które sam zbudowałem i prowadzę",
+    "subtitle": "Doradztwo oparte na 12+ latach dowożenia projektów, dziś z agentami AI w systemie, który sam zbudowałem",
     "consulting": {
       "title": "Konsulting architektoniczny",
-      "description": "Dogłębne przeglądy architektury TypeScript/React. Pomagam identyfikować wąskie gardła, sugeruję skalowalne wzorce i prowadzę zespół ku utrzymywalnym rozwiązaniom."
+      "description": "Przeglądy architektury TypeScript/React i Node.js. Szukam wąskich gardeł, proponuję wzorce, które się skalują, i pomagam ułożyć kod tak, żeby agenci AI mogli w nim bezpiecznie pracować: jasne granice modułów, testy i kontrakty."
     },
     "estimation": {
       "title": "Wycena i planowanie projektów",
-      "description": "Realistyczna estymacja projektów oparta na praktycznym doświadczeniu. Od MVP po złożone systemy — szczegółowa analiza wymagań, ocena ryzyka i planowanie roadmapy."
+      "description": "Realistyczna wycena oparta na praktyce, od MVP po złożone systemy: analiza wymagań, ocena ryzyka i plan podzielony na małe kawałki z kryteriami akceptacji, które da się dowieźć osobno."
     },
     "development": {
       "title": "Code Review & Mentoring",
-      "description": "Podnoszenie jakości kodu zespołu. Dokładne code review, warsztaty z best practices i praktyczny mentoring w TypeScript, React i Node.js."
+      "description": "Podnoszę jakość kodu w zespole: dokładne code review, warsztaty i mentoring w TypeScript, React i Node.js. Uczę też, jak recenzować kod pisany przez agentów AI i jak ustawić reguły review, które łapią ich typowe błędy."
     },
     "ai": {
       "title": "Praca z agentami AI",

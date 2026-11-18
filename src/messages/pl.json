@@ -11,14 +11,14 @@
   "hero": {
     "greeting": "Cześć, jestem",
     "name": "Leszek Pawlak",
-    "title": "Konsultant TypeScript & React",
+    "title": "Agentic Engineer · TypeScript & React",
     "subtitle": "12+ lat praktycznego doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej.",
     "cta": "Zapytaj o wycenę",
     "ctaSecondary": "Jak mogę pomóc"
   },
   "about": {
     "title": "O mnie",
-    "bio": "Jestem niezależnym konsultantem specjalizującym się w ekosystemach TypeScript, React i Node.js. Po ponad dekadzie budowania systemów produkcyjnych — od startupów po enterprise — skupiam się teraz na pomaganiu zespołom w nawigowaniu złożonych decyzji technicznych. Wnoszę głęboką ekspertyzę w architekturze frontend, optymalizacji wydajności i nowoczesnym toolingu JavaScript. Moje podejście jest pragmatyczne: pomagam wybrać odpowiednie narzędzia, unikać over-engineeringu i dostarczać wartość szybciej.",
+    "bio": "Jestem inżynierem oprogramowania z ponad 12 latami doświadczenia w TypeScript, React i Node.js — od startupów po enterprise. Dziś pracuję jako Agentic Engineer: większość kodu piszą agenci AI (Claude Code) w systemie, który sam zbudowałem — od planu, przez implementację zaczynaną od testów, wieloetapowy code review i lokalne CI, po testy w przeglądarce. Ja odpowiadam za to, czego agent nie oceni: cięcie pracy na małe kawałki, kryteria akceptacji, ręczny test i decyzję, co trafia na produkcję. To samo wnoszę do zespołów, które chcą dowozić szybciej z AI i nie tracić jakości: architekturę, dobór narzędzi i proces, w którym pracę agentów sprawdzają bramki jakości, a nie zaufanie.",
     "skills": "Obszary ekspertyzy",
     "skillCategories": {
       "languages": "Języki i Frameworki",
@@ -212,12 +212,12 @@
   },
   "metadata": {
     "home": {
-      "title": "Konsultant TypeScript & React",
-      "description": "12+ lat doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej."
+      "title": "Agentic Engineer · TypeScript & React",
+      "description": "Agentic Engineer z 12+ latami doświadczenia w TypeScript, React i Node.js. Dowożę oprogramowanie przez agentów AI z bramkami jakości i pomagam zespołom pracować tak samo."
     },
     "about": {
       "title": "O mnie",
-      "description": "Poznaj Leszka Pawlaka — niezależnego konsultanta TypeScript, React i Node.js z ponad dekadą doświadczenia w systemach produkcyjnych."
+      "description": "Poznaj Leszka Pawlaka — Agentic Engineera z ponad 12 latami doświadczenia w TypeScript, React i Node.js, który dowozi oprogramowanie przez agentów AI."
     },
     "services": {
       "title": "Usługi konsultingowe",

@@ -11,14 +11,14 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Leszek Pawlak",
-    "title": "TypeScript & React Consultant",
+    "title": "Agentic Engineer · TypeScript & React",
     "subtitle": "12+ years of hands-on experience in JavaScript ecosystems. I help teams make better architectural decisions, avoid costly mistakes, and ship faster.",
     "cta": "Get a free estimate",
     "ctaSecondary": "How I can help"
   },
   "about": {
     "title": "About me",
-    "bio": "I'm an independent consultant specializing in TypeScript, React, and Node.js ecosystems. After over a decade of building production systems — from startups to enterprise — I now focus on helping teams navigate complex technical decisions. I bring deep expertise in frontend architecture, performance optimization, and modern JavaScript tooling. My approach is pragmatic: I help you choose the right tools, avoid over-engineering, and deliver value faster.",
+    "bio": "I'm a software engineer with 12+ years in TypeScript, React and Node.js, from startups to enterprise. Today I work as an agentic engineer: most of the code is written by AI agents (Claude Code) in a system I built myself — from planning, through test-first implementation, multi-pass code review and local CI, to browser testing. I own what an agent can't judge: slicing the work, acceptance criteria, hands-on testing and deciding what ships. I bring the same to teams that want to ship faster with AI without losing quality: architecture, tooling choices, and a process where quality gates check the agents' work instead of trust.",
     "skills": "Areas of Expertise",
     "skillCategories": {
       "languages": "Languages & Frameworks",
@@ -212,12 +212,12 @@
   },
   "metadata": {
     "home": {
-      "title": "TypeScript & React Consultant",
-      "description": "12+ years of JavaScript ecosystem experience. I help teams make better architectural decisions, avoid costly mistakes, and ship faster."
+      "title": "Agentic Engineer · TypeScript & React",
+      "description": "Agentic engineer with 12+ years in TypeScript, React and Node.js. I ship software through AI agents with quality gates, and help teams work the same way."
     },
     "about": {
       "title": "About me",
-      "description": "Meet Leszek Pawlak — an independent TypeScript, React, and Node.js consultant with over a decade of production systems experience."
+      "description": "Meet Leszek Pawlak — an agentic engineer with 12+ years in TypeScript, React and Node.js who ships software through AI agents."
     },
     "services": {
       "title": "Consulting services",

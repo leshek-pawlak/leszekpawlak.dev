@@ -29,7 +29,7 @@
   },
   "services": {
     "title": "Jak pomagam",
-    "subtitle": "Usługi doradcze oparte na wieloletnim doświadczeniu w dostarczaniu projektów",
+    "subtitle": "Doradztwo oparte na 12+ latach dowożenia projektów, dziś z agentami AI, które sam zbudowałem i prowadzę",
     "consulting": {
       "title": "Konsulting architektoniczny",
       "description": "Dogłębne przeglądy architektury TypeScript/React. Pomagam identyfikować wąskie gardła, sugeruję skalowalne wzorce i prowadzę zespół ku utrzymywalnym rozwiązaniom."
@@ -43,8 +43,8 @@
       "description": "Podnoszenie jakości kodu zespołu. Dokładne code review, warsztaty z best practices i praktyczny mentoring w TypeScript, React i Node.js."
     },
     "ai": {
-      "title": "Strategia integracji AI",
-      "description": "Praktyczne doradztwo w zakresie integracji LLM i usług AI z aplikacjami webowymi. Od oceny wykonalności po wzorce implementacji gotowe na produkcję."
+      "title": "Praca z agentami AI",
+      "description": "Pomagam zespołom dowozić z agentami AI bez utraty jakości: podział pracy między ludzi i agentów, bramki jakości przed każdym pushem, review i testy prowadzone przez agentów oraz integracja LLM z aplikacjami webowymi."
     }
   },
   "experience": {
@@ -221,7 +221,7 @@
     },
     "services": {
       "title": "Usługi konsultingowe",
-      "description": "Konsulting architektoniczny, wycena projektów, code review, mentoring i strategia integracji AI dla zespołów tworzących aplikacje webowe."
+      "description": "Konsulting architektoniczny, wycena projektów, code review, mentoring i wdrożenie pracy z agentami AI dla zespołów tworzących aplikacje webowe."
     },
     "experience": {
       "title": "Doświadczenie",

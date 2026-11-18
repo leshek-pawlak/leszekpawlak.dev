@@ -29,7 +29,7 @@
   },
   "services": {
     "title": "How I Help",
-    "subtitle": "Advisory services built on years of real-world delivery experience",
+    "subtitle": "Advisory built on 12+ years of shipping software, today with AI agents I built and run myself",
     "consulting": {
       "title": "Architecture Consulting",
       "description": "Deep-dive reviews of your TypeScript/React architecture. I help identify bottlenecks, suggest scalable patterns, and guide your team toward maintainable solutions."
@@ -43,8 +43,8 @@
       "description": "Elevate your team's code quality. Thorough code reviews, best practices workshops, and hands-on mentoring in TypeScript, React, and Node.js."
     },
     "ai": {
-      "title": "AI Integration Strategy",
-      "description": "Practical guidance on integrating LLMs and AI services into your web applications. From feasibility assessment to production-ready implementation patterns."
+      "title": "AI-Native Delivery",
+      "description": "I help teams ship with AI agents without losing quality: splitting work between people and agents, quality gates before every push, agent-run review and testing, and LLM integration in web apps."
     }
   },
   "experience": {
@@ -221,7 +221,7 @@
     },
     "services": {
       "title": "Consulting services",
-      "description": "Architecture consulting, project estimation, code review, mentoring, and AI integration strategy for teams building web applications."
+      "description": "Architecture consulting, project estimation, code review, mentoring, and AI-native delivery with agents for teams building web applications."
     },
     "experience": {
       "title": "Experience",

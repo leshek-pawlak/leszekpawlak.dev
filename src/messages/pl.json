@@ -54,7 +54,7 @@
   },
   "contact": {
     "title": "Porozmawiajmy",
-    "subtitle": "Masz wyzwanie techniczne? Porozmawiajmy o tym, jak mogę pomóc Twojemu zespołowi.",
+    "subtitle": "Masz wyzwanie techniczne albo rolę dla Agentic Engineera? Napisz, jak mogę pomóc Twojemu zespołowi.",
     "name": "Imię i nazwisko",
     "email": "Email",
     "message": "Wiadomość",
@@ -122,7 +122,7 @@
     "stage": "ETAP",
     "contactKicker": "POCZĄTEK WSPÓLNEJ WYPRAWY",
     "contactTitle": "Zaproś mnie do drużyny.",
-    "formTitle": "Wiadomość do maga",
+    "formTitle": "Wiadomość do przywoływacza",
     "partySupport": "WSPARCIE DLA DRUŻYNY",
     "questTitle": "Twój quest. Moje doświadczenie.",
     "ndaTrust": "Najpierw zaufanie."
@@ -154,7 +154,7 @@
     "done": "Gotowe",
     "compare": "Porównaj ze wzorem",
     "resultLabel": "Podobieństwo",
-    "resultVerdict": "WERDYKT MAGA",
+    "resultVerdict": "WERDYKT PRZYWOŁYWACZA",
     "playAgain": "Jeszcze raz",
     "leaveGame": "Wystarczy",
     "keyboardHelp": "Klocek: przeciągnij lub użyj strzałek. Shift daje precyzyjny ruch, Q/E obraca, C otwiera cięcie, Delete odkłada klocek.",
@@ -184,7 +184,7 @@
       "cutInvalid": "Cięcie nie zmieniło klocka. Ustaw inną linię.",
       "removed": "Klocek wrócił do podajnika.",
       "limit": "Na planszy jest już wystarczająco dużo klocków. Odłóż zbędny, aby dobrać kolejny.",
-      "scored": "Mag ocenił twoją figurę.",
+      "scored": "Przywoływacz ocenił twoją figurę.",
       "newRound": "Nowa figura gotowa. Pominięte wcześniej kształty nie wrócą w tej puli.",
       "poolRestarted": "Wykorzystano wszystkie 100 figur. Rozpoczęła się nowa pula bez powtórzenia bieżącego kształtu."
     },
@@ -200,7 +200,7 @@
       "details": "Zgodnie z oczekiwaniami.",
       "effort": "Stać cię na więcej.",
       "ignored": "Trudno w to uwierzyć.",
-      "hopeless": "Mag kończy rozmowę."
+      "hopeless": "Przywoływacz kończy rozmowę."
     },
     "resultMageAlt": {
       "excellent": "Przywoływacz agentów patrzy z dumą, szacunkiem i aprobatą.",
@@ -237,7 +237,7 @@
     },
     "contact": {
       "title": "Kontakt",
-      "description": "Opisz swój projekt lub wyzwanie techniczne i zaproś do zespołu doświadczonego konsultanta TypeScript i React."
+      "description": "Opisz swój projekt, wyzwanie techniczne albo rolę w zespole i zaproś do drużyny Agentic Engineera z 12+ latami doświadczenia w TypeScript i React."
     }
   },
   "footer": {

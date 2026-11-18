@@ -54,7 +54,7 @@
   },
   "contact": {
     "title": "Let's Talk",
-    "subtitle": "Have a technical challenge? Let's discuss how I can help your team.",
+    "subtitle": "Have a technical challenge or a role for an agentic engineer? Tell me how I can help your team.",
     "name": "Full name",
     "email": "Email",
     "message": "Message",
@@ -122,7 +122,7 @@
     "stage": "STAGE",
     "contactKicker": "THE START OF A SHARED ADVENTURE",
     "contactTitle": "Invite me to your party.",
-    "formTitle": "A message to the mage",
+    "formTitle": "A message to the summoner",
     "partySupport": "SUPPORT FOR YOUR PARTY",
     "questTitle": "Your quest. My experience.",
     "ndaTrust": "Trust comes first."
@@ -154,7 +154,7 @@
     "done": "Done",
     "compare": "Compare with target",
     "resultLabel": "Similarity",
-    "resultVerdict": "THE MAGE'S VERDICT",
+    "resultVerdict": "THE SUMMONER'S VERDICT",
     "playAgain": "One more time",
     "leaveGame": "That's enough",
     "keyboardHelp": "Block: drag or use the arrow keys. Shift moves precisely, Q/E rotates, C opens the cutter, and Delete returns the block.",
@@ -184,7 +184,7 @@
       "cutInvalid": "The cut did not change the block. Choose another line.",
       "removed": "The block has returned to the source.",
       "limit": "There are enough blocks on the board. Return one before taking another.",
-      "scored": "The mage has judged your shape.",
+      "scored": "The summoner has judged your shape.",
       "newRound": "A new target is ready. Previously skipped shapes will not return in this pool.",
       "poolRestarted": "All 100 shapes have been used. A fresh pool has started without repeating the current shape."
     },
@@ -200,7 +200,7 @@
       "details": "Just as expected.",
       "effort": "You can do better.",
       "ignored": "Hard to believe.",
-      "hopeless": "The mage ends the conversation."
+      "hopeless": "The summoner ends the conversation."
     },
     "resultMageAlt": {
       "excellent": "The agent summoner looks on with pride, respect, and approval.",
@@ -237,7 +237,7 @@
     },
     "contact": {
       "title": "Contact",
-      "description": "Describe your project or technical challenge and invite an experienced TypeScript and React consultant to your team for a free estimate."
+      "description": "Describe your project, technical challenge or open role, and invite an agentic engineer with 12+ years in TypeScript and React to your team."
     }
   },
   "footer": {

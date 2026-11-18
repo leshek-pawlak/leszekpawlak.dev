@@ -72,27 +72,27 @@
     "steps": {
       "inquiry": {
         "title": "Inquiry",
-        "description": "You describe your project or technical challenge. I respond as soon as possible to discuss your needs."
+        "description": "You describe your project, technical challenge or an open role. I reply quickly and we set up a short call."
       },
       "nda": {
         "title": "Signing the NDA",
-        "description": "We sign a non-disclosure agreement so I can learn the details of your project and answer all your questions."
+        "description": "We sign a non-disclosure agreement before I see any code or documents. We also agree which AI tools your code may go to, and which it may not."
       },
       "scope": {
-        "title": "Defining the Scope",
-        "description": "I answer all your questions and together we define the detailed scope, goals, and expected outcomes of the collaboration."
+        "title": "Scope & Acceptance Criteria",
+        "description": "We slice the work into small pieces that can ship on their own and write acceptance criteria for each. They are the contract the agents and I check the result against."
       },
       "estimate": {
         "title": "Estimate Approval",
-        "description": "You receive a transparent estimate broken down by phases. No hidden costs."
+        "description": "You get a transparent estimate broken down by slice. No hidden costs. Agents cut the time spent writing code, so you pay mostly for what needs a person: decisions, review and testing."
       },
       "delivery": {
         "title": "Delivery & Review",
         "description": "I deliver in small slices. AI agents write and review the code behind quality gates; I set the acceptance criteria, test it and decide what reaches you. Then we discuss findings and next steps."
       },
       "success": {
-        "title": "Successful Collaboration",
-        "description": "Goal achieved! Your project is on the right track. If you ever need support again — you know where to find me."
+        "title": "Handover & Support",
+        "description": "Goal achieved. You get working code with tests and a description of every change and, if you want, the agent workflow your team can keep using. If you need support later, you know where to find me."
       }
     },
     "nda_section": {

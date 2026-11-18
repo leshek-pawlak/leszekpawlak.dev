@@ -72,27 +72,27 @@
     "steps": {
       "inquiry": {
         "title": "Zapytanie",
-        "description": "Opisujesz swój projekt lub wyzwanie techniczne. Odpowiadam najszybciej jak to możliwe, aby omówić Twoje potrzeby."
+        "description": "Opisujesz projekt, wyzwanie techniczne albo rolę w zespole. Odpowiadam szybko i umawiamy krótką rozmowę."
       },
       "nda": {
         "title": "Podpisanie NDA",
-        "description": "Podpisujemy umowę o poufności, abym mógł poznać szczegóły projektu i odpowiedzieć na wszystkie Twoje pytania."
+        "description": "Podpisujemy umowę o poufności, zanim zobaczę kod czy dokumenty. Ustalamy też, do jakich narzędzi AI może trafić Twój kod, a do jakich nie."
       },
       "scope": {
-        "title": "Określenie zakresu prac",
-        "description": "Odpowiadam na wszystkie pytania i wspólnie definiujemy szczegółowy zakres, cele i oczekiwane rezultaty współpracy."
+        "title": "Zakres i kryteria akceptacji",
+        "description": "Tniemy pracę na małe kawałki, które da się dowieźć osobno, i do każdego spisujemy kryteria akceptacji. To one są kontraktem, wobec którego agenci i ja sprawdzamy wynik."
       },
       "estimate": {
         "title": "Akceptacja wyceny",
-        "description": "Otrzymujesz transparentną wycenę z podziałem na etapy. Bez ukrytych kosztów."
+        "description": "Dostajesz przejrzystą wycenę z podziałem na kawałki. Bez ukrytych kosztów. Agenci skracają czas pisania kodu, więc płacisz głównie za to, co wymaga człowieka: decyzje, review i testy."
       },
       "delivery": {
-        "title": "Otrzymanie i omówienie wyników",
+        "title": "Dowiezienie i omówienie wyników",
         "description": "Dowożę w małych kawałkach. Agenci AI piszą i recenzują kod za bramkami jakości, a ja ustalam kryteria akceptacji, testuję i decyduję, co trafia do Ciebie. Na koniec omawiamy wnioski i następne kroki."
       },
       "success": {
-        "title": "Zadowolenie z udanej współpracy",
-        "description": "Cel osiągnięty! Twój projekt jest na właściwej ścieżce. Jeśli kiedykolwiek będziesz potrzebować wsparcia — wiesz gdzie mnie znaleźć."
+        "title": "Przekazanie i wsparcie",
+        "description": "Cel osiągnięty. Dostajesz działający kod z testami i opisem każdej zmiany, a jeśli chcesz, także sposób pracy z agentami, z którego Twój zespół może korzystać dalej. Gdy będziesz potrzebować wsparcia, wiesz, gdzie mnie znaleźć."
       }
     },
     "nda_section": {

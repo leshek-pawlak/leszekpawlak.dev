@@ -157,6 +157,7 @@ export function ExperienceSection() {
         >
           <p className="rpg-eyebrow">{rpg("experienceKicker")}</p>
           <h1 className="rpg-section-title">{t("title")}</h1>
+          <p className="rpg-section-summary">{t("subtitle")}</p>
           <div className="rpg-section-rule" aria-hidden="true" />
         </motion.header>
 

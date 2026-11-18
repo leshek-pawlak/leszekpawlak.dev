@@ -18,7 +18,7 @@
   },
   "about": {
     "title": "O mnie",
-    "bio": "Jestem inżynierem oprogramowania z ponad 12 latami doświadczenia w TypeScript, React i Node.js — od startupów po enterprise. Dziś pracuję jako Agentic Engineer: większość kodu piszą agenci AI (Claude Code) w systemie, który sam zbudowałem — od planu, przez implementację zaczynaną od testów, wieloetapowy code review i lokalne CI, po testy w przeglądarce. Ja odpowiadam za to, czego agent nie oceni: cięcie pracy na małe kawałki, kryteria akceptacji, ręczny test i decyzję, co trafia na produkcję. To samo wnoszę do zespołów, które chcą dowozić szybciej z AI i nie tracić jakości: architekturę, dobór narzędzi i proces, w którym pracę agentów sprawdzają bramki jakości, a nie zaufanie.",
+    "bio": "Zaczynałem w 2013 roku od PHP i WordPressa. Potem przez lata budowałem frontend w React i TypeScript, od startupów po enterprise, a jako Tech Lead w Gratified prowadziłem rozwój czatu opartego na GPT. Dziś pracuję jako Agentic Engineer: większość kodu piszą agenci AI (Claude Code) w systemie, który sam zbudowałem — od planu, przez implementację zaczynaną od testów i wieloetapowy code review, po lokalne CI i testy w przeglądarce. Ja odpowiadam za to, czego agent nie oceni: dzielę pracę na małe kawałki, ustalam kryteria akceptacji, testuję i decyduję, co trafia na produkcję. To podejście wnoszę do zespołów jako konsultant albo jako członek zespołu: architekturę, dobór narzędzi i proces, w którym pracę agentów sprawdzają bramki jakości, a nie zaufanie.",
     "skills": "Obszary ekspertyzy",
     "skillCategories": {
       "languages": "Języki i Frameworki",
@@ -218,7 +218,7 @@
     },
     "about": {
       "title": "O mnie",
-      "description": "Poznaj Leszka Pawlaka — Agentic Engineera z ponad 12 latami doświadczenia w TypeScript, React i Node.js, który dowozi oprogramowanie przez agentów AI."
+      "description": "Poznaj Leszka Pawlaka: od PHP w 2013 roku, przez frontend w React i TypeScript oraz rolę Tech Leada, do pracy jako Agentic Engineer, w której kod piszą agenci AI."
     },
     "services": {
       "title": "Usługi konsultingowe",

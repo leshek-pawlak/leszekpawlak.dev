@@ -18,7 +18,7 @@
   },
   "about": {
     "title": "About me",
-    "bio": "I'm a software engineer with 12+ years in TypeScript, React and Node.js, from startups to enterprise. Today I work as an agentic engineer: most of the code is written by AI agents (Claude Code) in a system I built myself — from planning, through test-first implementation, multi-pass code review and local CI, to browser testing. I own what an agent can't judge: slicing the work, acceptance criteria, hands-on testing and deciding what ships. I bring the same to teams that want to ship faster with AI without losing quality: architecture, tooling choices, and a process where quality gates check the agents' work instead of trust.",
+    "bio": "I started in 2013 with PHP and WordPress. Then I spent years building frontends in React and TypeScript, from startups to enterprise, and as Tech Lead at Gratified I led the development of a GPT-based chat system. Today I work as an agentic engineer: AI agents (Claude Code) write most of the code in a system I built myself — from planning, through test-first implementation and a multi-pass code review, to local CI and browser testing. I own what an agent can't judge: I slice the work, set acceptance criteria, test it and decide what ships. I bring this approach to teams as a consultant or as a team member: architecture, tooling choices, and a process where quality gates check the agents' work instead of trust.",
     "skills": "Areas of Expertise",
     "skillCategories": {
       "languages": "Languages & Frameworks",
@@ -218,7 +218,7 @@
     },
     "about": {
       "title": "About me",
-      "description": "Meet Leszek Pawlak — an agentic engineer with 12+ years in TypeScript, React and Node.js who ships software through AI agents."
+      "description": "Meet Leszek Pawlak: from PHP in 2013, through React and TypeScript frontends and a Tech Lead role, to agentic engineering, where AI agents write the code."
     },
     "services": {
       "title": "Consulting services",

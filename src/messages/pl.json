@@ -96,8 +96,8 @@
       }
     },
     "nda_section": {
-      "title": "Umowa o poufności (NDA)",
-      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem. Poniżej pobierzesz dwujęzyczną umowę NDA (PL/EN) gotową do podpisu.",
+      "title": "Umowa o poufności (NDA) i narzędzia AI",
+      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem, także wtedy, gdy kod piszą agenci AI. Poniżej pobierzesz dwujęzyczną umowę NDA (PL/EN) gotową do podpisu. Przed startem ustalamy też, do jakich narzędzi AI może trafić Twój kod, a do jakich nie, i trzymam się tego przez cały projekt.",
       "download": "Pobierz NDA PL/EN"
     }
   },

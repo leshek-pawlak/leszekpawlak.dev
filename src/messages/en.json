@@ -96,8 +96,8 @@
       }
     },
     "nda_section": {
-      "title": "Non-Disclosure Agreement (NDA)",
-      "description": "The security of your data is my priority. Below you can download the bilingual NDA (PL/EN) ready for signature.",
+      "title": "Non-Disclosure Agreement (NDA) and AI tools",
+      "description": "The security of your data is my priority, also when AI agents write the code. Below you can download the bilingual NDA (PL/EN) ready for signature. Before we start, we also agree which AI tools your code may go to, and which it may not, and I stick to that for the whole project.",
       "download": "Download NDA PL/EN"
     }
   },

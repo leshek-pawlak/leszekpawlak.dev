@@ -11,14 +11,14 @@
   "hero": {
     "greeting": "Hi, I'm",
     "name": "Leszek Pawlak",
-    "title": "TypeScript & React Consultant",
-    "subtitle": "12+ years of hands-on experience in JavaScript ecosystems. I help teams make better architectural decisions, avoid costly mistakes, and ship faster.",
-    "cta": "Get a free estimate",
+    "title": "Agentic Engineer · TypeScript & React",
+    "subtitle": "12+ years in TypeScript, React and Node.js. Today AI agents write most of the code in a system I built myself, and I own the result: I slice the work, set acceptance criteria, test it and decide what ships. I help teams work the same way.",
+    "cta": "Get in touch",
     "ctaSecondary": "How I can help"
   },
   "about": {
     "title": "About me",
-    "bio": "I'm an independent consultant specializing in TypeScript, React, and Node.js ecosystems. After over a decade of building production systems — from startups to enterprise — I now focus on helping teams navigate complex technical decisions. I bring deep expertise in frontend architecture, performance optimization, and modern JavaScript tooling. My approach is pragmatic: I help you choose the right tools, avoid over-engineering, and deliver value faster.",
+    "bio": "I started in 2013 with PHP and WordPress. Then I spent years building frontends in React and TypeScript, from startups to enterprise, and as Tech Lead at Gratified I led the development of a GPT-based chat system. Today I work as an agentic engineer: AI agents (Claude Code) write most of the code in a system I built myself — from planning, through test-first implementation and a multi-pass code review, to local CI and browser testing. I own what an agent can't judge: I slice the work, set acceptance criteria, test it and decide what ships. I bring this approach to teams as a consultant or as a team member: architecture, tooling choices, and a process where quality gates check the agents' work instead of trust.",
     "skills": "Areas of Expertise",
     "skillCategories": {
       "languages": "Languages & Frameworks",
@@ -29,32 +29,33 @@
   },
   "services": {
     "title": "How I Help",
-    "subtitle": "Advisory services built on years of real-world delivery experience",
+    "subtitle": "Advisory built on 12+ years of shipping software, today with AI agents in a system I built myself",
     "consulting": {
       "title": "Architecture Consulting",
-      "description": "Deep-dive reviews of your TypeScript/React architecture. I help identify bottlenecks, suggest scalable patterns, and guide your team toward maintainable solutions."
+      "description": "Reviews of your TypeScript/React and Node.js architecture. I find bottlenecks, suggest patterns that scale, and help shape the code so AI agents can work in it safely: clear module boundaries, tests and contracts."
     },
     "estimation": {
       "title": "Project Estimation & Planning",
-      "description": "Realistic project estimation based on hands-on experience. From MVPs to complex systems — detailed requirements analysis, risk assessment, and roadmap planning."
+      "description": "Realistic estimates based on hands-on experience, from MVPs to complex systems: requirements analysis, risk assessment, and a plan split into small slices with acceptance criteria that can ship on their own."
     },
     "development": {
       "title": "Code Review & Mentoring",
-      "description": "Elevate your team's code quality. Thorough code reviews, best practices workshops, and hands-on mentoring in TypeScript, React, and Node.js."
+      "description": "Better code quality for your team: thorough code reviews, workshops, and hands-on mentoring in TypeScript, React and Node.js. I also teach how to review code written by AI agents and how to set review rules that catch their typical mistakes."
     },
     "ai": {
-      "title": "AI Integration Strategy",
-      "description": "Practical guidance on integrating LLMs and AI services into your web applications. From feasibility assessment to production-ready implementation patterns."
+      "title": "AI-Native Delivery",
+      "description": "I help teams ship with AI agents without losing quality: splitting work between people and agents, quality gates before every push, agent-run review and testing, and LLM integration in web apps."
     }
   },
   "experience": {
     "title": "Track Record",
+    "subtitle": "12+ years, from frontend work, through a Tech Lead role, to Agentic Engineer. Today AI agents write the code, and I own what reaches production.",
     "present": "Present",
     "techStack": "Tech Stack"
   },
   "contact": {
     "title": "Let's Talk",
-    "subtitle": "Have a technical challenge? Let's discuss how I can help your team.",
+    "subtitle": "Have a technical challenge or a role for an agentic engineer? Tell me how I can help your team.",
     "name": "Full name",
     "email": "Email",
     "message": "Message",
@@ -63,55 +64,55 @@
     "success": "Message sent! I'll get back to you as soon as possible.",
     "successKicker": "MESSAGE DELIVERED",
     "successClose": "Close",
-    "successMageAlt": "The TypeScript mage receives the message with pride, respect, and approval.",
+    "successMageAlt": "The agent summoner receives the message with pride, respect, and approval.",
     "error": "Something went wrong. Please try again or email me directly."
   },
   "workflow": {
     "title": "How We Work Together",
-    "subtitle": "A transparent process from first contact to project success",
+    "subtitle": "A transparent process from first contact to project success. AI agents write the code; I own the result.",
     "steps": {
       "inquiry": {
         "title": "Inquiry",
-        "description": "You describe your project or technical challenge. I respond as soon as possible to discuss your needs."
+        "description": "You describe your project, technical challenge or an open role. I reply quickly and we set up a short call."
       },
       "nda": {
         "title": "Signing the NDA",
-        "description": "We sign a non-disclosure agreement so I can learn the details of your project and answer all your questions."
+        "description": "We sign a non-disclosure agreement before I see any code or documents. We also agree which AI tools your code may go to, and which it may not."
       },
       "scope": {
-        "title": "Defining the Scope",
-        "description": "I answer all your questions and together we define the detailed scope, goals, and expected outcomes of the collaboration."
+        "title": "Scope & Acceptance Criteria",
+        "description": "We slice the work into small pieces that can ship on their own and write acceptance criteria for each. They are the contract the agents and I check the result against."
       },
       "estimate": {
         "title": "Estimate Approval",
-        "description": "You receive a transparent estimate broken down by phases. No hidden costs."
+        "description": "You get a transparent estimate broken down by slice. No hidden costs. Agents cut the time spent writing code, so you pay mostly for what needs a person: decisions, review and testing."
       },
       "delivery": {
         "title": "Delivery & Review",
-        "description": "I deliver results according to plan. We discuss findings and next steps."
+        "description": "I deliver in small slices. AI agents write and review the code behind quality gates; I set the acceptance criteria, test it and decide what reaches you. Then we discuss findings and next steps."
       },
       "success": {
-        "title": "Successful Collaboration",
-        "description": "Goal achieved! Your project is on the right track. If you ever need support again — you know where to find me."
+        "title": "Handover & Support",
+        "description": "Goal achieved. You get working code with tests and a description of every change and, if you want, the agent workflow your team can keep using. If you need support later, you know where to find me."
       }
     },
     "nda_section": {
-      "title": "Non-Disclosure Agreement (NDA)",
-      "description": "The security of your data is my priority. Below you can download the bilingual NDA (PL/EN) ready for signature.",
+      "title": "Non-Disclosure Agreement (NDA) and AI tools",
+      "description": "The security of your data is my priority, also when AI agents write the code. Below you can download the bilingual NDA (PL/EN) ready for signature. Before we start, we also agree which AI tools your code may go to, and which it may not, and I stick to that for the whole project.",
       "download": "Download NDA PL/EN"
     }
   },
   "rpg": {
     "characterKicker": "AN ALLY FOR YOUR PARTY",
     "classLabel": "CHARACTER CLASS",
-    "className": "TypeScript Mage",
-    "portraitAlt": "Portrait of Leszek Pawlak as a TypeScript mage",
-    "classCaption": "Architecture. Code. Shared quests.",
+    "className": "Agent Summoner",
+    "portraitAlt": "Portrait of Leszek Pawlak as an agent summoner",
+    "classCaption": "Plan. Agents. Quality gates.",
     "storyLine": "The best quests are a team effort.",
     "years": "years of experience",
-    "specialty": "Architecture and code quality",
+    "specialty": "AI agents and code quality",
     "equipment": "TOOLS OF THE TRADE",
-    "estimateNote": "Let's talk about your project and a free estimate.",
+    "estimateNote": "Let's talk about your project, an estimate or a role on your team.",
     "aboutKicker": "ORIGIN STORY",
     "skillsCount": "{count} skills across four areas",
     "servicesKicker": "SPELLBOOK",
@@ -122,7 +123,7 @@
     "stage": "STAGE",
     "contactKicker": "THE START OF A SHARED ADVENTURE",
     "contactTitle": "Invite me to your party.",
-    "formTitle": "A message to the mage",
+    "formTitle": "A message to the summoner",
     "partySupport": "SUPPORT FOR YOUR PARTY",
     "questTitle": "Your quest. My experience.",
     "ndaTrust": "Trust comes first."
@@ -130,7 +131,7 @@
   "playground": {
     "kicker": "2D PUZZLE GAME",
     "title": "Shape workshop",
-    "intro": "Recreate a generated silhouette from blue squares. Cut, rotate, and arrange them like a tangram, then check the similarity score.",
+    "intro": "Recreate a generated silhouette from blue squares. Cut, rotate, and arrange them like a tangram, then check the similarity score. AI agents built this game under my direction — a small example of how I work.",
     "loading": "Generating a shape…",
     "sceneLabel": "Shape matching game board",
     "controlsLabel": "Blocks and game tools",
@@ -154,7 +155,7 @@
     "done": "Done",
     "compare": "Compare with target",
     "resultLabel": "Similarity",
-    "resultVerdict": "THE MAGE'S VERDICT",
+    "resultVerdict": "THE SUMMONER'S VERDICT",
     "playAgain": "One more time",
     "leaveGame": "That's enough",
     "keyboardHelp": "Block: drag or use the arrow keys. Shift moves precisely, Q/E rotates, C opens the cutter, and Delete returns the block.",
@@ -184,7 +185,7 @@
       "cutInvalid": "The cut did not change the block. Choose another line.",
       "removed": "The block has returned to the source.",
       "limit": "There are enough blocks on the board. Return one before taking another.",
-      "scored": "The mage has judged your shape.",
+      "scored": "The summoner has judged your shape.",
       "newRound": "A new target is ready. Previously skipped shapes will not return in this pool.",
       "poolRestarted": "All 100 shapes have been used. A fresh pool has started without repeating the current shape."
     },
@@ -200,44 +201,44 @@
       "details": "Just as expected.",
       "effort": "You can do better.",
       "ignored": "Hard to believe.",
-      "hopeless": "The mage ends the conversation."
+      "hopeless": "The summoner ends the conversation."
     },
     "resultMageAlt": {
-      "excellent": "The TypeScript mage looks on with pride, respect, and approval.",
-      "details": "The TypeScript mage calmly accepts the expected result.",
-      "effort": "The TypeScript mage crosses his arms and shows clear disappointment.",
-      "ignored": "The TypeScript mage performs a deeply embarrassed facepalm.",
-      "hopeless": "The TypeScript mage turns away and raises a hand to end the conversation."
+      "excellent": "The agent summoner looks on with pride, respect, and approval.",
+      "details": "The agent summoner calmly accepts the expected result.",
+      "effort": "The agent summoner crosses his arms and shows clear disappointment.",
+      "ignored": "The agent summoner performs a deeply embarrassed facepalm.",
+      "hopeless": "The agent summoner turns away and raises a hand to end the conversation."
     }
   },
   "metadata": {
     "home": {
-      "title": "TypeScript & React Consultant",
-      "description": "12+ years of JavaScript ecosystem experience. I help teams make better architectural decisions, avoid costly mistakes, and ship faster."
+      "title": "Agentic Engineer · TypeScript & React",
+      "description": "Agentic engineer with 12+ years in TypeScript, React and Node.js. I ship software through AI agents with quality gates, and help teams work the same way."
     },
     "about": {
       "title": "About me",
-      "description": "Meet Leszek Pawlak — an independent TypeScript, React, and Node.js consultant with over a decade of production systems experience."
+      "description": "Meet Leszek Pawlak: from PHP in 2013, through React and TypeScript frontends and a Tech Lead role, to agentic engineering, where AI agents write the code."
     },
     "services": {
       "title": "Consulting services",
-      "description": "Architecture consulting, project estimation, code review, mentoring, and AI integration strategy for teams building web applications."
+      "description": "Architecture consulting, project estimation, code review, mentoring, and AI-native delivery with agents for teams building web applications."
     },
     "experience": {
       "title": "Experience",
-      "description": "Over 12 years of Leszek Pawlak's experience in TypeScript, React, Node.js, application architecture, digital products, and payment systems."
+      "description": "Leszek Pawlak's 12+ years in TypeScript, React and Node.js: from frontend work, through a Tech Lead role, to Agentic Engineer at Fungies, where AI agents write the code and quality gates and hands-on testing check the result."
     },
     "workflow": {
       "title": "How we work together",
-      "description": "A transparent consulting process: from the first inquiry and NDA through scope and estimate to delivery and review."
+      "description": "A transparent process: from the first inquiry and NDA through scope and estimate to delivery in small slices with AI agents, and a review of the results."
     },
     "playground": {
       "title": "Shape workshop — 2D game",
-      "description": "A lightweight 2D puzzle in Leszek Pawlak's portfolio: cut blue blocks, recreate a silhouette, and receive a similarity score."
+      "description": "A 2D puzzle built by AI agents under Leszek Pawlak's direction: cut blue blocks, recreate a silhouette, and get a similarity score."
     },
     "contact": {
       "title": "Contact",
-      "description": "Describe your project or technical challenge and invite an experienced TypeScript and React consultant to your team for a free estimate."
+      "description": "Describe your project, technical challenge or open role, and invite an agentic engineer with 12+ years in TypeScript and React to your team."
     }
   },
   "footer": {

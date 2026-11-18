@@ -18,6 +18,8 @@ const skills = {
   databases: ["PostgreSQL", "MongoDB", "OpenSearch/Elasticsearch", "MySQL"],
   cloud: ["AWS", "Docker", "CI/CD", "Vercel", "Lambda"],
   other: [
+    "Claude Code",
+    "AI Agent Orchestration",
     "Architecture Design",
     "Code Review",
     "OpenAI GPT",

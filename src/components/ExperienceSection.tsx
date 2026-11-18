@@ -6,13 +6,41 @@ import { motion, useReducedMotion } from "motion/react";
 const experiences = [
   {
     company: "Fungies.io",
-    role: { pl: "Senior Fullstack Engineer", en: "Senior Fullstack Engineer" },
+    role: {
+      pl: "Agentic Engineer · AI-native fullstack (formalnie: Software Engineer)",
+      en: "Agentic Engineer · AI-native fullstack (formal title: Software Engineer)",
+    },
     period: { start: "2026-07", end: null },
     description: {
-      pl: "Senior Fullstack Engineer w Fungies, platformie do monetyzacji i płatności dla produktów cyfrowych, gier i SaaS. Praca w monorepo TypeScript (pnpm + Turborepo) obejmująca dashboard dla merchantów w Next.js oraz sklep i checkout dla klientów po stronie frontendu, a także backend oparty o tRPC i TypeORM/PostgreSQL działający na AWS (ECS, RDS, Lambda). Skupienie na architekturze multi-tenant, integracjach z dostawcami płatności oraz embeddable checkout SDK, a także na CI/CD i observability utrzymujących całość w gotowości do wdrożeń.",
-      en: "Senior Fullstack Engineer at Fungies, a monetization and payments platform for digital products, games and SaaS. Working across a TypeScript monorepo (pnpm + Turborepo): a Next.js merchant dashboard and customer-facing store/checkout on the frontend, and a tRPC + TypeORM/PostgreSQL backend running on AWS (ECS, RDS, Lambda). Focused on multi-tenant architecture, payment provider integrations, and the embeddable checkout SDK, plus the CI/CD and observability that keep it all shippable.",
+      pl: "Fungies to platforma do monetyzacji i płatności dla produktów cyfrowych, gier i SaaS: monorepo TypeScript z dashboardem dla merchantów i checkoutem w Next.js oraz serwisami tRPC + PostgreSQL na AWS. Większości kodu nie piszę ręcznie. Zaprojektowałem i prowadzę system, który go pisze: agenci AI (Claude Code) przeprowadzają zadanie z Lineara przez plan, implementację od testów, wieloetapowy code review i rundę weryfikacji, a na końcu otwierają Draft MR. Moja część to decyzje, które wymagają osądu: dzielę pracę na małe kawałki, ustalam kryteria akceptacji, ręcznie testuję wynik i decyduję, co wchodzi do main.",
+      en: "Fungies is a monetization and payments platform for digital products, games and SaaS: a TypeScript monorepo with a Next.js merchant dashboard and checkout, and tRPC + PostgreSQL services on AWS. I don't write most of the code by hand. I designed and run the system that does: AI agents (Claude Code) take a Linear issue through planning, test-first implementation, a multi-pass code review and a verification round, then open a Draft MR. My part is what needs judgement: I slice the work, set acceptance criteria, test the result by hand and decide what gets merged.",
     },
-    tech: ["TypeScript", "Next.js", "tRPC", "TypeORM", "PostgreSQL", "AWS"],
+    highlights: {
+      pl: [
+        "Własny harness dla agentów w Node.js: harmonogram, który bierze gotowe zadania o każdej porze doby, watcher naprawiający czerwone pipeline'y i uwagi recenzentów na moich MR-ach oraz recenzent, który wstępnie przegląda MR-y kolegów, zanim je zatwierdzę.",
+        "Bramki jakości zamiast zaufania: przed pushem agenci odpalają lokalnie szybki rdzeń pipeline'u CI, recenzują zmiany względem ADR-ów zespołu i piszą scenariusze testów, które agent w przeglądarce przeklikuje na localhost i dev.",
+        "Pętla, która sama się poprawia: codzienne retro porównuje to, co złapali recenzenci-ludzie, z tym, co przepuścili agenci, i otwiera PR zmieniający reguły recenzji.",
+        "Praca na budżecie maszyn: bramka na dwóch Macach decyduje, ile sesji agentów i jobów CI idzie naraz, na podstawie zmierzonego zużycia pamięci.",
+        "Tak pracuję na co dzień w pięciu repozytoriach: platforma, nowy dashboard dla merchantów, panel admina, infrastruktura i system legacy.",
+      ],
+      en: [
+        "Built my own agent harness in Node.js: a scheduler that picks up ready issues around the clock, a watcher that fixes red pipelines and reviewer comments on my MRs, and a reviewer that pre-reviews colleagues' MRs before I approve them.",
+        "Quality gates instead of trust: before any push, agents run the fast core of the CI pipeline locally, review changes against the team's ADRs, and write test scenarios that a browser agent clicks through on localhost and dev.",
+        "A loop that improves itself: a daily retro compares what human reviewers caught with what the agents missed, and opens a PR that changes the review rules.",
+        "Ran it on a machine budget: a gate across two Macs decides how many agent sessions and CI jobs run at once, based on measured memory use.",
+        "This is how I work every day across five repositories: the platform, the new merchant dashboard, the admin panel, infrastructure and the legacy system.",
+      ],
+    },
+    tech: [
+      "Claude Code",
+      "AI agents",
+      "TypeScript",
+      "Next.js",
+      "tRPC",
+      "PostgreSQL",
+      "AWS",
+      "GitLab CI",
+    ],
   },
   {
     company: "Equiem",
@@ -129,6 +157,7 @@ export function ExperienceSection() {
         >
           <p className="rpg-eyebrow">{rpg("experienceKicker")}</p>
           <h1 className="rpg-section-title">{t("title")}</h1>
+          <p className="rpg-section-summary">{t("subtitle")}</p>
           <div className="rpg-section-rule" aria-hidden="true" />
         </motion.header>
 
@@ -168,6 +197,13 @@ export function ExperienceSection() {
                 <p className="rpg-journal-description">
                   {exp.description[locale]}
                 </p>
+                {exp.highlights && (
+                  <ul className="rpg-journal-highlights">
+                    {exp.highlights[locale].map((item) => (
+                      <li key={item}>{item}</li>
+                    ))}
+                  </ul>
+                )}
                 <div className="rpg-tag-list">
                   {exp.tech.map((tech) => (
                     <span key={tech} className="rpg-tag">

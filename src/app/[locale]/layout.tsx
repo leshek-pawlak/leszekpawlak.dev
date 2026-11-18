@@ -16,11 +16,11 @@ export function generateStaticParams() {
 
 export const metadata: Metadata = {
   title: {
-    default: "Leszek Pawlak — Konsulting TypeScript & React",
+    default: "Leszek Pawlak — Agentic Engineer · TypeScript & React",
     template: "%s | Leszek Pawlak",
   },
   description:
-    "Doradztwo techniczne w zakresie TypeScript, React i JavaScript. 12+ lat doświadczenia. Konsulting architektoniczny, code review, wyceny projektów.",
+    "Agentic Engineer z 12+ latami doświadczenia w TypeScript, React i Node.js. Dowożę oprogramowanie przez agentów AI z bramkami jakości i pomagam zespołom pracować tak samo.",
   metadataBase: new URL("https://leszekpawlak.vercel.app"),
   openGraph: {
     type: "website",

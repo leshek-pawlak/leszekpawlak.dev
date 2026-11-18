@@ -11,14 +11,14 @@
   "hero": {
     "greeting": "Cześć, jestem",
     "name": "Leszek Pawlak",
-    "title": "Konsultant TypeScript & React",
-    "subtitle": "12+ lat praktycznego doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej.",
-    "cta": "Zapytaj o wycenę",
+    "title": "Agentic Engineer · TypeScript & React",
+    "subtitle": "12+ lat w TypeScript, React i Node.js. Dziś większość kodu piszą agenci AI w systemie, który sam zbudowałem, a ja odpowiadam za wynik: dzielę pracę na małe kawałki, ustalam kryteria akceptacji, testuję i decyduję, co trafia na produkcję. Pomagam zespołom pracować tak samo.",
+    "cta": "Napisz do mnie",
     "ctaSecondary": "Jak mogę pomóc"
   },
   "about": {
     "title": "O mnie",
-    "bio": "Jestem niezależnym konsultantem specjalizującym się w ekosystemach TypeScript, React i Node.js. Po ponad dekadzie budowania systemów produkcyjnych — od startupów po enterprise — skupiam się teraz na pomaganiu zespołom w nawigowaniu złożonych decyzji technicznych. Wnoszę głęboką ekspertyzę w architekturze frontend, optymalizacji wydajności i nowoczesnym toolingu JavaScript. Moje podejście jest pragmatyczne: pomagam wybrać odpowiednie narzędzia, unikać over-engineeringu i dostarczać wartość szybciej.",
+    "bio": "Zaczynałem w 2013 roku od PHP i WordPressa. Potem przez lata budowałem frontend w React i TypeScript, od startupów po enterprise, a jako Tech Lead w Gratified prowadziłem rozwój czatu opartego na GPT. Dziś pracuję jako Agentic Engineer: większość kodu piszą agenci AI (Claude Code) w systemie, który sam zbudowałem — od planu, przez implementację zaczynaną od testów i wieloetapowy code review, po lokalne CI i testy w przeglądarce. Ja odpowiadam za to, czego agent nie oceni: dzielę pracę na małe kawałki, ustalam kryteria akceptacji, testuję i decyduję, co trafia na produkcję. To podejście wnoszę do zespołów jako konsultant albo jako członek zespołu: architekturę, dobór narzędzi i proces, w którym pracę agentów sprawdzają bramki jakości, a nie zaufanie.",
     "skills": "Obszary ekspertyzy",
     "skillCategories": {
       "languages": "Języki i Frameworki",
@@ -29,32 +29,33 @@
   },
   "services": {
     "title": "Jak pomagam",
-    "subtitle": "Usługi doradcze oparte na wieloletnim doświadczeniu w dostarczaniu projektów",
+    "subtitle": "Doradztwo oparte na 12+ latach dowożenia projektów, dziś z agentami AI w systemie, który sam zbudowałem",
     "consulting": {
       "title": "Konsulting architektoniczny",
-      "description": "Dogłębne przeglądy architektury TypeScript/React. Pomagam identyfikować wąskie gardła, sugeruję skalowalne wzorce i prowadzę zespół ku utrzymywalnym rozwiązaniom."
+      "description": "Przeglądy architektury TypeScript/React i Node.js. Szukam wąskich gardeł, proponuję wzorce, które się skalują, i pomagam ułożyć kod tak, żeby agenci AI mogli w nim bezpiecznie pracować: jasne granice modułów, testy i kontrakty."
     },
     "estimation": {
       "title": "Wycena i planowanie projektów",
-      "description": "Realistyczna estymacja projektów oparta na praktycznym doświadczeniu. Od MVP po złożone systemy — szczegółowa analiza wymagań, ocena ryzyka i planowanie roadmapy."
+      "description": "Realistyczna wycena oparta na praktyce, od MVP po złożone systemy: analiza wymagań, ocena ryzyka i plan podzielony na małe kawałki z kryteriami akceptacji, które da się dowieźć osobno."
     },
     "development": {
       "title": "Code Review & Mentoring",
-      "description": "Podnoszenie jakości kodu zespołu. Dokładne code review, warsztaty z best practices i praktyczny mentoring w TypeScript, React i Node.js."
+      "description": "Podnoszę jakość kodu w zespole: dokładne code review, warsztaty i mentoring w TypeScript, React i Node.js. Uczę też, jak recenzować kod pisany przez agentów AI i jak ustawić reguły review, które łapią ich typowe błędy."
     },
     "ai": {
-      "title": "Strategia integracji AI",
-      "description": "Praktyczne doradztwo w zakresie integracji LLM i usług AI z aplikacjami webowymi. Od oceny wykonalności po wzorce implementacji gotowe na produkcję."
+      "title": "Praca z agentami AI",
+      "description": "Pomagam zespołom dowozić z agentami AI bez utraty jakości: podział pracy między ludzi i agentów, bramki jakości przed każdym pushem, review i testy prowadzone przez agentów oraz integracja LLM z aplikacjami webowymi."
     }
   },
   "experience": {
     "title": "Doświadczenie",
+    "subtitle": "12+ lat drogi od frontendu, przez rolę Tech Leada, do pracy jako Agentic Engineer. Dziś kod piszą agenci AI, a ja odpowiadam za to, co trafia na produkcję.",
     "present": "Obecnie",
     "techStack": "Tech Stack"
   },
   "contact": {
     "title": "Porozmawiajmy",
-    "subtitle": "Masz wyzwanie techniczne? Porozmawiajmy o tym, jak mogę pomóc Twojemu zespołowi.",
+    "subtitle": "Masz wyzwanie techniczne albo rolę dla Agentic Engineera? Napisz, jak mogę pomóc Twojemu zespołowi.",
     "name": "Imię i nazwisko",
     "email": "Email",
     "message": "Wiadomość",
@@ -63,55 +64,55 @@
     "success": "Wiadomość wysłana! Odpowiem najszybciej jak to możliwe.",
     "successKicker": "WIADOMOŚĆ DOSTARCZONA",
     "successClose": "Zamknij",
-    "successMageAlt": "Mag TypeScriptu przyjmuje wiadomość z dumą, szacunkiem i aprobatą.",
+    "successMageAlt": "Przywoływacz agentów przyjmuje wiadomość z dumą, szacunkiem i aprobatą.",
     "error": "Coś poszło nie tak. Spróbuj ponownie lub napisz bezpośrednio na email."
   },
   "workflow": {
     "title": "Jak wygląda współpraca",
-    "subtitle": "Przejrzysty proces od pierwszego kontaktu do sukcesu projektu",
+    "subtitle": "Przejrzysty proces od pierwszego kontaktu do sukcesu projektu. Kod piszą agenci AI, za wynik odpowiadam ja.",
     "steps": {
       "inquiry": {
         "title": "Zapytanie",
-        "description": "Opisujesz swój projekt lub wyzwanie techniczne. Odpowiadam najszybciej jak to możliwe, aby omówić Twoje potrzeby."
+        "description": "Opisujesz projekt, wyzwanie techniczne albo rolę w zespole. Odpowiadam szybko i umawiamy krótką rozmowę."
       },
       "nda": {
         "title": "Podpisanie NDA",
-        "description": "Podpisujemy umowę o poufności, abym mógł poznać szczegóły projektu i odpowiedzieć na wszystkie Twoje pytania."
+        "description": "Podpisujemy umowę o poufności, zanim zobaczę kod czy dokumenty. Ustalamy też, do jakich narzędzi AI może trafić Twój kod, a do jakich nie."
       },
       "scope": {
-        "title": "Określenie zakresu prac",
-        "description": "Odpowiadam na wszystkie pytania i wspólnie definiujemy szczegółowy zakres, cele i oczekiwane rezultaty współpracy."
+        "title": "Zakres i kryteria akceptacji",
+        "description": "Tniemy pracę na małe kawałki, które da się dowieźć osobno, i do każdego spisujemy kryteria akceptacji. To one są kontraktem, wobec którego agenci i ja sprawdzamy wynik."
       },
       "estimate": {
         "title": "Akceptacja wyceny",
-        "description": "Otrzymujesz transparentną wycenę z podziałem na etapy. Bez ukrytych kosztów."
+        "description": "Dostajesz przejrzystą wycenę z podziałem na kawałki. Bez ukrytych kosztów. Agenci skracają czas pisania kodu, więc płacisz głównie za to, co wymaga człowieka: decyzje, review i testy."
       },
       "delivery": {
-        "title": "Otrzymanie i omówienie wyników",
-        "description": "Dostarczam rezultaty zgodnie z planem. Omawiamy wnioski i następne kroki."
+        "title": "Dowiezienie i omówienie wyników",
+        "description": "Dowożę w małych kawałkach. Agenci AI piszą i recenzują kod za bramkami jakości, a ja ustalam kryteria akceptacji, testuję i decyduję, co trafia do Ciebie. Na koniec omawiamy wnioski i następne kroki."
       },
       "success": {
-        "title": "Zadowolenie z udanej współpracy",
-        "description": "Cel osiągnięty! Twój projekt jest na właściwej ścieżce. Jeśli kiedykolwiek będziesz potrzebować wsparcia — wiesz gdzie mnie znaleźć."
+        "title": "Przekazanie i wsparcie",
+        "description": "Cel osiągnięty. Dostajesz działający kod z testami i opisem każdej zmiany, a jeśli chcesz, także sposób pracy z agentami, z którego Twój zespół może korzystać dalej. Gdy będziesz potrzebować wsparcia, wiesz, gdzie mnie znaleźć."
       }
     },
     "nda_section": {
-      "title": "Umowa o poufności (NDA)",
-      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem. Poniżej pobierzesz dwujęzyczną umowę NDA (PL/EN) gotową do podpisu.",
+      "title": "Umowa o poufności (NDA) i narzędzia AI",
+      "description": "Bezpieczeństwo Twoich danych jest dla mnie priorytetem, także wtedy, gdy kod piszą agenci AI. Poniżej pobierzesz dwujęzyczną umowę NDA (PL/EN) gotową do podpisu. Przed startem ustalamy też, do jakich narzędzi AI może trafić Twój kod, a do jakich nie, i trzymam się tego przez cały projekt.",
       "download": "Pobierz NDA PL/EN"
     }
   },
   "rpg": {
     "characterKicker": "POSTAĆ DO TWOJEJ DRUŻYNY",
     "classLabel": "KLASA POSTACI",
-    "className": "Mag TypeScriptu",
-    "portraitAlt": "Portret Leszka Pawlaka jako maga TypeScriptu",
-    "classCaption": "Architektura. Kod. Wspólne questy.",
+    "className": "Przywoływacz agentów",
+    "portraitAlt": "Portret Leszka Pawlaka jako przywoływacza agentów",
+    "classCaption": "Plan. Agenci. Bramki jakości.",
     "storyLine": "Dobre questy przechodzi się razem.",
     "years": "lat doświadczenia",
-    "specialty": "Architektura i jakość kodu",
+    "specialty": "Agenci AI i jakość kodu",
     "equipment": "SPRAWDZONE NARZĘDZIA",
-    "estimateNote": "Porozmawiajmy o projekcie i wycenie.",
+    "estimateNote": "Porozmawiajmy o projekcie, wycenie albo roli w Twoim zespole.",
     "aboutKicker": "HISTORIA POSTACI",
     "skillsCount": "{count} umiejętności w czterech obszarach",
     "servicesKicker": "KSIĘGA ZAKLĘĆ",
@@ -122,7 +123,7 @@
     "stage": "ETAP",
     "contactKicker": "POCZĄTEK WSPÓLNEJ WYPRAWY",
     "contactTitle": "Zaproś mnie do drużyny.",
-    "formTitle": "Wiadomość do maga",
+    "formTitle": "Wiadomość do przywoływacza",
     "partySupport": "WSPARCIE DLA DRUŻYNY",
     "questTitle": "Twój quest. Moje doświadczenie.",
     "ndaTrust": "Najpierw zaufanie."
@@ -130,7 +131,7 @@
   "playground": {
     "kicker": "GRA LOGICZNA 2D",
     "title": "Pracownia kształtów",
-    "intro": "Odtwórz wylosowaną figurę z niebieskich kwadratów. Przycinaj je, obracaj i układaj jak tangram, a na końcu sprawdź podobieństwo.",
+    "intro": "Odtwórz wylosowaną figurę z niebieskich kwadratów. Przycinaj je, obracaj i układaj jak tangram, a na końcu sprawdź podobieństwo. Grę zbudowali agenci AI pod moim kierunkiem — to mały przykład tego, jak pracuję.",
     "loading": "Losowanie kształtu…",
     "sceneLabel": "Plansza gry w dopasowywanie kształtów",
     "controlsLabel": "Klocki i narzędzia gry",
@@ -154,7 +155,7 @@
     "done": "Gotowe",
     "compare": "Porównaj ze wzorem",
     "resultLabel": "Podobieństwo",
-    "resultVerdict": "WERDYKT MAGA",
+    "resultVerdict": "WERDYKT PRZYWOŁYWACZA",
     "playAgain": "Jeszcze raz",
     "leaveGame": "Wystarczy",
     "keyboardHelp": "Klocek: przeciągnij lub użyj strzałek. Shift daje precyzyjny ruch, Q/E obraca, C otwiera cięcie, Delete odkłada klocek.",
@@ -184,7 +185,7 @@
       "cutInvalid": "Cięcie nie zmieniło klocka. Ustaw inną linię.",
       "removed": "Klocek wrócił do podajnika.",
       "limit": "Na planszy jest już wystarczająco dużo klocków. Odłóż zbędny, aby dobrać kolejny.",
-      "scored": "Mag ocenił twoją figurę.",
+      "scored": "Przywoływacz ocenił twoją figurę.",
       "newRound": "Nowa figura gotowa. Pominięte wcześniej kształty nie wrócą w tej puli.",
       "poolRestarted": "Wykorzystano wszystkie 100 figur. Rozpoczęła się nowa pula bez powtórzenia bieżącego kształtu."
     },
@@ -200,44 +201,44 @@
       "details": "Zgodnie z oczekiwaniami.",
       "effort": "Stać cię na więcej.",
       "ignored": "Trudno w to uwierzyć.",
-      "hopeless": "Mag kończy rozmowę."
+      "hopeless": "Przywoływacz kończy rozmowę."
     },
     "resultMageAlt": {
-      "excellent": "Mag TypeScriptu patrzy z dumą, szacunkiem i aprobatą.",
-      "details": "Mag TypeScriptu spokojnie przyjmuje spodziewany wynik.",
-      "effort": "Mag TypeScriptu krzyżuje ręce i okazuje wyraźne rozczarowanie.",
-      "ignored": "Mag TypeScriptu wykonuje pełen zażenowania facepalm.",
-      "hopeless": "Mag TypeScriptu odwraca się i unosi dłoń w geście zakończenia rozmowy."
+      "excellent": "Przywoływacz agentów patrzy z dumą, szacunkiem i aprobatą.",
+      "details": "Przywoływacz agentów spokojnie przyjmuje spodziewany wynik.",
+      "effort": "Przywoływacz agentów krzyżuje ręce i okazuje wyraźne rozczarowanie.",
+      "ignored": "Przywoływacz agentów wykonuje pełen zażenowania facepalm.",
+      "hopeless": "Przywoływacz agentów odwraca się i unosi dłoń w geście zakończenia rozmowy."
     }
   },
   "metadata": {
     "home": {
-      "title": "Konsultant TypeScript & React",
-      "description": "12+ lat doświadczenia w ekosystemie JavaScript. Pomagam zespołom podejmować lepsze decyzje architektoniczne, unikać kosztownych błędów i dostarczać szybciej."
+      "title": "Agentic Engineer · TypeScript & React",
+      "description": "Agentic Engineer z 12+ latami doświadczenia w TypeScript, React i Node.js. Dowożę oprogramowanie przez agentów AI z bramkami jakości i pomagam zespołom pracować tak samo."
     },
     "about": {
       "title": "O mnie",
-      "description": "Poznaj Leszka Pawlaka — niezależnego konsultanta TypeScript, React i Node.js z ponad dekadą doświadczenia w systemach produkcyjnych."
+      "description": "Poznaj Leszka Pawlaka: od PHP w 2013 roku, przez frontend w React i TypeScript oraz rolę Tech Leada, do pracy jako Agentic Engineer, w której kod piszą agenci AI."
     },
     "services": {
       "title": "Usługi konsultingowe",
-      "description": "Konsulting architektoniczny, wycena projektów, code review, mentoring i strategia integracji AI dla zespołów tworzących aplikacje webowe."
+      "description": "Konsulting architektoniczny, wycena projektów, code review, mentoring i wdrożenie pracy z agentami AI dla zespołów tworzących aplikacje webowe."
     },
     "experience": {
       "title": "Doświadczenie",
-      "description": "Ponad 12 lat doświadczenia Leszka Pawlaka w TypeScript, React, Node.js, architekturze aplikacji, produktach cyfrowych i systemach płatności."
+      "description": "Ponad 12 lat doświadczenia Leszka Pawlaka w TypeScript, React i Node.js: od frontendu, przez rolę Tech Leada, po pracę jako Agentic Engineer w Fungies, gdzie kod piszą agenci AI, a wynik sprawdzają bramki jakości i ręczne testy."
     },
     "workflow": {
       "title": "Jak wygląda współpraca",
-      "description": "Przejrzysty proces współpracy: od pierwszego zapytania i NDA, przez zakres i wycenę, po dostarczenie oraz omówienie wyników."
+      "description": "Przejrzysty proces współpracy: od pierwszego zapytania i NDA, przez zakres i wycenę, po dostarczenie w małych kawałkach z agentami AI i omówienie wyników."
     },
     "playground": {
       "title": "Pracownia kształtów — gra 2D",
-      "description": "Lekka gra logiczna 2D w portfolio Leszka Pawlaka: przycinanie niebieskich klocków, układanie figury i wynik podobieństwa."
+      "description": "Gra logiczna 2D zbudowana przez agentów AI pod kierunkiem Leszka Pawlaka: przycinanie niebieskich klocków, układanie figury i wynik podobieństwa."
     },
     "contact": {
       "title": "Kontakt",
-      "description": "Opisz swój projekt lub wyzwanie techniczne i zaproś do zespołu doświadczonego konsultanta TypeScript i React."
+      "description": "Opisz swój projekt, wyzwanie techniczne albo rolę w zespole i zaproś do drużyny Agentic Engineera z 12+ latami doświadczenia w TypeScript i React."
     }
   },
   "footer": {

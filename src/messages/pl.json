@@ -131,7 +131,7 @@
   "playground": {
     "kicker": "GRA LOGICZNA 2D",
     "title": "Pracownia kształtów",
-    "intro": "Odtwórz wylosowaną figurę z niebieskich kwadratów. Przycinaj je, obracaj i układaj jak tangram, a na końcu sprawdź podobieństwo.",
+    "intro": "Odtwórz wylosowaną figurę z niebieskich kwadratów. Przycinaj je, obracaj i układaj jak tangram, a na końcu sprawdź podobieństwo. Grę zbudowali agenci AI pod moim kierunkiem — to mały przykład tego, jak pracuję.",
     "loading": "Losowanie kształtu…",
     "sceneLabel": "Plansza gry w dopasowywanie kształtów",
     "controlsLabel": "Klocki i narzędzia gry",
@@ -234,7 +234,7 @@
     },
     "playground": {
       "title": "Pracownia kształtów — gra 2D",
-      "description": "Lekka gra logiczna 2D w portfolio Leszka Pawlaka: przycinanie niebieskich klocków, układanie figury i wynik podobieństwa."
+      "description": "Gra logiczna 2D zbudowana przez agentów AI pod kierunkiem Leszka Pawlaka: przycinanie niebieskich klocków, układanie figury i wynik podobieństwa."
     },
     "contact": {
       "title": "Kontakt",

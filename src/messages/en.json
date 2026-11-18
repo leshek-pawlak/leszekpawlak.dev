@@ -131,7 +131,7 @@
   "playground": {
     "kicker": "2D PUZZLE GAME",
     "title": "Shape workshop",
-    "intro": "Recreate a generated silhouette from blue squares. Cut, rotate, and arrange them like a tangram, then check the similarity score.",
+    "intro": "Recreate a generated silhouette from blue squares. Cut, rotate, and arrange them like a tangram, then check the similarity score. AI agents built this game under my direction — a small example of how I work.",
     "loading": "Generating a shape…",
     "sceneLabel": "Shape matching game board",
     "controlsLabel": "Blocks and game tools",
@@ -234,7 +234,7 @@
     },
     "playground": {
       "title": "Shape workshop — 2D game",
-      "description": "A lightweight 2D puzzle in Leszek Pawlak's portfolio: cut blue blocks, recreate a silhouette, and receive a similarity score."
+      "description": "A 2D puzzle built by AI agents under Leszek Pawlak's direction: cut blue blocks, recreate a silhouette, and get a similarity score."
     },
     "contact": {
       "title": "Contact",

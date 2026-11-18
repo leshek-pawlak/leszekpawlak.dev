@@ -68,7 +68,7 @@
   },
   "workflow": {
     "title": "Jak wygląda współpraca",
-    "subtitle": "Przejrzysty proces od pierwszego kontaktu do sukcesu projektu",
+    "subtitle": "Przejrzysty proces od pierwszego kontaktu do sukcesu projektu. Kod piszą agenci AI, za wynik odpowiadam ja.",
     "steps": {
       "inquiry": {
         "title": "Zapytanie",
@@ -88,7 +88,7 @@
       },
       "delivery": {
         "title": "Otrzymanie i omówienie wyników",
-        "description": "Dostarczam rezultaty zgodnie z planem. Omawiamy wnioski i następne kroki."
+        "description": "Dowożę w małych kawałkach. Agenci AI piszą i recenzują kod za bramkami jakości, a ja ustalam kryteria akceptacji, testuję i decyduję, co trafia do Ciebie. Na koniec omawiamy wnioski i następne kroki."
       },
       "success": {
         "title": "Zadowolenie z udanej współpracy",
@@ -229,7 +229,7 @@
     },
     "workflow": {
       "title": "Jak wygląda współpraca",
-      "description": "Przejrzysty proces współpracy: od pierwszego zapytania i NDA, przez zakres i wycenę, po dostarczenie oraz omówienie wyników."
+      "description": "Przejrzysty proces współpracy: od pierwszego zapytania i NDA, przez zakres i wycenę, po dostarczenie w małych kawałkach z agentami AI i omówienie wyników."
     },
     "playground": {
       "title": "Pracownia kształtów — gra 2D",

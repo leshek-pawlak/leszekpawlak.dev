@@ -68,7 +68,7 @@
   },
   "workflow": {
     "title": "How We Work Together",
-    "subtitle": "A transparent process from first contact to project success",
+    "subtitle": "A transparent process from first contact to project success. AI agents write the code; I own the result.",
     "steps": {
       "inquiry": {
         "title": "Inquiry",
@@ -88,7 +88,7 @@
       },
       "delivery": {
         "title": "Delivery & Review",
-        "description": "I deliver results according to plan. We discuss findings and next steps."
+        "description": "I deliver in small slices. AI agents write and review the code behind quality gates; I set the acceptance criteria, test it and decide what reaches you. Then we discuss findings and next steps."
       },
       "success": {
         "title": "Successful Collaboration",
@@ -229,7 +229,7 @@
     },
     "workflow": {
       "title": "How we work together",
-      "description": "A transparent consulting process: from the first inquiry and NDA through scope and estimate to delivery and review."
+      "description": "A transparent process: from the first inquiry and NDA through scope and estimate to delivery in small slices with AI agents, and a review of the results."
     },
     "playground": {
       "title": "Shape workshop — 2D game",
